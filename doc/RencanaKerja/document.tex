@@ -10,13 +10,14 @@
 \usepackage{setspace} 
 \usepackage{lipsum} 
 \setlength{\headsep}{30pt}
+
 \usepackage[inner=2cm,outer=2.5cm,top=2.5cm,bottom=2cm]{geometry} %margin
 % \pagestyle{empty}
 
 \makeatletter
 \renewcommand{\@maketitle} {\begin{center} {\LARGE \textbf{ \textsc{\@title}} \par} \bigskip {\large \textbf{\textsc{\@author}} }\end{center} }
 \renewcommand{\thispagestyle}[1]{}
-\markright{\textbf{\textsc{AIF401/AIF402 \textemdash Rencana Kerja Skripsi \textemdash Sem. Genap 2016/2017}}}
+\markright{\textbf{\textsc{AIF401/AIF402 \textemdash Rencana Kerja Skripsi \textemdash Sem. Genap 2020/2021}}}
 
 \newcommand{\HRule}{\rule{\linewidth}{0.4mm}}
 \renewcommand{\baselinestretch}{1}
@@ -31,11 +32,11 @@
 \author{\nama \textendash \@npm} 
 
 %tulis nama dan NPM anda di sini:
-\newcommand{\nama}{Lionov}
-\newcommand{\@npm}{1997730020}
-\newcommand{\@judultopik}{Simulasi Kerumunan di Museum} % Judul/topik anda
+\newcommand{\nama}{Stephen Hadi}
+\newcommand{\@npm}{2017730016}
+\newcommand{\@judultopik}{Analisa Kekurangan dan Implementasi Perbaikan Perangkat Lunak Bluetape} % Judul/topik anda
 \newcommand{\jumpemb}{1} % Jumlah pembimbing, 1 atau 2
-\newcommand{\tanggal}{01/01/1900}
+\newcommand{\tanggal}{20/09/2020}
 
 % Dokumen hasil template ini harus dicetak bolak-balik !!!!
 
@@ -44,75 +45,98 @@
 \pagenumbering{arabic}
 
 \section{Deskripsi}
-Tuliskan deskripsi dari topik skripsi yang akan anda ajukan. Di sini dapat dituliskan latar belakang, seperti apa penelitian yang sudah ada sebelumnya dan apa yang akan anda kerjakan. Sertakan gambar agar penjelasan anda menjadi lebih baik.
+Bluetape adalah aplikasi website FTIS UNPAR yang berguna untuk memudahkan kegiatan administrasi untuk mahasiswa FTIS.
+Bluetape dibuat menggunakan \textit{framework} \textit{Bootstrap} dan \textit{Code Igniter} versi \textit{3}.Dalam aplikasi website ini mahasiswa dapat melihat jadwal dosen, mengajukan permintaan transkrip nilai. Tata usaha dapat mengatur permintaan transkrip nilai yang diajukan oleh mahasiswa.
 
-Pada skripsi ini, akan dibuat sebuah perangkat lunak yang dapat menampilkan visualisasi dan simulasi kerumunan orang yang berkunjung ke sebuah museum. Dengan menggunakan perangkat lunak tersebut, pengelola museum dapat mengatur tempat peletakan objek sehingga tidak terjadi kerumunan yang terlalu padat.
+Pada skripsi ini, \textit{libraries} yang ada pada bluetape akan di \textit{update} menjadi versi yang lebih baru. Juga akan dianalisa kekurangan pada aplikasi ini dan perbaikannya. Ada juga fitur baru yang akan ditambahkan berupa menampilkan statistik manajemen cetak transkrip dan manajemen perubahan kuliah dalam bentuk chart. Fitur tambahan selanjutnya akan dilakukan dengan meminta masukan kepada pengguna bluetape dan mengimplementasi fitur yang bisa dikerjakan.
 
-Dari berbagai macam teknik yang dapat digunakan untuk melakukan simulasi kerumunan, dipilih dua buah teknik yaitu teknik {\it flow tiles} dan {\it social force model (steering behaviour)}.
-
-Dst, dst, dst, \ldots\ldots\ldots 
-
-Perangkat lunak akan dibuat dengan bantuan {\it framework} OpenSteer. Sebagai studi kasus, museum yang digunakan untuk melakukan simulasi adalah Museum Geologi Bandung.
-
-Dst, dst, dst, \ldots\ldots\ldots 
+Implementasi dari perangkat lunak ini akan menggunakan \textit{HTML}, \textit{CSS}, \textit{Javascript} untuk bagian tampilan dengan ditambahkan \textit{framework Bootstrap}, sedangkan bagian \textit{Back-end} akan menggunakan \textit{PHP , MySQL} sedangkan \textit{frameworknya} menggunakan \textit{Code Igniter}.
 
 \section{Rumusan Masalah}
-Tuliskan rumusan dari masalah yang akan anda bahas pada skripsi ini. Rumusan masalah biasanya berupa kalimat pertanyaan. Gunakan itemize seperti contoh di bagian Deskripsi Perangkat Lunak.
+Rumusan masalah yang akan dibahas sebagai berikut:
+\begin{itemize}
+	\item Bagaimana menentukan pertanyaan survei dan menganalisa implementasi yang memungkinkan?
+	\item Bagaimana mencari \textit{bug} yang dilaporkan dalam program? 
+	\item Bagaimana mengimplementasi penempatan \textit{chart} agar tidak memberikan informasi yang berlebihan ke pengguna?
+\end{itemize}
 
 \section{Tujuan}
-Tuliskan tujuan dari topik skripsi yang anda ajukan. Tujuan penelitian biasanya berkaitan erat dengan pertanyaan yang diajukan di bagian rumusan masalah. Gunakan itemize seperti contoh di bagian Deskripsi Perangkat Lunak.
+Tujuan dari penulisan topik skripsi ini sebagai berikut:
+\begin{itemize}
+	\item Menambahkan fitur baru yang diinginkan oleh pengguna
+	\item Memperbaiki \textit{bug} yang dilaporkan oleh pengguna
+	\item Tersedianya statistik manajemen cetak transkrip dan manajemen perubahan kuliah secara visual
+\end{itemize}
 
 \section{Deskripsi Perangkat Lunak}
-Tuliskan deksripsi dari perangkat lunak yang akan anda hasilkan. Apa saja fitur yang disediakan oleh PL tersebut dan apa saja kemampuan dari PL tersebut. Perhatikan contoh di bawah ini:
 
-Perangkat lunak akhir yang akan dibuat memiliki fitur minimal sebagai berikut:
+Perangkat lunak akhir akan memiliki fitur sebagai berikut:
 \begin{itemize}
-	\item Pengguna dapat melihat denah Musem Geologi Bandung dalam bidang dua dimensi. Sedangkan pengunjung direpresentasikan menggunakan lingkaran-lingkaran kecil (tidak menggunakan gambar manusia yang diambil dari atas)
-	\item Pengguna dapat memunculkan atau menghilangkan gambar {\it flow tiles} pada denah museum. 
-	\item Pengguna dapat mengatur jalannya simulasi: memulai(start) simulasi, menunda(pause) simulasi, melanjutkan(continue) simulasi, maupun menghentikan(stop) simulasi
-	\item Pengguna dapat mengatur banyaknya pengunjung di dalam museum, baik melalui perubahan frekuensi kedatangan pengunjung maupun menambahkan dan menghapus pengunjung satu-persatu secara manual.
-	\item Posisi kamera dapat diubah (pergerakan di bidang tiga dimensi) sehingga pengguna dapat melihat simulasi di museum dari berbagai arah. 
-	\item Posisi kamera dapat diubah untuk emngikuti perjalanan seorang pengunjung di dalam 
-	\item Pengguna dapat memilih apakah akan menggunakan teknik {\it flow tiles} atau tidak pada saat simulasi berlangsung
-	\item Jenis {\it flow tiles} yang digunakan dapat diubah-ubah pada saat simulasi sedang berlangsung
-		
+	\item Memiliki setidaknya satu fitur tambahan yang diinginkan pengguna
+	\item Semua mahasiswa dapat melihat jadwal dosen
+	\item Tersedianya tampilan chart untuk manajemen cetak transkrip dan manajemen perubahan kuliah
+	
 \end{itemize}
 
 \section{Detail Pengerjaan Skripsi}
-Tuliskan bagian-bagian pengerjaan skripsi secara detail. Bagian pekerjaan tersebut mencakup awal hingga akhir skripsi, termasuk di dalamnya pengerjaan dokumentasi skripsi, pengujian, survei, dll.
 
 Bagian-bagian pekerjaan skripsi ini adalah sebagai berikut :
 	\begin{enumerate}
-		\item Melakukan survei ke Museum Geologi Bandung untuk mendapatkan denah serta mengetahui perilaku pengunjung museum secara umum (arah perjalanan, kecepatan, lama melihat objek, dll)
-		\item Melakukan analisis pada hasil survei terhadap pergerakan pengunjung di museum dan membuat rancangan denah di komputer yang dilengkapi dengan penghalang dan objek di museum.
-		\item Melakukan studi literatur mengenai sifat kolektif suatu kerumunan, teknik {\it social force model} dan teknik {\it flow tiles}
-		\item Mempelajari bahasa pemrograman C++ dan cara menggunakan framework OpenSteer
-		\item Merancang pergerakan kerumunan di dalam museum menggunakan teknik {\it social force model} dan {\it flow tiles} serta menggunakan teknik lainnya seperti konsep pathway dan waypoints. Selain itu, dirancang pula adanya waktu tunggu (pada saat pengunjung melihat objek di museum) dan cara pembuatan jalur bagi setiap individu pengunjung
-		\item Melakukan analisa dan merancang struktur data yang cocok untuk menyimpan penghalang (obstacle)
-		\item Mengimplementasikan keseluruhan algoritma dan struktur data yang dirancang, dengan menggunakan framework OpenSteer 
-		\item Melakukan pengujian (dan eksperimen) yang melibatkan responde untuk menilai hasil simulasi secara kualitatif
+		\item Memahami dan mengerti cara kerja \textit{framework Code Igniter}
+		\item Memahami penggunaan \textit{Framework Bootstrap}
+		\item Memastikan semua fitur berjalan setelah \textit{update libraries} 
+		\item Memperbaiki \textit{bug} mahasiswa baru tidak dapat Melihat jadwal dosen
+		\item Mengimplementasi fitur chart pada manajemen cetak transkrip dan manajemen perubahan kuliah
+		\item Melakukan survei
+		\item Mengimplementasi hasil survei		
 		\item Menulis dokumen skripsi
 	\end{enumerate}
 
 \section{Rencana Kerja}
-Rincian capaian yang direncanakan di Skripsi 1 adalah sebagai berikut:
+Rencana kerja yang akan diambil pada skripsi 1 dan skripsi 2 sebagai berikut:
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		1* & 2*(\%) & 3*(\%) & 4*(\%) & 5*\\
+		\hline
+		1 & 8 & 8 & 0 & \\
+		\hline
+		2 & 8 & 8 & 0 & \\
+		\hline
+		3 & 4 & 4 & 0 & \\
+		\hline
+		4 & 8 & 8 & 0 & \\
+		\hline
+		5 & 15 & 15 & 0 & \\
+		\hline
+		6 & 5 & 5 & 0 & \\
+		\hline
+		7 & 20 & 0 & 20 & \\
+		\hline
+		8 & 30 & 5 & 25 & Menyelesaikan Bab 1 - Bab 3 pada skripsi 1 dan kurangnya pada skripsi 2\\
+		\hline
+		Total & 100 & 53 & 47 &  \\
+		\hline
+		
+	\end{tabular}
+\end{table}	
+
+Keterangan (*):
 \begin{enumerate}
-\item
-\item
-\item
+	\item : Bagian pengerjaan skripsi dapat dilihat pada bagian 5 
+	\item : Persentase total
+	\item : Persentase yang akan dikerjakan pada skripsi 1
+	\item : Persentase yang akan dikerjakan pada skripsi 2
+	\item : Keterangan singkat apa yang akan dikerjakan pada skripsi 1 dan skripsi 2
 \end{enumerate}
 
-Sedangkan yang akan diselesaikan di Skripsi 2 adalah sebagai berikut:
-\begin{enumerate}
-\item
-\item
-\item
-\end{enumerate}
 
 \vspace{1cm}
 \centering Bandung, \tanggal\\
 \vspace{2cm} \nama \\ 
 \vspace{1cm}
+
 
 Menyetujui, \\
 \ifdefstring{\jumpemb}{2}{
