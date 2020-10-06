@@ -34,9 +34,9 @@
 %tulis nama dan NPM anda di sini:
 \newcommand{\nama}{Stephen Hadi}
 \newcommand{\@npm}{2017730016}
-\newcommand{\@judultopik}{Analisa Kekurangan dan Implementasi Perbaikan Perangkat Lunak Bluetape} % Judul/topik anda
+\newcommand{\@judultopik}{Analisa dan Implementasi Perbaikan Perangkat Lunak Bluetape} % Judul/topik anda
 \newcommand{\jumpemb}{1} % Jumlah pembimbing, 1 atau 2
-\newcommand{\tanggal}{20/09/2020}
+\newcommand{\tanggal}{05/10/2020}
 
 % Dokumen hasil template ini harus dicetak bolak-balik !!!!
 
@@ -55,29 +55,28 @@ Implementasi dari perangkat lunak ini akan menggunakan \textit{HTML}, \textit{CS
 \section{Rumusan Masalah}
 Rumusan masalah yang akan dibahas sebagai berikut:
 \begin{itemize}
-	\item Bagaimana menentukan pertanyaan survei dan menganalisa implementasi yang memungkinkan?
-	\item Bagaimana mencari \textit{bug} yang dilaporkan dalam program? 
-	\item Bagaimana mengimplementasi penempatan \textit{chart} agar tidak memberikan informasi yang berlebihan ke pengguna?
-	\item Bagaimana melakukan tes setelah memperbarui dan mengganti \textit{libraries} untuk memastikan fungsi dapat berjalan dengan lancar?
+	\item Apa sajakah kebutuhan yang diinginkan oleh pengguna bluetape?
+	\item Bagaimana menganalisa, merancang, dan mengimplementasi \textit{feedback--feedback} dari pengguna?
+	\item Bagaimana melakukan pengujian setelah mengimplementasi \textit{feedback--feedback} dari pengguna?
 
 \end{itemize}
 
 \section{Tujuan}
 Tujuan dari penulisan topik skripsi ini sebagai berikut:
 \begin{itemize}
-	\item Menambahkan fitur baru yang diinginkan oleh pengguna
-	\item Memperbaiki \textit{bug} yang dilaporkan oleh pengguna
-	\item Tersedianya statistik manajemen cetak transkrip dan manajemen perubahan kuliah secara visual
-	\item Memperbarui dan mengganti \textit{libraries} serta memastikan semua fungsi berjalan dengan lancar.
+	\item Mendapatkan \textit{feedback--feedback} dari pengguna terkait kebutuhan yang diinginkan
+	\item Menganalisa, merancang, dan mengimplementasi \textit{feedback--feedback} dari pengguna
+	\item Melakukan pengujian setelah mengimplementasi semua \textit{feedback} yang memungkinkan untuk diimplementasi
 \end{itemize}
 
+
+\newpage
 \section{Deskripsi Perangkat Lunak}
 
 Perangkat lunak akhir akan memiliki fitur sebagai berikut:
 \begin{itemize}
-	\item Memiliki setidaknya satu fitur tambahan yang diinginkan pengguna
-	\item Semua mahasiswa dapat melihat jadwal dosen
-	\item Tersedianya tampilan chart untuk manajemen cetak transkrip dan manajemen perubahan kuliah
+	\item Memiliki fitur--fitur sesuai dengan kebutuhan pengguna yang telah didiskusikan dengan pembimbing
+	\item fitur--fitur sebelumnya tidak hilang atau tidak berfungsi 
 	
 \end{itemize}
 
@@ -85,62 +84,34 @@ Perangkat lunak akhir akan memiliki fitur sebagai berikut:
 
 Bagian-bagian pekerjaan skripsi ini adalah sebagai berikut :
 	\begin{enumerate}
-		\item Memahami dan mengerti cara kerja \textit{framework Code Igniter}
-		\item Memahami penggunaan \textit{Framework Bootstrap}.
-		\item Memastikan semua fitur berjalan setelah \textit{update libraries} .
-		\item Memperbaiki \textit{bug} mahasiswa baru tidak dapat Melihat jadwal dosen
-		\item Menganalisa dan merancang fitur chart pada manajemen cetak transkrip dan manajemen perubahan kuliah.
-		\item Mengimplementasi fitur chart pada manajemen cetak transkrip dan manajemen perubahan kuliah
-		\item Melakukan survei.
-		\item Menganalisa dan merancang hasil survei.
-		\item Mengimplementasi hasil survei	.	
+		\item Memahami dan mengerti cara kerja \textit{framework Code Igniter} dan \textit{Bootstrap}.
+		\item Melakukan survei ke mahasiswa, tata usaha, dan dosen untuk memahami kebutuhan pengguna.
+		\item Menganalisa fitur kebutuhan bersama pembimbing.
+		\item Merancang dan mengimplementasi hasil survei.	
+		\item Melakukan pengujian ke pengguna bluetape
 		\item Menulis dokumen skripsi.
 	\end{enumerate}
 
 \section{Rencana Kerja}
-Rencana kerja yang akan diambil pada skripsi 1 dan skripsi 2 sebagai berikut:
-\begin{table}[H]
-	\centering
-	\begin{tabular}{|c|c|c|c|c|}
-		\hline
-		1* & 2*(\%) & 3*(\%) & 4*(\%) & 5*\\
-		\hline
-		1 & 8 & 8 & 0 & \\
-		\hline
-		2 & 8 & 8 & 0 & \\
-		\hline
-		3 & 4 & 4 & 0 & \\
-		\hline
-		4 & 8 & 8 & 0 & \\
-		\hline
-		5 & 7 & 7 & 0 &\\
-		\hline
-		6 & 8 & 8 & 0 & \\
-		\hline
-		7 & 5 & 5 & 0 & \\
-		\hline
-		8 & 7 & 0 & 7 & \\
-		\hline
-		9 & 13 & 0 & 13 & \\
-		\hline
-		10 & 30 & 5 & 25 & Menyelesaikan Bab 1 - Bab 3 pada skripsi 1 dan kurangnya pada skripsi 2\\
-		\hline
-		Total & 100 & 53 & 47 &  \\
-		\hline
-		
-	\end{tabular}
-\end{table}	
 
-Keterangan (*):
+
+Rincian capaian yang direncanakan di Skripsi 1 adalah sebagai berikut:
 \begin{enumerate}
-	\item : Bagian pengerjaan skripsi dapat dilihat pada bagian 5 
-	\item : Persentase total
-	\item : Persentase yang akan dikerjakan pada skripsi 1
-	\item : Persentase yang akan dikerjakan pada skripsi 2
-	\item : Keterangan singkat apa yang akan dikerjakan pada skripsi 1 dan skripsi 2
+	\item Memahami dan mengerti cara kerja framework \textit{Code Igniter} dan \textit{Bootstrap}.
+	\item Menganalisa fitur kebutuhan bersama pembimbing
+	\item Melakukan survei ke mahasiswa, tata usaha, dan dosen untuk memahami kebutuhan pengguna.
+	\item Merancang dan mengimplementasi hasil survei.
+	\item Menulis dokumen skripsi.
+\end{enumerate}
+
+Sedangkan yang akan diselesaikan di Skripsi 2 adalah sebagai berikut:
+\begin{enumerate}
+	\item Melakukan pengujian fungsional dan eksperimental selama 1 semester. 
+	\item Menyelesaikan dokumen skripsi.
 \end{enumerate}
 
 
+\newpage
 \vspace{1cm}
 \centering Bandung, \tanggal\\
 \vspace{2cm} \nama \\ 

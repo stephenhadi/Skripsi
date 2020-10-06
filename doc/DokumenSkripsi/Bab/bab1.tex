@@ -4,31 +4,26 @@
    
 \section{Latar Belakang}
 \label{sec:label}
- Berkembangnya FTIS UNPAR disertai dengan tersedianya semakin banyak matakuliah membawa permasalahan baru di bagian bidang administrasi. Jika dosen ingin meniadakan perkuliahan atau mengganti perkuliahan akan tidak efisien jika melakukan panggilan atau \textit{email} ke pihak tata usaha. Hal tersebut akan membuat pihak tata usaha menjadi kewalahan untuk mengolah informasi tersebut. Mahasiswa yang ingin melakukan pengajuan transkrip juga akan diberatkan karena mahasiswa yang ingin melakukan pengajuan transkrip maka mahasiswa harus datang ke tata usaha melakukan pengajuan dan menunggu beberapa hari untuk mendapatkan hasil transkrip tersebut. Jika mahasiswa yang tidak memiliki perkuliahan pada hari tersebut terpaksa harus datang hanya untuk melakukan pengajuan hal ini selain membuang waktu juga membuang biaya transportasi.
+ Berkembangnya FTIS UNPAR disertai dengan tersedianya semakin banyak matakuliah muncul permasalahan baru di bagian bidang administrasi. Jika dosen ingin meniadakan perkuliahan atau mengganti perkuliahan akan tidak efisien jika melakukan panggilan atau \textit{email} ke pihak tata usaha. Hal tersebut akan memberatkan pihak tata usaha. Mahasiswa yang ingin melakukan pengajuan transkrip akan membuang waktu dan tenaga, karena saat mahasiswa ingin melakukan pengajuan transkrip maka mahasiswa harus datang ke tata usaha melakukan pengajuan dan menunggu beberapa hari untuk mendapatkan hasil transkrip tersebut. Mahasiswa yang tidak memiliki perkuliahan pada hari tersebut harus datang hanya untuk melakukan pengajuan hal ini selain membuang waktu juga membuang biaya transportasi.
 
 
-\textit{Bluetape}\footnote{\label{ft:bluetape}\url{https://github.com/ftisunpar/BlueTape}} adalah aplikasi web yang dibuat oleh dosen dan mahasiswa informatika. Aplikasi ini dibuat menggunakan \textit{Hypertext Preprocessor} atau lebih dikenal dengan \textit{PHP}\footnote{\url{https://www.php.net/}}. \textit{Database management system} atau DBMS yang digunakan adalah \textit{MYSQL}\footnote{\url{https://www.mysql.com/}}.\textit{ Bluetape} menggunakan \textit{framework Bootstrap}\footnote{\url{https://getbootstrap.com/}} dan \textit{Codeigniter}\footnote{\url{https://codeigniter.com/}}. \textit{ Bluetape} berguna untuk membantu kegiatan administrasi FTIS UNPAR. Aplikasi ini dapat melakukan \textit{transkrip request/manage} dan \textit{request perubahan kuliah/manage}. Sehingga jika dosen ingin meniadakan/mengganti perkuliahan dapat dilakukan dengan mudah tanpa harus membuat email ataupun melakukan panggilan. Mahasiswa dapat melakukan permintaan transkrip nilai tanpa tatap muka sehingga mahasiswa hanya perlu datang ke UNPAR saat ingin mengambil hasil dari transkrip tersebut, Mahasiswa juga dapat melihat jadwal dosen. Dengan adanya sistem otomasi pada kegiatan administrasi tentunya pekerjaan tata usaha menjadi lebih ringan.
+\textit{Bluetape}\footnote{\label{ft:bluetape}\url{https://github.com/ftisunpar/BlueTape}} adalah aplikasi web yang dibuat oleh dosen dan mahasiswa informatika. Aplikasi ini dibuat menggunakan \textit{Hypertext Preprocessor} atau lebih dikenal dengan \textit{PHP}\footnote{\url{https://www.php.net/}}. \textit{Database management system} atau DBMS yang digunakan adalah \textit{MYSQL}\footnote{\url{https://www.mysql.com/}}.\textit{ Bluetape} menggunakan \textit{framework Bootstrap}\footnote{\url{https://getbootstrap.com/}} dan \textit{Codeigniter}\footnote{\url{https://codeigniter.com/}}. \textit{Bluetape} berguna untuk membantu kegiatan administrasi FTIS UNPAR. Aplikasi ini dapat melakukan \textit{transkrip request/manage} dan \textit{request perubahan kuliah/manage}. Sehingga jika dosen ingin meniadakan/mengganti perkuliahan dapat dilakukan dengan mudah tanpa harus membuat email ataupun melakukan panggilan. Mahasiswa dapat melakukan permintaan transkrip nilai tanpa tatap muka sehingga mahasiswa hanya perlu datang ke UNPAR saat ingin mengambil hasil dari transkrip tersebut, Mahasiswa juga dapat melihat jadwal dosen. Dengan adanya sistem otomasi pada kegiatan administrasi tentunya pekerjaan tata usaha menjadi lebih ringan. 
 
 
-Aplikasi \textit{Bluetape}\footref{ft:bluetape} digunakan oleh mahasiswa FTIS, dosen ,dan tata usaha. Dari pengguna tersebut dilaporkan fitur untuk ekspor ke XLS pada halaman entri jadwal dosen menghasilkan file yang \textit{corrupt}. Ada juga laporan bahwa mahasiswa npm baru tidak dapat melihat jadwal dosen karena tidak memiliki hak akses, yang seharusnya menjadi hak akses mahasiswa. Aplikasi \textit{Bluetape}\footref{ft:bluetape} dapat mengelola permintaan transkrip dan permintaan perubahan kuliah tetapi aplikasi ini tidak menampilkan statistik berapa banyak permintaan transkrip  dan permintaan perubahan kuliah yang diterima atau ditolak. Sehingga fakultas tidak dapat mengevaluasi berapa permintaan transkrip yang diterima atau ditolak, berapa banyak permintaan pergantian perkuliahan yang diterima atau ditolak.
+Aplikasi \textit{Bluetape} digunakan oleh mahasiswa FTIS, dosen ,dan tata usaha. Dari pengguna--pengguna tersebut tentu akan ada hal yang disukai dan hal yang tidak disukai. Seperti ada fitur yang bermasalah, ada fitur yang kurang atau hanya saran untuk fitur kedepannya yang akan memudahkan kegiatan administrasi dalam FTIS UNPAR. Dengan adanya masukan--masukan dari pengguna maka aplikasi \textit{Bluetape} dapat ditingkatkan penggunaannya, memperbaiki kelemahan dari \textit{Bluetape}.
+
+Pada topik skripsi ini akan dilakukan analisis untuk perbaikan dan penambahan fitur untuk aplikasi \textit{Bluetape}, penambahan fitur yang akan disurvei kepada semua pengguna \textit{Bluetape}. Pengguna yang akan disurvei tidak semua. Hanya perwakilan--perwakilan dari pihak dosen, tata usaha, dan mahasiswa. Selanjutnya akan dianalisa bersama pembimbing untuk menentukan fitur yang akan dirancang dan diimplementasi. Survei tidak terbatas hanya pada fitur tambahan, fitur--fitur yang tidak menghasilkan sesuai kegunaannya akan diperbaiki juga.
 
 
-Pada topik skripsi ini akan dilakukan analisis untuk perbaikan dari kekurangan aplikasi \textit{Bluetape}\footref{ft:bluetape}, penambahan fitur statistik untuk permintaan transkrip dan permintaan perubahan kuliah yang kemudian akan diimplementasikan. Selanjutnya akan dibuat survei kepada pengguna aplikasi \textit{Bluetape}\footref{ft:bluetape} terkait fitur yang diinginkan kedepannya dan melakukan analisa dilanjutkan dengan implementasi dari fitur tersebut ke dalam aplikasi \textit{Bluetape}\footref{ft:bluetape}. 
-
-
-Sebelum itu harus dianalisa bagaimana memasang aplikasi ini pada komputer, mendaftar pada \textit{google cloud technology} untuk melakukan login menggunakan akun \textit{gmail} dengan memanfaatkan \textit{OAuth} yang dimiliki oleh \textit{google}. Diperlukan untuk merubah \textit{ file} yang mengatur \textit{role} sebagai pihak dosen atau tata usaha agar dapat membuat skenario sebagai dosen atau tata usaha.
-
-
+Sebelum melakukan perancangan dan implementasi diperlukan untuk \textit{setup} aplikasi \textit{Bluetape} pada komputer sendiri dan ada persyaratan yang harus dipenuhi yaitu mendaftarkan diri ke \textit{google OAuth} diakrenakan \textit{login} pada \textit{Bluetape} menggunakan akun \textit{gmail} UNPAR. Selanjutnya juga akan dipelajari \textit{framework CodeIgniter dan Bootstrap} yang menjadi dasar dari aplikasi ini. 
 
 \section{Rumusan Masalah}
 \label{sec:rumusan}
 Rumusan masalah yang telah diidentifikasi sebagai berikut:
 \begin{enumerate}
-	\item Bagaimana menentukan pertanyaan survei dan menganalisa implementasi yang memungkinkan?
-	\item Bagaimana mencari \textit{bug} yang dilaporkan dalam program?
-	\item Bagaimana mengimplementasi penempatan \textit{chart} agar tidak memberikan informasi yang berlebihan
-	ke pengguna?
-	\item Bagaimana melakukan tes setelah memperbarui dan mengganti \textit{libraries} untuk memastikan fungsi dapat berjalan dengan lancar?
+	\item Apa sajakah kebutuhan yang diinginkan oleh pengguna bluetape?
+	\item Bagaimana menganalisa, merancang, dan mengimplementasi \textit{feedback--feedback} dari pengguna?
+	\item Bagaimana melakukan pengujian setelah mengimplementasi \textit{feedback--feedback} dari pengguna?
 
 \end{enumerate}
 
@@ -36,10 +31,9 @@ Rumusan masalah yang telah diidentifikasi sebagai berikut:
 \label{sec:tujuan}
 Tujuan pembuatan dan penulisan skripsi ini adalah sebagai berikut:
 \begin{enumerate}
-	\item Menambahkan fitur yang diinginkan oleh pengguna
-	\item Memperbaiki \textit{bug} yang dilaporkan oleh pengguna.
-	\item Tersedianya statistik manajemen cetak transkrip dan manajemen perubahan kuliah secara visual.
-	\item Memperbarui dan mengganti \textit{libraries} serta memastikan semua fungsi berjalan dengan lancar.
+	\item Mendapatkan \textit{feedback--feedback} dari pengguna terkait kebutuhan yang diinginkan.
+	\item Menganalisa, merancang, dan mengimplementasi \textit{feedback--feedback} dari pengguna
+	\item Melakukan pengujian setelah mengimplementasi semua \textit{feedback} yang memungkinkan untuk diimplementasi
 
 \end{enumerate}
 
@@ -47,8 +41,8 @@ Tujuan pembuatan dan penulisan skripsi ini adalah sebagai berikut:
 \label{sec:batasan}
 Penulisan dan pembuatan skripsi ini memiliki batasan sebagai berikut:
 \begin{enumerate}
-	\item Penelitian ini tidak mendeploy aplikasi pada server.
-	\item Fitur \textit{chart} statistik tidak membagi berdasarkan nama dosen/mahasiswa yang melakukan \textit{request} tersebut.
+	\item Penelitian ini tidak menjelaskan tentang cara bagaimana melakukan \textit{deploy} aplikasi pada server.
+	\item Fitur--fitur yang membutuhkan lebih dari 1 semester untuk diimplementasi yang sebelumnya telah di diskusikan oleh pembimbing.
 	
 \end{enumerate}
 
@@ -58,13 +52,11 @@ Penulisan dan pembuatan skripsi ini memiliki batasan sebagai berikut:
 Metedologi yang akan dilakukan pada penulisan skripsi ini sebagai berikut:
 
 \begin{enumerate}
-	\item Menganalisa \textit{Bluetape} dan alur kode.
-	\item Menganalisa \textit{bug} yang membuat beberapa mahasiswa tidak dapat melihat jadwal dosen.
-	\item Melakukan \textit{refactor} untuk kode--kode yang menggunakan \textit{libraries} sebelumnya.
-	\item Menganalisa dan mengimplementasi \textit{chart} statistik untuk data transkrip dan perubahan kuliah.
-	\item Membuat kuisioner ke pengguna \textit{Bluetape} untuk fitur tambahan.
+	\item Mempelajari \textit{framework CodeIgniter} dan \textit{Bootstrap}.
+	\item Melakukan survei ke pengguna.
+	\item Menganalisa kuisioner dari pengguna bersama pembimbing untuk menetapkan fitur tambahan yang akan dikerjakan
 	\item Merancang dan mengimplementasi fitur tambahan tersebut.
-	\item Melakukan pengujian.
+	\item Melakukan pengujian dan perbaikan selama 1 semester.
 	\item Menulis dan menyelesaikan dokumen skripsi.
 \end{enumerate}
 
@@ -73,9 +65,9 @@ Metedologi yang akan dilakukan pada penulisan skripsi ini sebagai berikut:
 Rencana pembahasan penelitian ini sebagai berikut:
 \begin{description}
 	\item[Bab 1] Pendahuluan membahas hal--hal dasar pada skripsi yang berisi latar belakang, rumusan masalah, tujuan, batasan masalah, metodologi, sistematika pembahasan.
-	\item[Bab 2] Landasan teori berisi dasar--dasar teori meliputi : \textit{Codeigniter}, \textit{PHPspreadsheet}, Aplikasi \textit{bluetape}.
-	\item[Bab 3] Analisis akan berisi alur kode terhadap fitur yang mengalami \textit{bug}, kode yang mengalami \textit{refactor} untuk pembaharuan phpexcel ke phpspreadsheet, struktur tabel yang digunakan untuk fitur statistik.
-	\item[Bab 4] Perancangan berisi perancangan antarmuka untuk statistik manajemen transkrip, manajemen jadwal kuliah, dan fitur tambahan berserta penempatan untuk \textit{controller} dan \textit{model}.  
+	\item[Bab 2] Landasan teori berisi dasar--dasar teori meliputi : \textit{Codeigniter}, \textit{PHPspreadsheet}, \textit{Bootstrap}.
+	\item[Bab 3] Analisis akan menganalisa survei dari pengguna.
+	\item[Bab 4] Perancangan berisi perancangan antarmuka untuk fitur yang akan diimplementasikan.  
 	\item[Bab 5] Implementasi dan pengujian berisi hasil-hasil implementasi dan pengujian secara fungsional dan eksperimental.
 	\item[Bab 6] Kesimpulan dan saran berisi kesimpulan dari penelitian ini dan saran untuk pengembangan berikutnya.
 \end{description}
