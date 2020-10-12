@@ -27,8 +27,6 @@ CodeIgniter\cite{codeigniter3} adalah \textit{framework} untuk pembuat website y
 \textit{Controller} adalah pusat dari aplikasi, \textit{controller} menangani apa yang harus dilakukan dari \textit{HTTP request}. Dalam CodeIgniter untuk menginisiasi \textit{controller} cukup menulis nama kelas diikuti dengan \codefont{extends CI\_Controller} sebagai contoh:
 
 \begin{table}[H]
-\begin{tabular}{|p{\textwidth}|}
-\hline
 \begin{lstlisting}
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
@@ -40,18 +38,15 @@ class Welcome extends CI_Controller {
 		$this->load->view('welcome_message');
 	}
 }
-\end{lstlisting}\\
-\hline
-\end{tabular}
+\end{lstlisting}
 \end{table}
 \smallskip
 
+\textit{CodeIgniter} secara otomatis akan menjalankan \textit{method} \codefont{index()} jika tidak diperintahkan untuk menjalankan \textit{method} tertentu. Untuk menjalankan \textit{method} lain hanya perlu ditambahkan \textit{path-abempty} seperti  \codefont{example.com/index.php/Welcome/<<nama\_method>>}.
 fungsi diatas akan mengembalikan file \textit{welcome\_message.php} pada direktori \textit{view}. Developer dapat menaruh parameter pada \textit{view} tersebut.
 
 \smallskip
 \begin{table}[H]
-\begin{tabular}{|p{\linewidth}|}
-\hline
 \begin{lstlisting}
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
@@ -71,24 +66,18 @@ class Welcome extends CI_Controller {
 		't' => $t));
 	}
 }
-\end{lstlisting}\\
-\hline
-\end{tabular}
+\end{lstlisting}
 \end{table}
-
 \smallskip
-Fungsi \textit{constructor} yang dijalankan pada \textit{codeigniter} juga harus memanggil \codefont{parent::construct()}. Dalam contoh diatas juga dapat dilakukan \textit{load model} dan \textit{database}. File \textit{model} akan berada di direktori \textit{model} sedangkan untuk \codefont{\$this->load->database()} akan melakukan \textit{load} pada \textit{database} menggunakan parameter yang ada di direktori \codefont{/config/database.php}. Begitu juga dengan kebutuhan--kebutuhan lainnya dapat dilakukan dengan \textit{method} \codefont{\$this->load}.
+Fungsi \textit{constructor} yang dijalankan pada \textit{codeigniter} harus memanggil \codefont{parent::construct()}. Dalam contoh diatas juga dapat dilakukan \textit{load model} dan \textit{database}. File \textit{model} akan berada di direktori \textit{model} sedangkan untuk \codefont{\$this->load->database()} akan melakukan \textit{load} pada \textit{database} menggunakan parameter yang ada di direktori \codefont{/config/database.php}. Begitu juga dengan kebutuhan--kebutuhan lainnya dapat dilakukan dengan \textit{method} \codefont{\$this->load}.
 
 
 \subsection{Model}
 
 \textit{Model} berfungsi sebagai \textit{logic} dari aplikasi. \textit{ Model} pada \textit{CodeIgniter} bersifat opsional, tetapi disediakan untuk \textit{developer} yang ingin menggunakan MVC\cite{codeigniter3}. 
 
-
 \begin{table}[H]
-\begin{tabular}{|p{\linewidth}|}
-	\hline
-	\begin{lstlisting}
+\begin{lstlisting}
 class Blog_model extends CI_Model {
 
 	public $title;
@@ -100,39 +89,14 @@ class Blog_model extends CI_Model {
 		$query = $this->db->get('entries', 10);
 		return $query->result();
 	}
-	
-	public function insert_entry()
-	{
-		$this->title    = $_POST['title']; 
-		$this->content  = $_POST['content'];
-		$this->date     = time();
-	
-		$this->db->insert('entries', $this);
-	}
-	
-	public function update_entry()
-	{
-		$this->title    = $_POST['title'];
-		$this->content  = $_POST['content'];
-		$this->date     = time();
-	
-		$this->db->update('entries', $this, array('id' =>
-		$_POST['id']));
-	}
-	
 }
-\end{lstlisting}\\
-\hline
-\end{tabular}
+\end{lstlisting}
 \end{table}
-\smallskip
-\textit{Model} pada \textit{CodeIgniter} diikuti dengan \codefont{extends CI\_MODEL}. Hal yang berurusan terhadap \textit{database} dapat dilakukan dengan perintah \codefont{\$this->db->query(\lq<<isi query>>\rq)} atau untuk mempermudah beberapa fungsi \textit{MYSQL} dasar \textit{CodeIgniter} menyediakan \textit{method} bisa langsung digunakan seperti \codefont{\$this->db->get(\lq<<nama tabel>>\rq)}
-untuk mengambil semua nilai dari tabel tersebut. Untuk dapat mengakses \textit{database} maka harus dipasang \textit{database} yang akan digunakan pada \codefont{config/database.php}.
 
+\textit{Model} pada \textit{CodeIgniter} harus diikuti dengan \codefont{extends CI\_MODEL}. Hal yang berurusan terhadap \textit{database} dapat dilakukan dengan perintah \codefont{\$this->db->query(\lq<<isi query>>\rq)} atau untuk mempermudah, beberapa fungsi \textit{MYSQL} dasar disediakan oleh \textit{CodeIgniter}.\textit{ Method} bisa langsung digunakan seperti \codefont{\$this->db->get(\lq<<nama tabel>>\rq)}
+untuk mengambil semua nilai dari tabel tersebut. Untuk dapat mengakses \textit{database} maka harus dipasang \textit{database} yang akan digunakan pada \codefont{config/database.php}.
 \begin{table}[H]
-	\begin{tabular}{|p{\linewidth}|}
-		\hline
-		\begin{lstlisting}
+\begin{lstlisting}
 		
 $config['hostname'] = 'localhost';
 $config['username'] = 'myusername';
@@ -144,21 +108,92 @@ $config['pconnect'] = FALSE;
 $config['db_debug'] = TRUE;
 
 $this->load->model('model_name', '', $config);
-		\end{lstlisting}\\
-		\hline
-	\end{tabular}
+\end{lstlisting}
 \end{table}
-\smallskip
 
-File diatas menyimpan kredensial dari \textit{database} yang digunakan. Mulai dari \textit{hostname, username, password, dst}.
+File \codefont{database.php} diatas menyimpan kredensial dari \textit{database} yang digunakan. Mulai dari \textit{hostname, username, password, dst}.
 
 \subsection{View}
 
 
+\textit{View} tidak pernah dipanggil secara langsung, \textit{view} harus dipanggil melalui \textit{controller}\cite{codeigniter3}.
+\textit{View} pada \textit{CodeIgniter} ditaruh pada direktori \textit{view}. Pemanggilan \textit{view} menggunakan \textit{method} 
+\begin{lstlisting}
+$this->load->view('nama_view');
+\end{lstlisting}
+Jika \textit{controller} ingin mengirimkan data kepada \textit{view} maka perlu dilakukan 
+\begin{lstlisting}
+$t = "hello";
+$this->load->view('welcome_message',array(
+'t' => $t));
+\end{lstlisting}
+Selanjutnya untuk menampilkan data tersebut ke halaman 
+\begin{lstlisting}
+html>
+<head>
+</head>
+<body>
+	<h1><?php echo $t ?></h1>
+</body>
+</html>
+\end{lstlisting}
 
 
-\section{PHPspreadsheet}
+
+
+\section{Phpspreadsheet}
 \label{section:phpspreadsheet}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{0.5\textwidth}|c|c|}
+		\hline
+		\textbf{Format} & \textbf{Reading} & \textbf{Writing} \\ \hline
+		Open Document Format/OASIS (.ods) & \checkmark & \checkmark \\ \hline
+		Office Open XML (.xlsx) Excel 2007 and above & \checkmark & \checkmark \\ \hline
+		BIFF 8 (.xls) Excel 97 and above & \checkmark & \checkmark \\ \hline
+		BIFF 5 (.xls) Excel 95 & \checkmark  & \\ \hline
+		SpreadsheetML (.xml) Excel 2003 & \checkmark & \\ \hline
+		Gnumeric & \checkmark & \\ \hline
+		HTML & \checkmark & \checkmark \\ \hline
+		SYLK & \checkmark & \\ \hline
+		CSV & \checkmark & \checkmark \\ \hline
+		PDF (using either the TCPDF, Dompdf or mPDF libraries, which need to be installed separately) & & \checkmark \\ 
+		\hline
+	\end{tabular}
+\caption{Tabel format yang didukung oleh phpspreadsheet}
+\label{tab:phpspreadsheet supported}
+\end{table}
+
+
+PhpSpreadsheet adalah \textit{library} yang ditulis dengan bahasa PHP berguna untuk membaca dan menulis file dengan jenis spreadsheet seperti Excel dan LibreOffice Calc\cite{phpspreadsheet}. Format--format yang didukung oleh phpspreadsheet dapat dilihat pada tabel \ref{tab:phpspreadsheet supported}. Pada penelitian kali ini phpspreadsheet hanya digunakan untuk menulis ke dokumen dengan \textit{extension} \codefont{.xls}
+
+\subsection{Instalasi Phpspreadsheet}
+Sebelum dapat menginstalasi phpspreadsheet dibutuhkan composer. Composer dapat diunduh pada \url{getcomposer.org}. dan menjalankan perintah:
+
+\begin{lstlisting}
+composer require phpoffice/phpspreadsheet
+\end{lstlisting}
+Masukkan perintah tersebut untuk membuat file \codefont{composer.json} dan menginstalasi \textit{dependencies} tersebut. Contoh untuk menggunakan phpspreadsheet dapat dilihat sebagai berikut:
+
+\begin{lstlisting}
+<?php
+
+require 'vendor/autoload.php';
+
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+
+$spreadsheet = new Spreadsheet();
+$sheet = $spreadsheet->getActiveSheet();
+\end{lstlisting}
+
+Kode diatas akan membuat spreadsheet dengan isi \lq Hello World !\rq pada kolom A1. Penggunaan phpspreadsheet secara dasar dibutuhkan perintah \codefont{use PhpOffice$\backslash$PhpSpreadsheet$\backslash$Spreadsheet} dan \codefont{new Spreadsheet()}.
+
+\subsection{Menempatkan Nilai pada Kolom tertentu}
+
+\subsection{Menulis Spreadsheet ke Xls }
+
+\section{Bootstrap}
 
 
 \section{\LaTeX}
