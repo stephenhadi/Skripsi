@@ -138,6 +138,8 @@ html>
 \section{Phpspreadsheet}
 \label{section:phpspreadsheet}
 
+PhpSpreadsheet adalah \textit{library} yang ditulis dengan bahasa PHP berguna untuk membaca dan menulis file dengan jenis spreadsheet seperti Excel dan LibreOffice Calc\cite{phpspreadsheet}. Format--format yang didukung oleh phpspreadsheet dapat dilihat pada tabel \ref{tab:phpspreadsheet supported}. Pada penelitian kali ini phpspreadsheet hanya digunakan untuk menulis ke dokumen dengan \textit{extension} \texttt{.xls}
+
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|p{0.5\textwidth}|c|c|}
@@ -160,8 +162,6 @@ html>
 \end{table}
 
 
-PhpSpreadsheet adalah \textit{library} yang ditulis dengan bahasa PHP berguna untuk membaca dan menulis file dengan jenis spreadsheet seperti Excel dan LibreOffice Calc\cite{phpspreadsheet}. Format--format yang didukung oleh phpspreadsheet dapat dilihat pada tabel \ref{tab:phpspreadsheet supported}. Pada penelitian kali ini phpspreadsheet hanya digunakan untuk menulis ke dokumen dengan \textit{extension} \texttt{.xls}
-
 \subsection{Instalasi Phpspreadsheet}
 Sebelum dapat menginstalasi phpspreadsheet dibutuhkan composer. Composer dapat diunduh pada \url{getcomposer.org}. dan menjalankan perintah:
 
@@ -182,7 +182,7 @@ $spreadsheet = new Spreadsheet();
 $sheet = $spreadsheet->getActiveSheet();
 \end{lstlisting}
 
-Penggunaan phpspreadsheet secara dasar membutuhkan perintah \texttt{use PhpOffice$\backslash$PhpSpread-\\-sheet$\backslash$Spreadsheet} dan \texttt{new Spreadsheet()}. Untuk menrubah, menambah atau mengganti isi dari suatu kolom dibutuhkan \textit{method} \texttt{getActiveSheet()}.
+Penggunaan phpspreadsheet secara dasar membutuhkan perintah \texttt{use PhpOffice$\backslash$Phpspread-\\sheet$\backslash$Spreadsheet} dan \texttt{new Spreadsheet()}. Untuk menrubah, menambah atau mengganti isi dari suatu kolom dibutuhkan \textit{method} \texttt{getActiveSheet()}.
 
 \subsection{Menempatkan Nilai pada Kolom tertentu}
 
@@ -220,16 +220,44 @@ $spreadsheet->getActiveSheet()
 
 \subsection{Menulis Spreadsheet ke Xls }
 
-\textit{Phpspreadsheet} dapat melakukan \textit{read and write} ke banyak format. Mulai dari \textit{xls,xlsx,csv} dll. Pada kali ini format yang akan digunakan adalah \textit{xls}.
+\textit{Phpspreadsheet} dapat melakukan \textit{read and write} ke banyak format. Mulai dari \textit{xls,xlsx,csv} dll. Pada kali ini format yang akan digunakan adalah format  \textit{xls}.
 
 \begin{lstlisting}
 $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xls($spreadsheet);
 $writer->save("05featuredemo.xls");
 \end{lstlisting}
 
-Penggunaan fungsi \textit{write} dari \textit{phpspreadsheet} membutuhkan kelas \texttt{\textbackslash PhpOffice\textbackslash PhpSpread-\\-sheet\textbackslash Writer\textbackslash Xls()}. Kelas lain yang dapat digunakan untuk \textit{read}\&\textit{write} adalah \texttt{\textbackslash PhpOffice\textbackslash\\ PhpSpreadsheet\textbackslash IOFactory::createWriter(\$ spreadsheet, "Xlsx")}
+Penggunaan fungsi \textit{write} dari \textit{phpspreadsheet} membutuhkan kelas \texttt{\textbackslash PhpOffice\textbackslash PhpSpread-\newline sheet\textbackslash Writer\textbackslash Xls()}. Kelas lain yang dapat digunakan untuk \textit{read}\&\textit{write} adalah \texttt{\textbackslash PhpOffice\textbackslash\\ PhpSpreadsheet\textbackslash IOFactory::createWriter(\$ spreadsheet, "Xls")}
 
 \section{Bootstrap}
+\textit{Bootstrap} adalah \textit{framework} paling terkenal untuk membuat \textit{site} yang \textit{mobile-first} dan \textit{res\-pon\-sive}\cite{bootstrap}. Versi \textit{browser} dan \textit{mobile} yang dapat menjalankan \textit{bootstrap} dapat dilihat pada tabel.
+
+\begin{table}[H]
+	\begin{tabular}{|l|l|l|l|}	
+		\hline	
+		Device & Browser & Version & Status \\ 
+		\hline
+	\end{tabular}
+	\caption{Browser yang mendukung \textit{bootstrap}}
+	\label{tab:bootstrap supported}
+\end{table}
+
+
+
+
+\subsection{Pemasangan Bootstrap}
+Pemasangan dilakukan dengan cara mengunduh \textit{compiled css and jss} yang disediakan oleh \textit{bootstrap}.
+
+\begin{lstlisting}
+<head>
+	<link rel = "stylesheet" href = "css/bootstrap.css">
+	<script src = js/bootstrap.js></script>
+</head>
+
+
+\end{lstlisting}
+
+Pemasangan \textit{bootstrap} memerlukan \textit{import} file \textit{css dan js} dari \textit{compiled bootstrap} yang telah diunduh.
 
 
 
