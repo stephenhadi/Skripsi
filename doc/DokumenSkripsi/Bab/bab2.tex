@@ -230,17 +230,37 @@ $writer->save("05featuredemo.xls");
 Penggunaan fungsi \textit{write} dari \textit{phpspreadsheet} membutuhkan kelas \texttt{\textbackslash PhpOffice\textbackslash PhpSpread-\newline sheet\textbackslash Writer\textbackslash Xls()}. Kelas lain yang dapat digunakan untuk \textit{read}\&\textit{write} adalah \texttt{\textbackslash PhpOffice\textbackslash\\ PhpSpreadsheet\textbackslash IOFactory::createWriter(\$ spreadsheet, "Xls")}
 
 \section{Bootstrap}
-\textit{Bootstrap} adalah \textit{framework} paling terkenal untuk membuat \textit{site} yang \textit{mobile-first} dan \textit{res\-pon\-sive}\cite{bootstrap}. Versi \textit{browser} dan \textit{mobile} yang dapat menjalankan \textit{bootstrap} dapat dilihat pada tabel.
+\textit{Bootstrap} adalah \textit{framework} paling terkenal untuk membuat \textit{site} yang \textit{mobile-first} dan \textit{res\-pon\-sive}\cite{bootstrap}.Dapat dilihat pada tabel \ref{tab:bootstrap mobile supported} dan tabel \ref{tab:bootstrap desktop supported}.  Hampir semua \textit{browser} pada \textit{desktop} dan \textit{mobile} dapat menjalankan \textit{bootstrap}.
 
 \begin{table}[H]
-	\begin{tabular}{|l|l|l|l|}	
+	\centering
+	\resizebox{\textwidth}{!}{
+	\begin{tabular}{|l|l|l|l|l|l|}	
 		\hline	
-		Device & Browser & Version & Status \\ 
-		\hline
-	\end{tabular}
-	\caption{Browser yang mendukung \textit{bootstrap}}
-	\label{tab:bootstrap supported}
+		 & \textbf{Chrome} & \textbf{Firefox} & \textbf{Safari} & \makecell[l]{\textbf{Android} \& \\ \textbf{WebView}} & \makecell[l]{\textbf{Microsoft} \\ \textbf{Edge}} \\ \hline
+		\textbf{Android} & Supported & Supported & - & \makecell[l]{Android v5.0+ \\ Supported} & Supported \\ \hline
+		\textbf{IOS} & Supported & Supported & Supported & - & Supported \\ \hline
+		\textbf{Windows 10 Mobile} & - & - & - & - & Supported \\ \hline				
+	\end{tabular}}
+	\caption{\textit{Browser Mobile} yang mendukung \textit{bootstrap}}
+	\label{tab:bootstrap mobile supported}
 \end{table}
+
+\begin{table}[H]
+	\centering
+	\resizebox{\textwidth}{!}{
+		\begin{tabular}{|l|l|l|l|l|l|l|}	
+			\hline	
+			& \textbf{Chrome} & \textbf{Firefox}  &\makecell[l]{\textbf{Internet}\\\textbf{Explorer}} & \makecell[l]{\textbf{Microsoft}\\\textbf{Edge}} & \textbf{Opera} & \textbf{Safari} \\ 
+			\hline
+			\textbf{Mac} & Supported & Supported & - & Supported & Supported & Supported  \\ \hline
+			\textbf{Windows} & Supported & Supported & \makecell[l]{Supported \\ IE10+} & Supported & Supported & Not supported\\ \hline		
+	\end{tabular}}
+	\caption{\textit{Browser Desktop} yang mendukung \textit{bootstrap}}
+\label{tab:bootstrap desktop supported}
+\end{table}
+
+
 
 
 
@@ -257,8 +277,43 @@ Pemasangan dilakukan dengan cara mengunduh \textit{compiled css and jss} yang di
 
 \end{lstlisting}
 
-Pemasangan \textit{bootstrap} memerlukan \textit{import} file \textit{css dan js} dari \textit{compiled bootstrap} yang telah diunduh.
+Pemasangan \textit{bootstrap} memerlukan \textit{import} file \textit{css dan js} dari \textit{compiled bootstrap} yang telah diunduh. Cara lain yang dapat dilakukan adalah 
 
+\subsection{Contoh Penggunaan Bootstrap}
 
+Cara penggunaan \textit{bootstrap} adalah dengan memasukkan kelas-kelas yang disediakan oleh \textit{bootstrap}.
+
+\begin{lstlisting}
+<form>
+	<div class="form-group">
+		<label>Email address</label>
+		<input type="email" class="form-control"
+			placeholder="Enter email">
+	</div>
+	<div class="form-group">
+		<label>Password</label>
+		<input type="password" class="form-control">
+	</div>
+	<div class="form-check">
+		<input type="checkbox" class="form-check-input">
+		<label class="form-check-label">Check me out</label>
+	</div>
+	<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+\end{lstlisting} 
+
+Sebagai contoh akan dilakukan pembuatan form menggunakan \textit{bootstrap}. \texttt{<input>, <select>, <textarea>} menggunakan \textit{class form--control}, kelas tersebut sudah mengatur \textit{style} untuk \textit{focus state}, ukuran, dan tampilan umum. Sedangkan \textit{class form--group} untuk mengatur struktur dari form\cite{bootstrap}.
+
+\section{Bluetape}
+
+\textit{Bluetape} adalah aplikasi + framework untuk membuat urusan-urusan paper-based di FTIS UNPAR menjadi paperless.\footnote{\url{https://github.com/ftisunpar/BlueTape}}
+
+\subsection{Instalasi}
+
+\subsection{Struktur Bluetape}
+
+\subsection{Pengaturan Dasar Bluetape}
+
+\subsection{Database}
 
  
