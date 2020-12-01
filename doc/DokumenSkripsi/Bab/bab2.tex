@@ -24,20 +24,7 @@ CodeIgniter\cite{codeigniter3} adalah \textit{framework} untuk pembuat website y
 
 \subsection{Controller}
 
-\textit{Controller} adalah pusat dari aplikasi, \textit{controller} menangani apa yang harus dilakukan dari \textit{HTTP request}. Dalam CodeIgniter untuk menginisiasi \textit{controller} cukup menulis nama kelas diikuti dengan \texttt{extends CI\_Controller} sebagai contoh:
-
-\begin{lstlisting}
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-		
-class Welcome extends CI_Controller {
-
-	public function index()
-	{
-		$this->load->view('welcome_message');
-	}
-}
-\end{lstlisting}
+\textit{Controller} adalah pusat dari aplikasi, \textit{controller} menangani apa yang harus dilakukan dari \textit{HTTP request}. Dalam CodeIgniter untuk menginisiasi \textit{controller} cukup menulis nama kelas diikuti dengan \texttt{extends CI\_Controller}.
 
 \textit{CodeIgniter} secara otomatis akan menjalankan \textit{method} \texttt{index()} jika tidak diperintahkan untuk menjalankan \textit{method} tertentu. Untuk menjalankan \textit{method} lain hanya perlu ditambahkan \textit{path-abempty} seperti  \texttt{example.com/index.php/Welcome/<<nama\_method>>}.
 fungsi diatas akan mengembalikan file \textit{welcome\_message.php} pada direktori \textit{view}. Developer dapat menaruh parameter pada \textit{view} tersebut.
@@ -125,8 +112,43 @@ Selanjutnya untuk menampilkan data tersebut ke halaman
 <?php echo $t ?>
 \end{lstlisting}
 
-\subsection{\textit{Libraries} pada Code Igniter}
-\subsubsection{Loader}
+\subsection{\textit{Kelas} pada Code Igniter}
+\subsubsection{CI\_Loader}
+\textit{Loader} adalah kelas yang berfungsi untuk \textit{load elements}. \textit{Elements} dapat berupa \textit{libraries, view files, drivers, helpers, models}. Kelas ini sudah diinisialisasi secara otomatis oleh \textit{code igniter}.
+
+\begin{itemize}
+	\item \texttt{library(\$library [, \$params = NULL [, \$object\_name=NULL]])} \\
+	\textit{Method} ini berfungsi untuk \textit{load} kelas yang disediakan oleh \textit{codeigniter}. \\
+	\textit{Parameter}: 
+	\begin{itemize}
+		\item \texttt{\$library}(\textit{mixed}): Nama \textit{library} dalam bentuk \textit{string}.
+		\item \texttt{\$params}(\textit{array}): Parameter tambahan dalam bentuk \textit{array}.
+		\item \texttt{\$object\_name}(\textit{string}): Parameter tambahan untuk merubah nama objek.
+	\end{itemize}
+	\textit{Return}: \texttt{CI\_Loader}.
+	\item \texttt{view(\$view [, \$vars = array() [, return=FALSE]])} \\
+	\textit{Method} ini berfungsi untuk \textit{load} file tampilan. \\
+	\textit{Parameter}:
+	\begin{itemize}
+		\item \texttt{\$view}(\textit{string}): Nama \textit{view}.
+		\item \texttt{\$vars}(\textit{array}): Parameter tambahan berupa variabel \textit{associative array}.
+		\item \texttt{\$return}(\textit{bool}): Apakah data dari tampilan dikembalikan.
+	\end{itemize}
+	\textit{Return}: \textit{mixed}.
+	
+	\item \texttt{model(\$model [, \$name ="[, \$db\_conn=FALSE]])} \\
+	\textit{Method} ini berfungsi untuk \textit{load} file \textit{model}. \\
+	\textit{Parameter}:
+	\begin{itemize}
+		\item \texttt{\$model}(\textit{mixed}): Nama \textit{model}.
+		\item \texttt{\$name}(\textit{string}): Parameter tambahan untuk menamai objek\textit{model}.
+		\item \texttt{\$db\_conn}(\textit{string}): Parameter tambahan untuk konfigurasi database.
+	\end{itemize}
+	\textit{Return}: \texttt{CI\_Loader}.
+		
+\end{itemize}
+
+
 \subsubsection{Migration}
 \subsubsection{Email}
 \subsubsection{Input}
@@ -164,7 +186,7 @@ Pada penelitian kali ini kelas utama yang digunakan adalah kelas \textit{Spreads
  \textit{Method} yang dimiliki oleh \textit{library} \textit{PhpSpreadsheet} yang digunakan pada penelitian kali ini:
 
 \begin{itemize}
-	\item \textit{Spreadsheet} \\
+	\item \texttt{\textbf{Spreadsheet}} \\
 	Kelas \textit{Spreadsheet} dapat diakses dengan menggunakan: 
 	\begin{lstlisting}
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
@@ -172,21 +194,22 @@ $spreadsheet = new Spreadsheet();
 	\end{lstlisting} 
 	\textit{Constructor} kelas \textit{Spreadsheet} tidak menerima parameter apapun, dan \textit{return value} adalah \textit{mixed}. \textit{Method} yang tersedia pada kelas \texttt{Spreadsheet}:  
  \begin{itemize}
- 	\item \textbf{\texttt{createSheet([\$sheetIndex:null|int=null])}}\\ \textit{Method} ini berfungsi untuk membuat \textit{sheet}.\\
+ 	\item \texttt{createSheet([\$sheetIndex:null|int=null])} \\ 
+ 	\textit{Method} ini berfungsi untuk membuat \textit{sheet}.\\
  	\textit{Parameter}: \texttt{\$sheetIndex}, \textit{index} dari sheet dikosongkan jika menaruh sheet pada \textit{index} terakhir. \\ 
  	\textit{Return}: Kelas \texttt{Worksheet}.
  	
- 	\item \textbf{\texttt{setActiveSheetIndex(\$pIndex:int)}}\\ Memilih \textit{sheet} yang ingin dijadikan \textit{active} berdasarkan \textit{index}. \\
+ 	\item \texttt{setActiveSheetIndex(\$pIndex:int)}\\ Memilih \textit{sheet} yang ingin dijadikan \textit{active} berdasarkan \textit{index}. \\
  	\textit{Parameter}: \$pIndex, tipe data \textit{int}, \textit{index} dari \textit{Worksheet}. \\
  	\textit{Return}: Kelas \texttt{Worksheet}.
  	
- 	\item \textbf{\texttt{getActiveSheet()}}\\
+ 	\item \texttt{getActiveSheet()}\\
  	 Mengembalikan kelas \textit{Worksheet} yang aktif.\\
  	\textit{Parameter}: Tidak ada. \\ 
  	\textit{Return}: Kelas \texttt{Worksheet}.
  \end{itemize}
 
-\item \textit{Worksheet} \\ 
+\item \texttt{\textbf{Worksheet}} \\ 
 Kelas \textit{Worksheet} adalah kelas yang mengatur nilai dari \textit{cell}, \textit{cell style}, judul \textit{sheet} dll. Pembuatan kelas ini dapat dilakukan dengan:
 \begin{lstlisting}
 $spreadsheet->createSheet();
@@ -194,12 +217,12 @@ $spreadsheet->createSheet();
 Variabel \textit{\$spreadsheet} adalah kelas \texttt{Spreadsheet}, \textit{method} yang tersedia pada kelas \texttt{Worksheet}:
 
 \begin{itemize}
-	\item \textbf{\texttt{getStyle(\$pCellCoordinate:string)}}\\ 
+	\item \texttt{getStyle(\$pCellCoordinate:string)} \\ 
 	Mengembalikan kelas \texttt{Style}.\\
 	\textit{Parameter}: \texttt{\$pCellCoordinate} koordinat dari \textit{cell} atau \textit{range}, contoh : 'A1','A1:E1'.\\
 	\textit{Return}: Kelas \texttt{Style}.
 	
-	\item \textbf{\texttt{setCellValue(\$pCoordinate : string , \$pValue : mixed )}}\\ 
+	\item \texttt{setCellValue(\$pCoordinate : string , \$pValue : mixed )}\\ 
 	Merubah suatu nilai pada \textit{cell} tertentu. \\ 
 	\textit{Parameter}:
 	\begin{itemize}
@@ -208,10 +231,11 @@ Variabel \textit{\$spreadsheet} adalah kelas \texttt{Spreadsheet}, \textit{metho
 	\end{itemize}
 	\textit{Return}: \texttt{\$this}.
 	
-	\item \textbf{\texttt{mergeCells(\$pRange:string)}}\\ Melakukan \textit{merge} pada \textit{cell}. \\ 
+	\item \texttt{mergeCells(\$pRange:string)} \\ 
+	Melakukan \textit{merge} pada \textit{cell}. \\ 
 	\textit{Parameter}: \texttt{\$pRange} \textit{cell range} yang ingin dilakukan \textit{merge}, contoh: 'A1:E1'. \\
 	\textit{Return}: \texttt{\$this}.
-	\item \textbf{\texttt{setTitle(\$pValue:string, \$updateFormulaCellReferences:bool = true, \$validate:bool:true)}}\\
+	\item \texttt{setTitle(\$pValue:string [, \$updateFormulaCellReferences:bool = true ] [, \$validate:bool:true ] )}\\
 	 Berfungsi untuk memberi judul pada \textit{sheet}. \\
 	 \textit{Parameter}:
 	 \begin{itemize}
@@ -220,7 +244,7 @@ Variabel \textit{\$spreadsheet} adalah kelas \texttt{Spreadsheet}, \textit{metho
 	 	\item \texttt{\$validate}: Nilai asal adalah \textit{true}, pasang nilai \textit{false} untuk melewati validasi dari judul baru.
 	 \end{itemize}
  	\textit{Return}: \texttt{\$this}.
-	\item \textbf{\texttt{getRowDimension(\$pRow:int,\$create:bool = true)}} \\ 
+	\item \texttt{getRowDimension(\$pRow:int [,\$create:bool = true ])} \\ 
 	Mengambil dimensi baris pada baris tertentu. \\
 	\textit{Parameter}: 
 	\begin{itemize}
@@ -228,7 +252,7 @@ Variabel \textit{\$spreadsheet} adalah kelas \texttt{Spreadsheet}, \textit{metho
 		\item \texttt{\$create}: Nilai \textit{default} adalah \textit{true}.
 	\end{itemize}
 	\textit{Return}: Kelas \texttt{RowDimension}.
-	\item \textbf{\texttt{getColumnDimension(\$pColumn:string, \$create : bool = true)}} \\
+	\item \texttt{getColumnDimension(\$pColumn:string [, \$create : bool = true ])} \\
 	Mengambil dimensi kolom pada kolom tertentu
 	\textit{Parameter}:
 	\begin{itemize}
@@ -238,35 +262,35 @@ Variabel \textit{\$spreadsheet} adalah kelas \texttt{Spreadsheet}, \textit{metho
 	\textit{Return}: Kelas \texttt{ColumnDimension}.
 \end{itemize}
 
-\item \textit{Style} \\ 
+\item \texttt{\textbf{Style}} \\ 
 Kelas \textit{Style} adalah kelas yang mengatur \textit{style} dari suatu \textit{cell} seperti \textit{alignment}, \textit{fill},\textit{font} dll. Kelas \textit{Style} dapat diakses menggunakan:
 \begin{lstlisting}
 $worksheet->getStyle('A1');
 \end{lstlisting}
 Variabel \textit{\$worksheet} adalah kelas \textit{Worksheet}, \textit{method} yang tersedia pada kelas \texttt{Style}:
 	\begin{itemize}
-		\item \textbf{\texttt{getFill()}}\\
+		\item \texttt{getFill()}\\
 		 Mengembalikan kelas \textit{Fill}. untuk merubah \textit{fill} pada suatu \textit{cell} dapat memanggil \texttt{setFillType()} pada kelas \textit{Fill}.	\\
 		 \textit{Parameter}: Tidak ada.
 		 \textit{Return}: Kelas \texttt{Fill}.
-		\item \textbf{\texttt{getAlignment()}} \\
+		\item \texttt{getAlignment()} \\
 		 Mengembalikan kelas \textit{Alignment}, untuk merubah \textit{alignment} pada suatu \textit{cell} dapat memanggil \texttt{setHorizontal()} atau \texttt{setVertical()} pada kelas \textit{Alignment}. \\
 		\textit{Parameter}: Tidak ada. \\
 		\textit{Return}: Kelas \texttt{Alignment}.
-		\item \textbf{\texttt{getFont}} \\
+		\item \texttt{getFont} \\
 		 Mengembalikan kelas \textit{Font}, untuk merubah penebalan kata dapat menggunakan \texttt{setBold()} dengan masukan \textit{boolean}. \\
 		\textit{Parameter}: Tidak ada. \\
 		\textit{Return}: Kelas \texttt{Font}.
 		
 	\end{itemize}
 
-\item \textit{Xls} \\
+\item \texttt{\textbf{Xls}} \\
 Kelas \texttt{Xls} memiliki 2 tipe yaitu \textit{writer} dan \textit{reader}. Pada penelitian kali ini tipe \textit{Xls} yang digunakan hanya tipe \textit{writer}. Kelas \textit{Xls} dapat diinisiasi dengan:
 \begin{lstlisting}
 $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xls($spreadsheet);
 \end{lstlisting}
 \textit{Constructor} dari kelas \textit{Xls} menerima masukan berupa kelas \textit{Spreadsheet}, \textit{method} dari kelas \texttt{Xls}: \\
-\textbf{\texttt{Save(\$pFilename:resource|string)}}, berfungsi untuk menyimpan \textit{Spreadsheet} menjadi \textit{file} \\
+\texttt{Save(\$pFilename:resource|string)}, berfungsi untuk menyimpan \textit{Spreadsheet} menjadi \textit{file}. \\
 \textit{Parameter}: \texttt{\$pFilename}, menerima masukan \textit{resource} atau string. \\
 \textit{Return}: \texttt{void}. 
 
