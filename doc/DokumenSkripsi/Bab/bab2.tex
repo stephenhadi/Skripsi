@@ -114,7 +114,7 @@ Selanjutnya untuk menampilkan data tersebut ke halaman
 
 \subsection{\textit{Kelas} pada Code Igniter}
 \subsubsection{CI\_Loader}
-\textit{Loader} adalah kelas yang berfungsi untuk \textit{load elements}. \textit{Elements} dapat berupa \textit{libraries, view files, drivers, helpers, models}. Kelas ini sudah diinisialisasi secara otomatis oleh \textit{code igniter}.
+\textit{CI\_Loader} adalah kelas yang berfungsi untuk \textit{load elements}. \textit{Elements} dapat berupa \textit{libraries, view files, drivers, helpers, models}. Kelas ini sudah diinisialisasi secara otomatis oleh \textit{code igniter}. \textit{Method} yang digunakan pada \textit{CI\_Loader}:
 
 \begin{itemize}
 	\item \texttt{library(\$library [, \$params = NULL [, \$object\_name=NULL]])} \\
@@ -145,13 +145,87 @@ Selanjutnya untuk menampilkan data tersebut ke halaman
 		\item \texttt{\$db\_conn}(\textit{string}): Parameter tambahan untuk konfigurasi database.
 	\end{itemize}
 	\textit{Return}: \texttt{CI\_Loader}.
+	
+	\item \texttt{database([\$params="[, \$return=FALSE[,\$query\_builder=NULL]]])} \\
+	\textit{Method} ini berfungsi untuk melakukan \textit{load} kelas \textit{database}. \\
+	\textit{Parameter}:
+	\begin{itemize}
+		\item \texttt{\$params}(\textit{mixed}): Parameter tambah untuk konfigurasi dari \textit{database}. 
+		\item \texttt{\$return}(\textit{bool}): Apakah mengembalikan objek \textit{database}.
+		\item \texttt{\$query\_builder}(\textit{bool}): Apakah akan \textit{load} \textit{query builder}.		
+	\end{itemize}
+	\textit{Return}: \texttt{CI\_Loader} jika \texttt{\$return=FALSE}, \texttt{CI\_DB} jika \texttt{\$return=TRUE}.
+	
+	\item \texttt{config(\$file[, \$use\_sections=FALSE[, \$fail\_gracefully=FALSE]])} \\
+	\textit{Method} ini akan meneruskan ke \textit{method} \texttt{\$this->config->load()}. \\ 
+	\textit{Parameter}: 
+	\begin{itemize} 
+		\item \texttt{\$file}(\textit{string}): Nama file dari konfigurasi.
+		\item \texttt{\$use\_sections}(\textit{bool}): Apakah nilai dari konfigurasi akan \textit{load} di \textit{section} sendiri.
+		\item \texttt{\$fail\_gracefully}(\textit{bool}) Apakah akan mengembalikan \textit{False} jika gagal.
+	\end{itemize}
+	\textit{Return}: \texttt{bool}.
 		
 \end{itemize}
 
+\subsubsection{CI\_Config}
+\textit{CI\_Config} adalah kelas yang digunakan untuk mengambil konfigurasi yang dibuat. Kelas ini dapat digunakan dengan awalan \texttt{\$this->config}. \textit{Method} yang digunakan pada \textit{CI\_Config}: \\
+\texttt{item(\$item[, \$index=''])} \\
+\textit{Parameter}: 
+\begin{itemize} 
+	\item \texttt{\$item}(\textit{string}): Nama konfigurasi.
+	\item \texttt{\$index}(\textit{string}): Nama indeks.
+\end{itemize}
 
-\subsubsection{Migration}
-\subsubsection{Email}
-\subsubsection{Input}
+ 
+\subsubsection{CI\_Email}
+\textit{CI\_Email} adalah kelas yang berfungsi untuk mempermudah pengiriman \textit{email} yang disediakan oleh \textit{codeigniter}. \textit{Load} kelas \textit{CI\_Email} dapat dilakukan dengan:
+\begin{lstlisting}
+$this->load->library('email');
+\end{lstlisting}
+Setelah \textit{load email library} , untuk menggunakan kelas \texttt{CI\_Email} diawali dengan \texttt{\$this->email}. \textit{Method} yang digunakan pada \textit{CI\_Email}:
+
+\begin{itemize}
+	\item \texttt{from(\$from[, \$name="[, \$return\_path=NULL]])} \\
+	\textit{Method} ini digunakan untuk memasang \textit{email address} dan nama dari pengirim. \\ 
+	\textit{Parameter}:
+	\begin{itemize}
+		\item \texttt{\$from}(\textit{string}): Memasang alamat pengirim \textit{email}.
+		\item \texttt{\$name}(\textit{string}): Memasang nama pengirim \textit{email}.
+		\item \texttt{\$return\_path}(\textit{string}): Alamat \textit{email} tambahan jika \textit{email} gagal dikirim.
+	\end{itemize}
+	\textit{Return}: \texttt{CI\_Email}.
+	
+	\item \texttt{to(\$to)} \\
+	\textit{Method} ini digunakan untuk menentukan alamat \textit{email} tujuan. \\
+	\textit{Parameter}: \texttt{\$to}(\textit{mixed}), string yang dipisahkan oleh koma untuk setiap penerima atau \textit{array} dari alamat email. \\
+	\textit{Return}: \texttt{CI\_Email}.
+	
+	\item \texttt{subject(\$subject)} \\ 
+	\textit{Method} ini menulis \textit{subject} dari \textit{email}. \\
+	\textit{Parameter}: \texttt{\$subject}(\textit{string}), subjek \textit{email}. \\
+	\textit{Return}: \texttt{CI\_Email}.
+	
+	\item \texttt{message(\$body)} \\
+	\textit{Method} ini digunakan memasang pesan. \\
+	\textit{Parameter}: \texttt{\$body}(\textit{string}), \textit{email message body}. \\
+	\textit{Return}: \texttt{CI\_Email}.
+	
+	\item \texttt{send([\$auto\_clear=TRUE])} \\
+	\textit{Method} ini digunakan untuk mengirim \textit{email}. \\
+	\textit{Parameter}: \texttt{\$auto\_clear}(\textit{bool}), apakah pesan akan dibuang setelah pengiriman. \\
+	\textit{Return}: \textit{TRUE} jika sukses,\textit{FALSE} jika gagal.
+	
+	
+\end{itemize}
+
+\subsubsection{CI\_Input}
+\textit{CI\_Input} adalah kelas yang digunakan untuk menyaring dan membersihkan data masukan untuk meningkatkan keamanan. Kelas ini juga menyediakan \textit{method} bantuan untuk mengambil data masukan. Kelas ini sudah diinisialisasi secara otomatis. \textit{Method} yang digunakan dari kelas \textit{CI\_Input}:
+\begin{itemize}
+	\item \texttt{post([\$index=NULL[, \$xss\_clean=NULL]])} 
+	
+	\item \texttt{server(\$index[, \$xss\_clean=NULL ])}
+\end{itemize}
 \subsubsection{Migrations}
 \subsubsection{Session}
 
@@ -388,32 +462,9 @@ Pemasangan dilakukan dengan cara mengunduh \textit{compiled css and jss} yang di
 
 \end{lstlisting}
 
-Pemasangan \textit{bootstrap} memerlukan \textit{import} file \textit{css dan js} dari \textit{compiled bootstrap} yang telah diunduh. Cara lain yang dapat dilakukan adalah 
+Pemasangan \textit{bootstrap} memerlukan \textit{import} file \textit{css dan js} dari \textit{compiled bootstrap} yang telah diunduh.
 
-\subsection{Contoh Penggunaan Bootstrap}
 
-Cara penggunaan \textit{bootstrap} adalah dengan memasukkan kelas-kelas yang disediakan oleh \textit{bootstrap}.
-
-\begin{lstlisting}
-<form>
-	<div class="form-group">
-		<label>Email address</label>
-		<input type="email" class="form-control"
-			placeholder="Enter email">
-	</div>
-	<div class="form-group">
-		<label>Password</label>
-		<input type="password" class="form-control">
-	</div>
-	<div class="form-check">
-		<input type="checkbox" class="form-check-input">
-		<label class="form-check-label">Check me out</label>
-	</div>
-	<button type="submit" class="btn btn-primary">Submit</button>
-</form>
-\end{lstlisting} 
-
-Sebagai contoh akan dilakukan pembuatan form menggunakan \textit{bootstrap}. \texttt{<input>, <select>, <textarea>} menggunakan \textit{class form--control}, kelas tersebut sudah mengatur \textit{style} untuk \textit{focus state}, ukuran, dan tampilan umum. Sedangkan \textit{class form--group} untuk mengatur struktur dari form\cite{bootstrap}.
 
 
 
