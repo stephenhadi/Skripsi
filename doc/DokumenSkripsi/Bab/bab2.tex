@@ -257,7 +257,15 @@ Setelah \textit{load email library} , untuk menggunakan kelas \texttt{CI\_Email}
 Kelas ini dapat digunakan untuk merubah struktur \textit{database} dengan terstruktur. Untuk menggunakan kelas ini diperlukan pembuatan kelas baru dengan \texttt{extends CI\_Migration}. \textit{Method} yang digunakan dari kelas ini:
 
 \begin{itemize}
-	\item \texttt{latest()} 
+	\item \texttt{latest()} \\
+	\textit{Method} ini akan \textit{migrate} ke versi migrasi yang terbaru. \\
+	\textit{Parameter}: Tidak ada. \\
+	\textit{Return}: \textit{Current version string} jika sukses, \textit{FALSE} jika gagal.
+	
+	\item \texttt{error\_string()} \\ 
+	\textit{Method} ini mengembalikan semua \textit{error} dalam \textit{string} saat \textit{migrate}. \\
+	\textit{Parameter}: Tidak ada. \\
+	\textit{Return}: \textit{string}.
 \end{itemize}
 \subsubsection{Session}
 
