@@ -1,4 +1,16 @@
 %versi 2 (8-10-2016)
+\lstset{
+	language=php,
+	columns=fullflexible,
+	showspaces=false,	
+	showstringspaces=false,		
+	breaklines=true,
+	showlines=true, frame=single,
+	tabsize=4,  
+	basicstyle=\fontfamily{fvm}\selectfont, 
+	commentstyle=\itshape\color{gray}, keywordstyle=\bfseries\color{blue}, 
+	identifierstyle=\color{black}, stringstyle=\color{orange}	
+}
 \chapter{Landasan Teori}
 \label{chap:teori}
 
@@ -222,11 +234,31 @@ Setelah \textit{load email library} , untuk menggunakan kelas \texttt{CI\_Email}
 \subsubsection{CI\_Input}
 \textit{CI\_Input} adalah kelas yang digunakan untuk menyaring dan membersihkan data masukan untuk meningkatkan keamanan. Kelas ini juga menyediakan \textit{method} bantuan untuk mengambil data masukan. Kelas ini sudah diinisialisasi secara otomatis. \textit{Method} yang digunakan dari kelas \textit{CI\_Input}:
 \begin{itemize}
-	\item \texttt{post([\$index=NULL[, \$xss\_clean=NULL]])} 
+	\item \texttt{post([\$index=NULL[, \$xss\_clean=NULL]])} \\
+	Membaca masukan dengan tipe \textit{post}. \\
+	\textit{Parameter}:
+	\begin{itemize}
+		\item \texttt{\$index}(\textit{mixed}): Parameter \textit{name}.
+		\item \texttt{\$xss\_clean}(\textit{bool}): Apakah akan menggunakan \textit{XSS filtering}.
+	\end{itemize}
+	\textit{Return}: \texttt{\$\_POST} jika tidak ada parameter masukan, nilai dari masukan jika ditemukan, atau \textit{NULL} jika tidak ditemukan.
 	
-	\item \texttt{server(\$index[, \$xss\_clean=NULL ])}
+	\item \texttt{server(\$index[, \$xss\_clean=NULL ])} \\ 
+	\textit{Method} ini berguna untuk mengambil \textit{server data} seperti \texttt{\$\_SERVER}. \\
+	\textit{Parameter}:
+	\begin{itemize}
+		\item \texttt{\$index}(\textit{mixed}): \textit{Value name}. 
+		\item \texttt{\$xss\_clean}(\textit{bool}): Apakah akan menggunakan \textit{XSS filtering}.
+	\end{itemize}
+	\textit{Return}: \texttt{\$\_SERVER} \textit{item value} jika ditemukan, \textit{NULL} jika tidak.
+	
 \end{itemize}
-\subsubsection{Migrations}
+\subsubsection{CI\_Migration}
+Kelas ini dapat digunakan untuk merubah struktur \textit{database} dengan terstruktur. Untuk menggunakan kelas ini diperlukan pembuatan kelas baru dengan \texttt{extends CI\_Migration}. \textit{Method} yang digunakan dari kelas ini:
+
+\begin{itemize}
+	\item \texttt{latest()} 
+\end{itemize}
 \subsubsection{Session}
 
 \section{Phpspreadsheet}
@@ -259,8 +291,8 @@ PhpSpreadsheet adalah \textit{library} yang ditulis dengan bahasa PHP berguna un
 Pada penelitian kali ini kelas utama yang digunakan adalah kelas \textit{Spreadsheet}. Kelas \textit{Spreadsheet} dapat diakses menggunakan \texttt{use PhpOffice$\backslash$PhpSpreadsheet$\backslash$Spreadsheet}.
  \textit{Method} yang dimiliki oleh \textit{library} \textit{PhpSpreadsheet} yang digunakan pada penelitian kali ini:
 
-\begin{itemize}
-	\item \texttt{\textbf{Spreadsheet}} \\
+
+\subsubsection{Spreadsheet}
 	Kelas \textit{Spreadsheet} dapat diakses dengan menggunakan: 
 	\begin{lstlisting}
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
@@ -283,7 +315,7 @@ $spreadsheet = new Spreadsheet();
  	\textit{Return}: Kelas \texttt{Worksheet}.
  \end{itemize}
 
-\item \texttt{\textbf{Worksheet}} \\ 
+\subsubsection{Worksheet}
 Kelas \textit{Worksheet} adalah kelas yang mengatur nilai dari \textit{cell}, \textit{cell style}, judul \textit{sheet} dll. Pembuatan kelas ini dapat dilakukan dengan:
 \begin{lstlisting}
 $spreadsheet->createSheet();
@@ -336,7 +368,7 @@ Variabel \textit{\$spreadsheet} adalah kelas \texttt{Spreadsheet}, \textit{metho
 	\textit{Return}: Kelas \texttt{ColumnDimension}.
 \end{itemize}
 
-\item \texttt{\textbf{Style}} \\ 
+\subsubsection{Style}
 Kelas \textit{Style} adalah kelas yang mengatur \textit{style} dari suatu \textit{cell} seperti \textit{alignment}, \textit{fill},\textit{font} dll. Kelas \textit{Style} dapat diakses menggunakan:
 \begin{lstlisting}
 $worksheet->getStyle('A1');
@@ -358,7 +390,7 @@ Variabel \textit{\$worksheet} adalah kelas \textit{Worksheet}, \textit{method} y
 		
 	\end{itemize}
 
-\item \texttt{\textbf{Xls}} \\
+\subsubsection{Xls} 
 Kelas \texttt{Xls} memiliki 2 tipe yaitu \textit{writer} dan \textit{reader}. Pada penelitian kali ini tipe \textit{Xls} yang digunakan hanya tipe \textit{writer}. Kelas \textit{Xls} dapat diinisiasi dengan:
 \begin{lstlisting}
 $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xls($spreadsheet);
@@ -369,17 +401,19 @@ $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xls($spreadsheet);
 \textit{Return}: \texttt{void}. 
 
 
-\end{itemize} 
+
 
 
 \subsection{Instalasi Phpspreadsheet}
 Sebelum dapat menginstalasi phpspreadsheet dibutuhkan composer. Composer dapat diunduh pada \url{getcomposer.org}. 
+
 
 \begin{lstlisting}
 composer require phpoffice/phpspreadsheet
 \end{lstlisting}
 
 perintah tersebut digunakan untuk membuat file \texttt{composer.json} dan menginstalasi \textit{dependencies} tersebut. 
+
 
 \begin{lstlisting}
 <?php
@@ -388,6 +422,7 @@ require 'vendor/autoload.php';
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 $spreadsheet = new Spreadsheet();
 \end{lstlisting}
+
 
 Penggunaan phpspreadsheet secara dasar membutuhkan perintah \texttt{use PhpOffice$\backslash$Phpspread-\\sheet$\backslash$Spreadsheet} dan \texttt{new Spreadsheet()}.
 
