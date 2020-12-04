@@ -105,24 +105,15 @@ File \texttt{database.php} diatas menyimpan kredensial dari \textit{database} ya
 
 
 \textit{View} tidak pernah dipanggil secara langsung, \textit{view} harus dipanggil melalui \textit{controller}\cite{codeigniter3}.
-\textit{View} pada \textit{CodeIgniter} ditaruh pada direktori \textit{view}. Pemanggilan \textit{view} menggunakan \textit{method} 
-\begin{lstlisting}
-$this->load->view('nama_view');
-\end{lstlisting}
-
-Jika \textit{controller} ingin mengirimkan data kepada \textit{view} maka perlu dilakukan 
+\textit{View} pada \textit{CodeIgniter} ditaruh pada direktori \textit{view}. Pemanggilan \textit{view} menggunakan \textit{method} \texttt{\$this->load->view('nama\_view')}. Jika \textit{controller} ingin mengirimkan data kepada \textit{view} maka perlu dilakukan: 
 
 \begin{lstlisting}
 $t = "hello";
-$this->load->view('welcome_message',array(
-'t' => $t));
+$this->load->view('welcome_message',array('t' => $t));
 \end{lstlisting}
 
-Selanjutnya untuk menampilkan data tersebut ke halaman
- 
-\begin{lstlisting}
-<?php echo $t ?>
-\end{lstlisting}
+Selanjutnya untuk menampilkan data tersebut ke halaman pada \textit{view} dapat memanggil variabel \texttt{\$t}.
+
 
 \subsection{Kelas pada Code Igniter}
 \subsubsection{CI\_Loader}
@@ -541,7 +532,103 @@ Pemasangan dilakukan dengan cara mengunduh \textit{compiled css and jss} yang di
 
 Pemasangan \textit{bootstrap} memerlukan \textit{import} file \textit{css dan js} dari \textit{compiled bootstrap} yang telah diunduh.
 
+\subsection{Container}
+Kelas \texttt{Container} adalah kelas yang dibutuhkan jika ingin menggunakan \textit{bootstrap} grid. Kelas \texttt{Container} adalah kelas \textit{responsive} dan \textit{fixed-width}.
+\begin{lstlisting}
+<div class="container"></div>
+\end{lstlisting}
 
+\subsection{Grid} 
+\textit{Grid} pada \textit{bootstrap} digunakan untuk mengatur \textit{layout} dan \textit{alignment}. \textit{Row} adalah kelas \textit{wrapper} dari untuk kolom. Kelas \textit{col} akan secara otomatis membagi lebar horizontal dari layout menjadi sama dapat dilihat pada gambar \ref{fig:bootstrap-grid}. Sebagai contoh 4 \texttt{col} dalam satu \textit{wrapper} akan membagi lebar masing masing menjadi 25\%. Kelas \texttt{col} mempunyai jumlah maksimum sebanyak 12. Sehingga jika ingin membagi tiga kolom dengan lebar sama dapat menggunakan \texttt{col-4}.
+\begin{lstlisting}
+<div class="container">
+	<div class="row">
+		<div class="col">
+			1 of 2
+		</div>
+		<div class="col">
+			2 of 2
+		</div>
+	</div>
+</div>
+\end{lstlisting}
+Contoh gambar yang penggunaan kode diatas dapat dilihat pada gambar \ref{fig:bootstrap-grid}. Dapat dilihat bahwa kelas \texttt{col} membagi lebar horizontal menjadi sama rata. Penggunaan kelas \textit{col-6} pada dua kolom juga akan menghasilkan gambar \ref{fig:bootstrap-grid}.
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{bootstrap-grid}  	
+	\caption[Gambar bootstrap-grid]{Gambar \textit{bootstrap-grid}}
+	\label{fig:bootstrap-grid}  
+\end{figure}
+
+
+\subsection{Table}
+Kelas \texttt{table} adalah kelas yang membantu pembuatan \textit{table}. Tambahkan \texttt{.table} pada \texttt{<table>}. Komponen--komponen yang ada pada kelas \texttt{table}:
+
+\begin{itemize}
+	\item \texttt{table-bordered} \\
+	Tambahkan kelas ini jika agar semua sisi dari \textit{cell} dan \textit{table} memiliki \textit{border}.
+	
+	\item \texttt{table-striped} \\ 
+	Tambahkan kelas ini untuk tampilan \textit{zebra-striping} di dalam \texttt{<tbody>}. Contoh penggunaan:
+	\begin{lstlisting}
+<table class= "table table-bordered table-striped"></table>
+	\end{lstlisting}
+	
+	\item \texttt{table-responsive} \\ 
+	Gunakan kelas ini agar tampilan horizontal tabel menjadi \textit{responsive} dan tidak \textit{overflow}. Penggunaan \texttt{table-responsive} ditaruh pada \textit{parent} dari \textit{table}. Contoh penggunaan:
+	\begin{lstlisting}
+<div class="table-responsive">
+	<table class="table">
+	...
+	</table>
+</div>	
+	\end{lstlisting} 
+\end{itemize}
+\subsection{Pagination}
+\subsection{Modal}
+\textit{Modal} dibuat dengan \textit{html, css, javascript}. \textit{Modal} akan merubah \textit{scroll} pada \texttt{<body>} sehingga sasaran \textit{scroll} hanya pada \textit{modal}. \textit{Modal} akan tertutup jika pengguna mengklik diluar modal. \textit{Modal} pada \textit{bootstrap} memiliki struktur yang \textit{static}, struktur \textit{modal}:
+
+\begin{lstlisting}
+<div class="modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+		...
+		</div>
+	</div>
+</div>
+\end{lstlisting}
+
+Penggunaan \textit{modal} dapat dibuat menjadi lebih rapi dengan menambahkan  \texttt{modal-header}, \texttt{modal-body}, dan \texttt{modal-footer} didalam \texttt{modal-content}.
+
+
+\subsection{Form}
+
+\subsection{Navbar}
+
+\textit{Navbar} adalah sebuah komponen pada \textit{bootstrap} yang mempermudah mengatur \textit{layout} dari \textit{navigation bar}. Komponen-komponen yang dibutuhkan \textit{navbar}:
+
+\begin{itemize}
+	\item \texttt{navbar-expand} \\
+	\texttt{navbar-expand\{-sm|-md|-lg|-xl\}} dibutuhkan untuk \textit{responsive collapsing} dan penggunaan kelas \textit{color scheme}. Kelas ini ditaruh pada \textit{nav tag}.
+	
+	\item \texttt{navbar-nav} \\
+	Penggunaan kelas \texttt{navbar-nav} akan membuat \textit{navigation} pada \textit{navbars} akan menempati ruang horizontal sebanyak mungkin. 
+	
+	\item \textit{Color scheme} \\
+	Penggunaan \textit{color scheme} dapat dilakukan dengan \texttt{navbar-dark} atau \texttt{navbar-light}. Penggunaan kelas ini harus diikuti dengan \texttt{navbar-expand}.
+	
+	\item \texttt{nav-item} \\
+	Kelas ini digunakan pada \textit{item} dari navigasi. Contoh penggunaan:
+	\begin{lstlisting}
+<li class="nav-item"></li>
+	\end{lstlisting}
+	
+	\item \texttt{nav-link} \\
+	Kelas ini digunakan pada \textit{link} dari navigasi. Contoh penggunaan:
+	\begin{lstlisting}
+<a class="nav-link">link</a>	
+	\end{lstlisting}
+\end{itemize}
 
 
 
