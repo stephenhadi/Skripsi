@@ -124,7 +124,7 @@ Selanjutnya untuk menampilkan data tersebut ke halaman
 <?php echo $t ?>
 \end{lstlisting}
 
-\subsection{\textit{Kelas} pada Code Igniter}
+\subsection{Kelas pada Code Igniter}
 \subsubsection{CI\_Loader}
 \textit{CI\_Loader} adalah kelas yang berfungsi untuk \textit{load elements}. \textit{Elements} dapat berupa \textit{libraries, view files, drivers, helpers, models}. Kelas ini sudah diinisialisasi secara otomatis oleh \textit{code igniter}. \textit{Method} yang digunakan pada \textit{CI\_Loader}:
 
@@ -226,7 +226,7 @@ Setelah \textit{load email library} , untuk menggunakan kelas \texttt{CI\_Email}
 	\item \texttt{send([\$auto\_clear=TRUE])} \\
 	\textit{Method} ini digunakan untuk mengirim \textit{email}. \\
 	\textit{Parameter}: \texttt{\$auto\_clear}(\textit{bool}), apakah pesan akan dibuang setelah pengiriman. \\
-	\textit{Return}: \textit{TRUE} jika sukses,\textit{FALSE} jika gagal.
+	\textit{Return}: \textit{TRUE} jika sukses, \textit{FALSE} jika gagal.
 	
 	
 \end{itemize}
@@ -267,7 +267,44 @@ Kelas ini dapat digunakan untuk merubah struktur \textit{database} dengan terstr
 	\textit{Parameter}: Tidak ada. \\
 	\textit{Return}: \textit{string}.
 \end{itemize}
-\subsubsection{Session}
+\subsubsection{CI\_Session}
+\textit{Session} digunakan untuk mengurus  \textit{user's state} dan melihat aktivitas \textit{user} saat menelusuri situs. \textit{Session} sebaiknya diinisialisasi pada konstruktor di \textit{controller}. Menginisiasi \textit{session} dengan cara \texttt{\$this->load->library(\textquotesingle session\textquotesingle)}. Sedangkan penggunaannya dapat menggunakan perintah \texttt{\$this->session}. \textit{Method} yang digunakan pada kelas \texttt{CI\_Session}:
+
+\begin{itemize}
+	\item \texttt{set\_flashdata(\$data[, \$value=NULL])}	\\
+	\textit{Method} ini berguna untuk menyimpan data ke \texttt{\$\_SESSION} \textit{superglobal} dan menandai sebagai \textit{flashdata}. \textit{Flashdata} adalah \textit{session data} yang hanya tersedia untuk permintaan berikutnya dan setelah itu akan dibuang.\\
+	 \textit{Parameter}: 
+	 \begin{itemize}
+	 	\item \texttt{\$data}(\textit{mixed}): \textit{Array} dengan pasangan \textit{key/value} untuk menyimpan ke \textit{session data} atau \textit{key} jika jumlah data hanya satu. 
+	 	\item \texttt{\$value}(\textit{mixed}): Nilai yang ingin disimpan jika \texttt{\$data} adalah \textit{key}.
+	 \end{itemize}
+	 \textit{Return}: \textit{void}.
+	 
+	 \item \texttt{flashdata([\$key=NULL])} \\
+	 \textit{Method} ini mengambil nilai dari spesifik \texttt{\$\_SESSION} yang telah ditandai sebagai \textit{flashdata}. \\
+	 \textit{Parameter}: \texttt{\$key}(\textit{mixed}), \textit{key} dari \textit{flashdata}. \\
+	 \textit{Return}: Nilai dari \textit{item key} tertentu, atau \textit{array} semua \textit{flashdata}.
+	
+	\item \texttt{set\_userdata(\$data[, \$value=NULL])} \\
+	\textit{Method} ini berguna untuk menyimpan data ke \texttt{\$\_SESSION} \textit{superglobal}. \\
+	\textit{Parameter}: 
+	\begin{itemize}
+		\item \texttt{\$data}(\textit{mixed}): \textit{Array} dengan pasangan \textit{key/value} untuk menyimpan ke \textit{session data} atau \textit{key} jika jumlah data hanya satu.
+		\item \texttt{\$value}(\textit{mixed}): Nilai yang ingin disimpan jika \texttt{\$data} adalah \textit{key}.
+	\end{itemize}
+	\textit{Return}: \textit{void}.
+	
+	\item \texttt{userdata([\$key=NULL])} \\
+	\textit{Method} ini berguna untuk mengambil \textit{value} untuk \texttt{\$\_SESSION} \textit{item} atau \textit{array} semua data user jika parameter dikosongkan. \\
+	\textit{Parameter}: \texttt{\$key}(\textit{mixed}), \textit{session item key} atau \textit{null}. \\
+	\textit{Return}: Nilai dari \textit{item key} tertentu, atau \textit{array} semua data pengguna.
+	
+	\item \texttt{unset\_userdata(\$key)} \\
+	\textit{Method} ini berfungsi untuk membuang data dari \texttt{\$\_SESSION} \textit{superglobal} dengan \textit{key} masukan. \\ 
+	\textit{Parameter}: \$key(\textit{mixed}) \textit{key} dari \textit{session data} yang ingin dibuang. \\
+	\textit{Return}:void 
+	
+\end{itemize}
 
 \section{Phpspreadsheet}
 \label{section:phpspreadsheet}
@@ -328,7 +365,7 @@ Kelas \textit{Worksheet} adalah kelas yang mengatur nilai dari \textit{cell}, \t
 \begin{lstlisting}
 $spreadsheet->createSheet();
 \end{lstlisting}
-Variabel \textit{\$spreadsheet} adalah kelas \texttt{Spreadsheet}, \textit{method} yang tersedia pada kelas \texttt{Worksheet}:
+Variabel \textit{\$spreadsheet} adalah kelas \texttt{Spreadsheet}, \textit{method} yang digunakan pada kelas \texttt{Worksheet}:
 
 \begin{itemize}
 	\item \texttt{getStyle(\$pCellCoordinate:string)} \\ 
@@ -349,7 +386,7 @@ Variabel \textit{\$spreadsheet} adalah kelas \texttt{Spreadsheet}, \textit{metho
 	Melakukan \textit{merge} pada \textit{cell}. \\ 
 	\textit{Parameter}: \texttt{\$pRange} \textit{cell range} yang ingin dilakukan \textit{merge}, contoh: 'A1:E1'. \\
 	\textit{Return}: \texttt{\$this}.
-	\item \texttt{setTitle(\$pValue:string [, \$updateFormulaCellReferences:bool = true ] [, \$validate:bool:true ] )}\\
+	\item \texttt{setTitle(\$pValue:string [, \$updateFormulaCellReferences:bool = true ] [, \\ \$validate:bool:true ] )}\\
 	 Berfungsi untuk memberi judul pada \textit{sheet}. \\
 	 \textit{Parameter}:
 	 \begin{itemize}
@@ -383,8 +420,8 @@ $worksheet->getStyle('A1');
 \end{lstlisting}
 Variabel \textit{\$worksheet} adalah kelas \textit{Worksheet}, \textit{method} yang tersedia pada kelas \texttt{Style}:
 	\begin{itemize}
-		\item \texttt{getFill()}\\
-		 Mengembalikan kelas \textit{Fill}. untuk merubah \textit{fill} pada suatu \textit{cell} dapat memanggil \texttt{setFillType()} pada kelas \textit{Fill}.	\\
+		\item \texttt{getFill()} \\
+		 Mengembalikan kelas \textit{Fill}. untuk merubah \textit{fill} pada suatu \textit{cell} dapat memanggil \texttt{set\-Fill\-Type()} pada kelas \textit{Fill}.	\\
 		 \textit{Parameter}: Tidak ada.
 		 \textit{Return}: Kelas \texttt{Fill}.
 		\item \texttt{getAlignment()} \\
@@ -425,7 +462,6 @@ perintah tersebut digunakan untuk membuat file \texttt{composer.json} dan mengin
 
 \begin{lstlisting}
 <?php
-
 require 'vendor/autoload.php';
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 $spreadsheet = new Spreadsheet();
@@ -501,8 +537,6 @@ Pemasangan dilakukan dengan cara mengunduh \textit{compiled css and jss} yang di
 	<link rel = "stylesheet" href = "css/bootstrap.css">
 	<script src = js/bootstrap.js></script>
 </head>
-
-
 \end{lstlisting}
 
 Pemasangan \textit{bootstrap} memerlukan \textit{import} file \textit{css dan js} dari \textit{compiled bootstrap} yang telah diunduh.
