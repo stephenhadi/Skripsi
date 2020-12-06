@@ -9,15 +9,15 @@ Pengerjaan untuk menganalisis \textit{bluetape} dilakukan dengan melakukan surve
 	\begin{tabular}{|l|l|l|l|}
 	\hline
 	No & Deskripsi & \textit{Issue Number}  & Status \\ \hline
-	1 & Memperbaiki ekspor ke xls pada EntriJadwalDosen & \#1  & Akan diimplementasi\\ \hline
-	2 & Memperbaharui \textit{google api} dan \textit{phpspreadsheet} & \#2  & Akan diimplementasi \\ \hline
-	3 & Tampilan \textit{chart} pada ManajemenCetakTranskrip & \#3  & Akan diimplementasi\\ \hline
-	4 & Tampilan \textit{chart} pada ManajemenPerubahanKuliah & \#4  & Akan diimplementasi\\ \hline
-	5 & \makecell[l]{Mahasiswa dengan format NPM baru \\ tidak dapat login dan LihatJadwalDosen} & \#5  & Akan diimplementasi\\ \hline
+	1 & \makecell[l]{Fitur "Expor ke XLS" pada menu \\ EntriJadwalDosen  menghasilkan file \textit{corrupt}} & \#1  & Akan diimplementasi\\ \hline
+	2 & \textit{Update google api / phpspreadsheet}  & \#2  & Akan diimplementasi \\ \hline
+	3 & Fitur \textit{chart} pada ManajemenCetakTranskrip & \#3  & Akan diimplementasi\\ \hline
+	4 & Fitur \textit{chart} pada ManajemenPerubahanKuliah & \#4  & Akan diimplementasi\\ \hline
+	5 & \makecell[l]{Mahasiswa dengan NPM baru \\ tidak dapat login dan LihatJadwalDosen} & \#5  & Akan diimplementasi\\ \hline
 	6 & \makecell[l]{Kolom pada EntriJadwalDosen dan \\ LihatJadwalDosen tidak seragam}  & \#6 & Akan diimplementasi\\ \hline
 	7 & Fungsi Tab pada LihatJadwalDosen tidak berfungsi & \#7 & Akan diimplementasi\\ \hline
 	8 & \makecell[l]{Pengelompokkan rekap perubahan jadwal\\ pada mata kuliah yang sama} & \#8 & \\ \hline
-	9 & Forum Q\&A pada \textit{bluetape} & \#9 & \\ \hline
+	9 & Menyediakan forum Q\&A pada \textit{bluetape} & \#9 & \\ \hline
 	10 & \textit{Scheduling} matakuliah pada googlemeet/zoom & \#10 & Tidak diimplementasi\\ \hline
 	11 & Mengubah atau membatalkan permohonan & \#11 & Akan diimplementasi\\ \hline
 	12 & Menambahkan jam kuliah selesai di perubahan kelas & \#12 & Akan diimplementasi\\ \hline
@@ -37,6 +37,72 @@ Pengerjaan untuk menganalisis \textit{bluetape} dilakukan dengan melakukan surve
 	\caption{Tabel analsis kebutuhan pengguna perangkat \textit{bluetape}}
 \end{table}
 
+Pada tabel \ref{tab:analisis pengguna} terdapat beberapa kolom yaitu:
+\begin{itemize}
+	\item Deskripsi \\
+	Deskripsi adalah judul dari \textit{issue} yang berasal dari \textit{github}.
+	\item \textit{Issue Number} \\ \textit{Issue number} adalah nomor \textit{issue} yang berasal dari \textit{github}. \textit{Issue number} yang dibuat adalah berdasarkan \textit{issue number} pada \textit{repository} yang telah di \textit{fork}.
+	\item Status \\
+	Kolom status menjelaskan apakah \textit{feedback} tersebut akan dikerjakan atau tidak.
+\end{itemize}
+
+\subsection{Fitur "Expor ke XLS" pada Menu EntriJadwalDosen Menghasilkan File \\ \textit{Corrupt}}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.3]{exporkexls} 
+	\caption{Antarmuka halaman \texttt{EntriJadwalDosen}}
+	\label{fig:EntriJadwalDosen} 
+\end{figure}
+
+Fitur ini terdapat pada halaman \texttt{EntriJadwalDosen} yang dapat digunakan untuk memasukan atau merubah jadwal dosen. Dapat dilihat pada gambar \ref{fig:EntriJadwalDosen} terdapat sebuah fitur untuk melakukan \textit{expor ke xls}. Dari laporan pengguna fitur tersebut akan menghasilkan file \texttt{.xls} yang \textit{corrupt}. 
+
+Fitur tersebut akan dikerjakan dan diperbaiki. Tetapi \textit{error} file \textit{corrupt} tidak dapat direproduksi setelah melakukan \textit{update} pada \ref{sub:update google api} dan melakukan perubahan dari \textit{phpexcel} menjadi \textit{phpspreadsheet}. 
+
+\subsection{\textit{Update google api/phpspreadsheet}}
+\textit{Bluetape} saat ini menggunakan \textit{google/apiclient} 1.0 dan \textit{phpexcel}. Salah satu permintaan dari pengguna/pengurus \textit{bluetape} untuk merubah \textit{google/apiclient} 1.0 menjadi \textit{google/apiclient} 2.4.0 dan \textit{phpexcel} menjadi \textit{phpspreadsheet} v1.11.0. 
+
+Fitur ini akan dikerjakan dan solusi yang ditawarkan untuk \textit{issue} ini adalah merubah \texttt{composer.json} dan melakukan \texttt{composer update}.
+\label{sub:update google api}
+
+\subsection{Fitur \textit{chart} pada ManajemenCetakTranskrip}
+\subsection{Fitur \textit{chart} pada ManajemenPerubahanKuliah}
+\subsection{Mahasiswa dengan NPM Baru Tidak Dapat \textit{Login} dan LihatJadwalDosen}
+\subsection{Kolom pada EntriJadwalDosen dan LihatJadwalDosen Tidak Seragam} 
+Pada halaman \texttt{EntriJadwalDosen} dan \texttt{LihatJadwalDosen} terdapat tabel seperti pada gambar \ref{fig:EntriJadwalDosen}. Ukuran tabel tersebut dapat berubah sesuai dengan ukuran tulisan di dalamnya sehingga kolom dengan tulisan yang banyak tidak seragam dengan kolom yang tulisannya sedikit.
+
+Fitur ini akan diimplementasi. Solusi yang ditawarkan adalah dengan memasang \textit{fixed width} pada setiap kolom.
+
+\subsection{Fungsi tab pada LihatJadwalDosen tidak berfungsi}
+\subsection{Pengelompokkan Rekap Perubahan Jadwal pada Mata Kuliah yang Sama}
+\subsection{Menyediakan forum Q\&A pada \textit{bluetape}}
+\subsection{\textit{Scheduling} Matakuliah pada \textit{googlemeet/zoom}}
+\textit{Issue} ini meminta agar \textit{bluetape} melakukan \textit{auto include} jadwal kuliah ke calendar, lalu \textit{autocreate} jadwal kuliah berdasarkan jadwal tersebut di \textit{zoom/meet} selama 1 semester, dan \textit{Request} jadwal bertemu dari mahasiswa kepada dosen pembimbing, kemudian \textit{auto schedule zoom/meet}.
+
+Fitur ini tidak akan diimplementasi pada skripsi ini, karena permintaan tersebut masuk ke dalam ranah Biro Teknologi Informasi (BTI) dan saat ini \textit{bluetape} tidak memiliki kemampuan untuk integrasi jadwal kuliah dari BTI.
+
+\subsection{Mengubah atau Membatalkan Permohonan}
+\subsection{Menambahkan Jam Kuliah Selesai di Perubahan Kelas}
+
+\subsection{Memperbaiki \textit{form} dan \textit{link} yang Tidak Aktif}
+Masukan ini meminta perbaikan terhadap fitur yang ada: 
+\begin{itemize}
+	\item \textit{form} atau link seperti no surat, daftar ruang, dan peraturan terus diupdate.
+	\item Dibuat lebih sistematis karena tampilannya tidak seragam.
+	\item Dibuat lebih interaktif seperti peminjaman ruang.
+\end{itemize}   
+
+Masukan ini tidak akan diimplementasi, karena sepertinya fitur tersebut di luar sistem \textit{bluetape}. Seperti no surat, daftar ruang, dan peraturan.
+
+\subsection{Mengintegrasi \textit{bluetape} dengan SSO UNPAR}
+Masukan ini meminta fitur tambahan agar \textit{bluetape} terintegrasi secara penuh dengan \textit{studentportal}\footnote{\url{https://studentportal.unpar.ac.id/}}. Sehingga \textit{bluetape} dapat diakses lewat \textit{studentportal} dan \textit{bluetape} dapat \textit{login} menggunakan SSO.
+
+Fitur masukan ini tidak akan diimplementasi karena diperlukan koordinasi yang kuat dengan BTI dan \textit{Bluetape} untuk sementara ini tidak diperuntukan untuk pengguna diluar FTIS.
+
+\subsection{Menambah \textit{list} Permintaan pada \textit{Bluetape}}
+Masukan ini meminta agar \textit{bluetape} menambah \textit{list} permintaan. Masukan ini tidak dikerjakan karena pengguna tersebut kurang spesifik dalam menjelaskan kebutuhannya.
+
+\subsection{Pengajuan surat keterangan aktif kuliah secara online}
+\subsection{Dapat melihat profil }
 
 \section{Bluetape}
 
