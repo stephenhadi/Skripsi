@@ -395,7 +395,7 @@ Variabel \textit{\$spreadsheet} adalah kelas \texttt{Spreadsheet}, \textit{metho
 	\end{itemize}
 	\textit{Return}: Kelas \texttt{RowDimension}.
 	\item \texttt{getColumnDimension(\$pColumn:string [, \$create : bool = true ])} \\
-	Mengambil dimensi kolom pada kolom tertentu
+	Mengambil dimensi kolom pada kolom tertentu. \\
 	\textit{Parameter}:
 	\begin{itemize}
 		\item \texttt{\$pColumn}: String dari kolom, contoh: 'A'.
@@ -533,7 +533,7 @@ Pemasangan dilakukan dengan cara mengunduh \textit{compiled css and jss} yang di
 Pemasangan \textit{bootstrap} memerlukan \textit{import} file \textit{css dan js} dari \textit{compiled bootstrap} yang telah diunduh.
 
 \subsection{Container}
-Kelas \texttt{Container} adalah kelas yang dibutuhkan jika ingin menggunakan \textit{bootstrap} grid. Kelas \texttt{Container} adalah kelas \textit{responsive} dan \textit{fixed-width}.
+Kelas \texttt{container} adalah kelas yang dibutuhkan jika ingin menggunakan \textit{bootstrap} grid. Kelas \texttt{container} adalah kelas \textit{responsive} dan \textit{fixed-width}.
 \begin{lstlisting}
 <div class="container"></div>
 \end{lstlisting}
@@ -585,8 +585,43 @@ Kelas \texttt{table} adalah kelas yang membantu pembuatan \textit{table}. Tambah
 	\end{lstlisting} 
 \end{itemize}
 \subsection{Pagination}
+\textit{Pagination} dibuat menggunakan \texttt{HTML list} yang berada didalam \texttt{<nav>} untuk mengidentifikasikan \textit{pagination} sebagai bagian navigasi kepada pengguna. Bantuan pendukung yang disediakan oleh \textit{bootstrap}:
+
+\begin{itemize}
+	\item \texttt{aria-label} \\
+	\texttt{aria-label} adalah suatu elemen tambahan yang berguna untuk deskripsi dari navigasi tersebut.
+	\item \texttt{active} \\
+	Kelas \texttt{active} digunakan untuk menandakan posisi halaman saat ini.
+	\item \texttt{disabled} \\
+	Kelas \texttt{disabled} digunakan untuk menonaktifkan suatu \textit{link}. Karena \textit{CSS} untuk kelas tersebut tidak memperhitungkan navigasi dari keyboard sehingga harus ditambahkan \texttt{tabindex="-1"}. 
+	\item \texttt{page-item} \\
+	Kelas yang menandakan sebuah \textit{page item} dan ditaruh pada \textit{tag} \texttt{<li>}.
+	\item \texttt{page-link} \\	
+	Kelas yang menandakan sebuah \textit{item link} dan ditaruh pada \textit{tag} \texttt{<a>}.
+	
+\end{itemize}
+Contoh penggunaan dari \textit{pagination}:
+	\begin{lstlisting}
+<nav aria-label="example">
+	<ul class="pagination">
+		<li class="page-item disabled">
+			<a class="page-link" href="#" tabindex="-1">1</a>
+		</li>
+		<li class="page-item">
+			<a class="page-link" href="#">2</a>
+		</li>
+		<li class="page-item">
+			<a class="page-link" href="#">3</a>
+		</li>
+	</ul>
+</nav>	
+\end{lstlisting}
+
+
+
+
 \subsection{Modal}
-\textit{Modal} dibuat dengan \textit{html, css, javascript}. \textit{Modal} akan merubah \textit{scroll} pada \texttt{<body>} sehingga sasaran \textit{scroll} hanya pada \textit{modal}. \textit{Modal} akan tertutup jika pengguna mengklik diluar modal. \textit{Modal} pada \textit{bootstrap} memiliki struktur yang \textit{static}, struktur \textit{modal}:
+\textit{Modal} dibuat dengan \textit{html, css, javascript}. \textit{Modal} akan merubah \textit{scroll} pada \texttt{<body>} sehingga sasaran \textit{scroll} hanya pada \textit{modal}. \textit{Modal} akan tertutup jika pengguna mengklik diluar modal. \textit{Modal} pada \textit{bootstrap} memiliki struktur yang sama, struktur \textit{modal}:
 
 \begin{lstlisting}
 <div class="modal" tabindex="-1" role="dialog">
@@ -602,6 +637,46 @@ Penggunaan \textit{modal} dapat dibuat menjadi lebih rapi dengan menambahkan  \t
 
 
 \subsection{Form}
+\textit{Bootstrap} menyediakan kelas yang dapat digunakan untuk menampilkan \textit{form} yang konsisten pada \textit{browser} ataupun \textit{smartphone}. Kelas kelas yang disediakan dan digunakan pada \textit{form}:
+\begin{itemize}
+	\item \texttt{form-control} \\
+	Kelas ini berfungsi untuk \textit{style, focus state}, dan \textit{sizing} untuk \textit{form input} yang bersifat teks. Seperti: \texttt{<input>},\texttt{<select>}, dan \texttt{textarea}.
+	
+	\item \texttt{readonly} \\
+	Elemen ini dapat dimasukkan pada \textit{input} untuk mencegah perubahan nilai dari \textit{input}.			
+	\begin{lstlisting}
+<input class="form-control" type="text"  readonly>	
+	\end{lstlisting}
+	
+	\item \texttt{form-group} \\
+	\textit{Form group} adalah kelas untuk menambah struktur pada \textit{form} dengan mengelompokkan \textit{label}, \textit{controls}, dan \textit{form validation message}. 
+	
+	\item \textit{Form grid} \\
+	Penggunaan kelas \textit{bootstrap form} juga dapat digabungkan dengan \textit{grid} pada \textit{bootstrap}, dengan menggunakan kelas \texttt{row}. seperti:
+\begin{lstlisting}
+<form>
+	<div class="row">
+		<div class="col">
+			<input type="text" class="form-control">
+		</div>
+		<div class="col">
+			<input type="text" class="form-control">
+		</div>
+	</div>
+</form>
+\end{lstlisting}
+Kode diatas akan menghasilkan \textit{form} dengan model grid seperti pada gambar \ref{fig:bootstrap-grid}.
+
+\item \texttt{col-form-label} \\ 
+Kelas \texttt{col-form-label} digunakan pada \textit{tag} \texttt{<label>} jika \textit{label} dan \textit{input} berada pada satu baris, sehingga antar \textit{label} menjadi sejajar secara vertikal, seperti pada gambar \ref{fig:horizontal-form}.
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{horizontal-form}  	
+	\caption[Gambar bootstrap-grid]{Gambar \textit{label form} yang sejajar.}
+	\label{fig:horizontal-form}  
+\end{figure}
+
+\end{itemize}
 
 \subsection{Navbar}
 
