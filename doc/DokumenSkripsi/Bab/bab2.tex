@@ -692,6 +692,30 @@ Kelas \texttt{col-form-label} digunakan pada \textit{tag} \texttt{<label>} jika 
 	\item \textit{Color scheme} \\
 	Penggunaan \textit{color scheme} dapat dilakukan dengan \texttt{navbar-dark} atau \texttt{navbar-light}. Penggunaan kelas ini harus diikuti dengan \texttt{navbar-expand}.
 	
+
+\end{itemize}
+
+\subsection{Nav}
+\textit{Nav} adalah komponen yang mengatur navigasi dengan memasukkan kelas \texttt{nav}. Kelas \texttt{nav} dibuat dengan \textit{flexbox} dan menjadi dasar untuk membuat berbagai macam navigasi. Kelas \texttt{nav} dapat ditaruh pada \textit{tag} \texttt{<nav>} atau \texttt{<ul>}. Komponen-komponen yang digunakan dari fungsi \textit{nav}:
+\begin{itemize}
+	\item \texttt{nav-tabs} \\
+	Penggunaan kelas \texttt{nav} dan ditambahkan \texttt{nav-tabs} akan menghasilkan navigasi seperti pada gambar \ref{fig:nav-tabs}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.7]{nav-tabs} 
+		\caption{Navigasi dari \texttt{nav-tabs}}
+		\label{fig:nav-tabs} 
+	\end{figure}
+
+	\item \texttt{tab-content} \\
+	Penggunaan kelas \texttt{tab-content} memerlukan \textit{bootstrap.js}. Kelas ini adalah kelas pembungkus dari sekumpulan konten yang dibagi berdasarkan navigasi. Dalam gambar \ref{fig:nav-tabs} adalah bagian yang berisi sekumpulan teks.
+	
+	\item \texttt{tab-pane} \\
+	Kelas \texttt{tab-pane} berada di dalam kelas \texttt{tab-content} yang membungkus isi konten. 
+	
+	\item \texttt{data-toggle} \\ 
+	Atribut \texttt{data-toggle} dipasang dengan nilai \texttt{data-toggle=``tab''} agar navigasi dapat diklik dan melakukan navigasi.
+	
 	\item \texttt{nav-item} \\
 	Kelas ini digunakan pada \textit{item} dari navigasi. Contoh penggunaan:
 	\begin{lstlisting}
@@ -704,6 +728,26 @@ Kelas \texttt{col-form-label} digunakan pada \textit{tag} \texttt{<label>} jika 
 <a class="nav-link">link</a>	
 	\end{lstlisting}
 \end{itemize}
+Struktur penggunaan kelas-kelas pada \textit{nav} secara dasar:
+\begin{lstlisting}
+<ul class="nav nav-tabs">
+	<li class="nav-item">
+		<a class="nav-link active" href="#" >Home</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link"  href="#">Profile</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link"   href="#">Contact</a>
+	</li>
+</ul>
+<div class="tab-content">
+	<div class="tab-pane">...</div>
+	<div class="tab-pane">...</div>
+	<div class="tab-pane">...</div>
+</div>
+\end{lstlisting}
+Penambahan atribut \texttt{data-toggle=``tab''} pada \textit{tag} \texttt{<a>}, memungkinkan navigasi dapat diklik. Kode diatas akan menghasilkan navigasi pada gambar \ref{fig:nav-tabs}.
 
 \section{JQuery}
 
