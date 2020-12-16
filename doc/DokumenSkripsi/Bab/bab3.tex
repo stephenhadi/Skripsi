@@ -30,18 +30,18 @@ Pengerjaan untuk menganalisis \textit{bluetape} dilakukan dengan melakukan surve
 	6 & \makecell[l]{Kolom pada EntriJadwalDosen dan \\ LihatJadwalDosen tidak seragam}  & \#6 & Akan diimplementasi &\ref{issue:6} \\ \hline
 	7 & Fungsi Tab pada LihatJadwalDosen tidak berfungsi & \#7 & Akan diimplementasi & \ref{issue:7}\\ \hline
 	8 & \makecell[l]{Pengelompokkan rekap perubahan jadwal\\ pada mata kuliah yang sama} & \#8 & & \ref{issue:8}\\ \hline
-	9 & Menyediakan forum Q\&A pada \textit{bluetape} & \#9 & & \ref{issue:9}\\ \hline
+	9 & Menyediakan forum Q\&A pada \textit{bluetape} & \#9 & Tidak diimplementasi & \ref{issue:9}\\ \hline
 	10 & \textit{Scheduling} matakuliah pada googlemeet/zoom & \#10 & Tidak diimplementasi & \ref{issue:10} \\ \hline
 	11 & Mengubah atau membatalkan permohonan & \#11 & Akan diimplementasi & \ref{issue:11} \\ \hline
 	12 & Menambahkan jam kuliah selesai di perubahan kelas & \#12 & Akan diimplementasi & \ref{issue:12} \\ \hline
 	13 & Memperbaiki form dan link yang tidak aktif & \#13 & Tidak diimplementasi & \ref{issue:13}\\ \hline
 	14 & Mengintegrasi \textit{bluetape} dengan SSO UNPAR & \#14 & Tidak diimplementasi & \ref{issue:14}\\ \hline
 	15 & Menambah list permintaan pada \textit{bluetape} & \#15 & Tidak diimplementasi & \ref{issue:15} \\ \hline
-	16 & Pengajuan surat keterangan aktif kuliah secara online & \#16 & & \ref{issue:16} \\ \hline
+	16 & Pengajuan surat keterangan aktif kuliah secara online & \#16 & Tidak diimplementasi & \ref{issue:16} \\ \hline
 	17 & \makecell[l]{Notifikasi email untuk mahasiswa \\ jika permintaan sudah diselesaikan} & \#17 & Akan diimplementasi &  \ref{issue:17}\\ \hline
 	18 & Dapat melihat profil mahasiswa & \#18 & Tidak diimplementasi & \ref{issue:18}\\ \hline
 	19 & Halaman histori dan request transkrip terpisah & \#19 & & \ref{issue:19}\\ \hline
-	20 & Fitur bahasa indonesia dan inggris & \#20 & & \ref{issue:20} \\ \hline
+	20 & Fitur bahasa indonesia dan inggris & \#20 & Tidak diimplementasi & \ref{issue:20} \\ \hline
 	21 & Pagination tidak terstyle dengan baik & \#22 & Akan diimplementasi & \ref{issue:22}\\ \hline
 	22 & Format Datetimepicker tidak konsisten &\#23 & Akan diimplementasi & \ref{issue:23}\\ \hline
 	
@@ -63,9 +63,9 @@ Pengerjaan untuk menganalisis \textit{bluetape} dilakukan dengan melakukan surve
 	\label{fig:EntriJadwalDosen} 
 \end{figure}
 
-Fitur ini terdapat pada halaman \texttt{EntriJadwalDosen} yang dapat digunakan untuk memasukan atau merubah jadwal dosen. Dapat dilihat pada gambar \ref{fig:EntriJadwalDosen} terdapat sebuah fitur untuk melakukan \textit{expor ke xls}. Dari laporan pengguna fitur tersebut akan menghasilkan file \texttt{.xls} yang \textit{corrupt}. 
+Fitur ini terdapat pada halaman \texttt{EntriJadwalDosen} yang dapat digunakan untuk memasukan atau merubah jadwal dosen. Dapat dilihat pada gambar \ref{fig:EntriJadwalDosen} terdapat sebuah fitur untuk melakukan \textit{expor ke xls}. Dari laporan pengguna, fitur tersebut akan menghasilkan file \texttt{.xls} \textit{corrupt}.
 
-Fitur tersebut akan dikerjakan. Tetapi \textit{error} file \textit{corrupt} tidak dapat direproduksi.
+Fitur tersebut akan dikerjakan. Tetapi \textit{error} file \textit{corrupt} tidak dapat direproduksi. Alamat \textit{issue} pada \textit{github}: \url{https://github.com/stephenhadi/BlueTape/issues/1}. 
 
 \subsection{\textit{Update google api/phpspreadsheet}}
 \label{issue:2}
@@ -79,6 +79,7 @@ Fitur ini akan dikerjakan dan solusi yang ditawarkan untuk \textit{issue} ini ad
 }
 \end{lstlisting}
 
+Alamat \textit{issue} pada \textit{github}: \url{https://github.com/stephenhadi/BlueTape/issues/2}. 
 \subsection{Fitur \textit{chart} pada ManajemenCetakTranskrip}
 \label{issue:3}
 
@@ -86,11 +87,15 @@ Fitur ini akan dikerjakan dan solusi yang ditawarkan untuk \textit{issue} ini ad
 \label{issue:4}
 \subsection{Mahasiswa dengan NPM Baru Tidak Dapat \textit{Login} dan LihatJadwalDosen}
 \label{issue:5}
+Mahasiswa dengan format NPM baru seperti: 2017730016 dan awalan 618 dapat \textit{login} tetapi tidak dapat melihat halaman \texttt{LihatJadwalDosen}. 
+
+Masukan ini akan diimplementasi, adapun solusi yang ditawarkan adalah merubah pengaturan hak akses pada \texttt{config/modules.php}. Alamat \textit{issue} pada \textit{github}: \url{https://github.com/stephenhadi/BlueTape/issues/5} 
+
 \subsection{Kolom pada EntriJadwalDosen dan LihatJadwalDosen Tidak Seragam}
 \label{issue:6} 
 Pada halaman \texttt{EntriJadwalDosen} dan \texttt{LihatJadwalDosen} terdapat tabel seperti pada gambar \ref{fig:EntriJadwalDosen}. Ukuran tabel tersebut dapat berubah sesuai dengan ukuran tulisan di dalamnya sehingga kolom dengan tulisan yang banyak tidak seragam dengan kolom yang tulisannya sedikit.
 
-Fitur ini akan diimplementasi. Solusi yang ditawarkan adalah dengan memasang \textit{fixed width} pada setiap kolom.
+Fitur ini akan diimplementasi. Solusi yang ditawarkan adalah dengan memasang \textit{fixed width} pada setiap kolom. Alamat \textit{issue} pada \textit{github}: \url{https://github.com/stephenhadi/BlueTape/issues/6} 
 
 \subsection{Fungsi tab pada LihatJadwalDosen tidak Berfungsi}
 \label{issue:7}
@@ -98,11 +103,15 @@ Fitur ini akan diimplementasi. Solusi yang ditawarkan adalah dengan memasang \te
 \label{issue:8}
 \subsection{Menyediakan Forum Q\&A pada \textit{Bluetape}}
 \label{issue:9}
+Masukan pengguna meminta \textit{bluetape} menyediakan tempat forum untuk bertanya antar mahasiswa dan pihak tata usaha. Pada masa daring saat ini ketika semua informasi disampaikan melalui media digital, mahasiswa banyak kontak via email dan akhirnya menumpuk. Pengguna meminta untuk dibuat forum portal kecil untuk bidang akademik.
+
+Masukan ini tidak akan diimplementasi pada skripsi ini, karena untuk forum sebaiknya menggunakan aplikasi pihak ketiga yang sudah matang dibanding membuat dari nol. Seperti: \textit{Microsoft Teams}\footnote{\url{https://www.microsoft.com/microsoft-365/microsoft-teams}},\textit{Slack}\footnote{\url{https://slack.com}} atau \textit{monday.com}\footnote{\url{https://monday.com/}}. Alamat \textit{issue} pada \textit{github}: \url{https://github.com/stephenhadi/BlueTape/issues/9} 
+
 \subsection{\textit{Scheduling} Matakuliah pada \textit{googlemeet/zoom}}
 \label{issue:10}
 \textit{Issue} ini meminta agar \textit{bluetape} melakukan \textit{auto include} jadwal kuliah ke calendar, lalu \textit{autocreate} jadwal kuliah berdasarkan jadwal tersebut di \textit{zoom/meet} selama 1 semester, dan \textit{Request} jadwal bertemu dari mahasiswa kepada dosen pembimbing, kemudian \textit{auto schedule zoom/meet}.
 
-Fitur ini tidak akan diimplementasi pada skripsi ini, karena permintaan tersebut masuk ke dalam ranah Biro Teknologi Informasi (BTI) dan saat ini \textit{bluetape} tidak memiliki kemampuan untuk integrasi jadwal kuliah dari BTI.
+Fitur ini tidak akan diimplementasi pada skripsi ini, karena permintaan tersebut masuk ke dalam ranah Biro Teknologi Informasi (BTI) dan saat ini \textit{bluetape} tidak memiliki kemampuan untuk integrasi jadwal kuliah dari BTI. Alamat \textit{issue} pada \textit{github}: \url{https://github.com/stephenhadi/BlueTape/issues/10} 
 
 \subsection{Mengubah atau Membatalkan Permohonan}
 \label{issue:11}
@@ -118,23 +127,23 @@ Masukan ini meminta perbaikan terhadap fitur yang ada:
 	\item Dibuat lebih interaktif seperti peminjaman ruang.
 \end{itemize}   
 
-Masukan ini tidak akan diimplementasi, karena sepertinya fitur tersebut di luar sistem \textit{bluetape}. Seperti no surat, daftar ruang, dan peraturan.
+Masukan ini tidak akan diimplementasi, karena sepertinya fitur tersebut di luar sistem \textit{bluetape}. Seperti no surat, daftar ruang, dan peraturan tidak terdapat pada \textit{bluetape}. Alamat \textit{issue} pada \textit{github}: \url{https://github.com/stephenhadi/BlueTape/issues/13} 
 
 \subsection{Mengintegrasi \textit{Bluetape} dengan SSO UNPAR}
 \label{issue:14}
 Masukan ini meminta fitur tambahan agar \textit{bluetape} terintegrasi secara penuh dengan \textit{studentportal}\footnote{\url{https://studentportal.unpar.ac.id/}}. Sehingga \textit{bluetape} dapat diakses lewat \textit{studentportal} dan \textit{bluetape} dapat \textit{login} menggunakan SSO.
 
-Fitur masukan ini tidak akan diimplementasi karena diperlukan koordinasi yang kuat dengan BTI dan \textit{Bluetape} untuk sementara ini tidak diperuntukan untuk pengguna diluar FTIS.
+Fitur masukan ini tidak akan diimplementasi karena diperlukan koordinasi yang kuat dengan BTI dan \textit{Bluetape} untuk sekarang ini tidak diperuntukan untuk pengguna diluar FTIS. Alamat \textit{issue} pada \textit{github}: \url{https://github.com/stephenhadi/BlueTape/issues/14} 
 
 \subsection{Menambah \textit{List} Permintaan pada \textit{Bluetape}}
 \label{issue:15}
-Masukan ini meminta agar \textit{bluetape} menambah \textit{list} permintaan. Masukan ini tidak dikerjakan karena pengguna tersebut kurang spesifik dalam menjelaskan kebutuhannya.
+Masukan ini meminta agar \textit{bluetape} menambah \textit{list} permintaan. Masukan ini tidak dikerjakan karena pengguna tersebut kurang spesifik dalam menjelaskan kebutuhannya. Alamat \textit{issue} pada \textit{github}: \url{https://github.com/stephenhadi/BlueTape/issues/15} 
 
 \subsection{Pengajuan Surat Keterangan Aktif Kuliah Secara Online}
 \label{issue:16}
 Fitur tambahan ini meminta agar \textit{bluetape} dapat melayani pengajuan surat keterangan aktif kuliah. Karena untuk mendapatkan surat keterangan aktif kuliah masih dilakukan secara manual.
 
-Fitur ini tidak akan diimplementasi pada skripsi ini dikarenakan waktu yang terbatas, fitur yang cukup banyak, dan juga harus koordinasi intensif dengan tata usaha dan kepala sub bagian kemahasiswaan.
+Fitur ini tidak akan diimplementasi pada skripsi ini dikarenakan waktu yang terbatas, fitur yang cukup banyak, dan juga harus koordinasi intensif dengan tata usaha dan kepala sub bagian kemahasiswaan. Alamat \textit{issue} pada \textit{github}: \url{https://github.com/stephenhadi/BlueTape/issues/16} 
 
 \subsection{Notifikasi E-mail Terhadap Mahasiswa saat Permintaan Selesai}
 \label{issue:17}
@@ -146,7 +155,7 @@ Fitur tambahan ini meminta saat proses pengajuan telah dijawab atau ditolak oleh
 \label{issue:18}
 Salah satu masukan dari \textit{bluetape} adalah menginginkan seorang mahasiswa dapat melihat profil mahasiswa lain.
 
-Fitur ini tidak diimplementasi pada skripsi ini karena untuk saat ini \textit{bluetape} tidak terintegrasi dengan \textit{student/lecturer} portal.
+Fitur ini tidak diimplementasi pada skripsi ini karena untuk saat ini \textit{bluetape} tidak terintegrasi dengan \textit{student/lecturer} portal. Alamat \textit{issue} pada \textit{github}: \url{https://github.com/stephenhadi/BlueTape/issues/18} 
 
 \subsection{Halaman Histori dan Request Transkrip Terpisah}
 \label{issue:19}
@@ -154,7 +163,7 @@ Fitur ini tidak diimplementasi pada skripsi ini karena untuk saat ini \textit{bl
 \label{issue:20}
 Permintaan dari pengguna adalah fitur bahasa Indonesia dan bahasa Inggris. Setelah ditanyakan kejelasan dari permintaan ini, yang dimaksudkan pengguna adalah ``Jika dibutuhkan untuk transkrip nilai dalam bahasa Inggris, dulu ada pilihannya tetapi hasil transkrip tetap bahasa Indonesia''.
 
-Fitur ini tidak diimplementasi karena fitur transkrip nilai dalam bahasa Inggris diminta untuk dihapus oleh tata usaha.
+Fitur ini tidak diimplementasi karena fitur transkrip nilai dalam bahasa Inggris yang awal diminta untuk dihapus oleh tata usaha. Alamat \textit{issue} pada \textit{github}: \url{https://github.com/stephenhadi/BlueTape/issues/20} 
 \subsection{Pagination tidak Ter-\textit{style} dengan baik}
 \label{issue:22}
 \subsection{Format Datetimepicker tidak Konsisten}
