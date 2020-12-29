@@ -22,13 +22,13 @@ Pengerjaan untuk menganalisis \textit{bluetape} dilakukan dengan melakukan surve
 	\begin{tabular}{|l|l|l|l|l|}
 	\hline
 	No & Deskripsi & \textit{Issue Number}  & Status & Analisis \\ \hline
-	1 & \makecell[l]{Fitur "Expor ke XLS" pada menu \\ EntriJadwalDosen  menghasilkan file \textit{corrupt}} & \#1  & Akan diimplementasi & \ref{issue:1}\\ \hline
+	1 & \makecell[l]{Fitur "Expor ke XLS" pada menu \\ entri jadwal dosen  menghasilkan file \textit{corrupt}} & \#1  & Akan diimplementasi & \ref{issue:1}\\ \hline
 	2 & \textit{Update google api / phpspreadsheet}  & \#2  & Akan diimplementasi & \ref{issue:2}\\ \hline
-	3 & Fitur \textit{chart} pada ManajemenCetakTranskrip & \#3  & Akan diimplementasi & \ref{issue:3} \\ \hline
-	4 & Fitur \textit{chart} pada ManajemenPerubahanKuliah & \#4  & Akan diimplementasi & \ref{issue:4}\\ \hline
-	5 & \makecell[l]{Mahasiswa dengan NPM baru \\ tidak dapat login dan LihatJadwalDosen} & \#5  & Akan diimplementasi & \ref{issue:5}\\ \hline
-	6 & \makecell[l]{Kolom pada EntriJadwalDosen dan \\ LihatJadwalDosen tidak seragam}  & \#6 & Akan diimplementasi &\ref{issue:6} \\ \hline
-	7 & Fungsi Tab pada LihatJadwalDosen tidak berfungsi & \#7 & Akan diimplementasi & \ref{issue:7}\\ \hline
+	3 & Fitur \textit{chart} pada manajemen cetak transkrip & \#3  & Akan diimplementasi & \ref{issue:3} \\ \hline
+	4 & Fitur \textit{chart} pada manajemen perubahan kuliah & \#4  & Akan diimplementasi & \ref{issue:4}\\ \hline
+	5 & \makecell[l]{Mahasiswa dengan NPM baru \\ tidak dapat login dan lihat jadwal dosen} & \#5  & Akan diimplementasi & \ref{issue:5}\\ \hline
+	6 & \makecell[l]{Kolom pada entri jadwal dosen dan \\ lihat jadwal dosen tidak seragam}  & \#6 & Akan diimplementasi &\ref{issue:6} \\ \hline
+	7 & Fungsi Tab pada lihat jadwal dosen tidak berfungsi & \#7 & Akan diimplementasi & \ref{issue:7}\\ \hline
 	8 & \makecell[l]{Pengelompokkan rekap perubahan jadwal\\ pada mata kuliah yang sama} & \#8 & & \ref{issue:8}\\ \hline
 	9 & Menyediakan forum Q\&A pada \textit{bluetape} & \#9 & Tidak diimplementasi & \ref{issue:9}\\ \hline
 	10 & \textit{Scheduling} matakuliah pada googlemeet/zoom & \#10 & Tidak diimplementasi & \ref{issue:10} \\ \hline
@@ -51,7 +51,7 @@ Pengerjaan untuk menganalisis \textit{bluetape} dilakukan dengan melakukan surve
 \end{table}
 
 
-\textit{feedback} dari pengguna Pada tabel \ref{tab:analisis pengguna} selanjutnya dibuat menjadi \textit{issues} pada \textit{github}\footnote{\url{https://github.com/stephenhadi/BlueTape/issues}}. \textit{Feedback} dari pengguna selanjutnya akan dianalisa apakah akan diimplementasi berdasarkan jumlah fitur yang dibutuhkan dan waktu pengerjaan.
+\textit{feedback} dari pengguna Pada tabel \ref{tab:analisis pengguna} selanjutnya dibuat menjadi \textit{issues} pada \textit{github}\footnote{\url{https://github.com/stephenhadi/BlueTape/issues}}. \textit{Feedback} dari pengguna selanjutnya akan dianalisa apakah akan diimplementasi berdasarkan jumlah fitur yang dibutuhkan agar feedback tersebut dapat berjalan dan waktu pengerjaan.
 
 
 \subsection{Fitur "Expor ke XLS" pada Menu EntriJadwalDosen Menghasilkan File  \textit{Corrupt}}
@@ -80,16 +80,23 @@ Fitur ini akan dikerjakan dan solusi yang ditawarkan untuk \textit{issue} ini ad
 \end{lstlisting}
 
 Alamat \textit{issue} pada \textit{github}: \url{https://github.com/stephenhadi/BlueTape/issues/2}. 
-\subsection{Fitur \textit{chart} pada ManajemenCetakTranskrip}
+\subsection{Fitur \textit{chart} pada Manajemen Cetak Transkrip}
 \label{issue:3}
+Pada halaman \texttt{ManajemenCetakTranskrip} terdapat \textit{feedback} untuk mengimplementasi sebuah \textit{chart} untuk melihat perbandingan transkrip yang tercetak dan ditolak. \textit{Issue} ini juga meminta agar dapat dibagi berdasarkan tahun, rekap per hari dalam minggu, rekap per jam.
 
-\subsection{Fitur \textit{chart} pada ManajemenPerubahanKuliah}
+Fitur ini akan diimplementasi dan solusi yang ditawarkan adalah dengan menggunakan \textit{library} \textit{chart.js}\footnote{\label{ft:chartjs}\url{https://www.chartjs.org/}}. Alamat \textit{issue} pada \textit{github}: \url{https://github.com/stephenhadi/BlueTape/issues/3}.
+
+\subsection{Fitur \textit{chart} pada Manajemen Perubahan Kuliah}
 \label{issue:4}
+Pada halaman \texttt{ManajemenPerubahanKuliah} terdapat \textit{feedback} untuk mengimplementasi sebuah \textit{chart} untuk melihat perbandingan jenis perubahan kuliah yaitu: diganti, ditadakan, dan tambahan. \textit{Issue} ini juga meminta agar dibagi berdasarkan tahun, rekap per hari dalam minggu, rekap per jam.
+
+Fitur ini akan diimplementasi dan solusi yang ditawarkan adalah dengan menggunakan \textit{library} \textit{chart.js}\textsuperscript{\ref{ft:chartjs}}. Alamat \textit{issue} pada \textit{github}: \url{https://github.com/stephenhadi/BlueTape/issues/4}.
+
 \subsection{Mahasiswa dengan NPM Baru Tidak Dapat \textit{Login} dan LihatJadwalDosen}
 \label{issue:5}
 Mahasiswa dengan format NPM baru seperti: 2017730016 dan awalan 618 dapat \textit{login} tetapi tidak dapat melihat halaman \texttt{LihatJadwalDosen}. 
 
-Masukan ini akan diimplementasi, adapun solusi yang ditawarkan adalah merubah pengaturan hak akses pada \texttt{config/modules.php}. Alamat \textit{issue} pada \textit{github}: \url{https://github.com/stephenhadi/BlueTape/issues/5} 
+Masukan ini akan diimplementasi, adapun solusi yang ditawarkan adalah merubah {peng\-a\-turan} hak akses pada \texttt{config/modules.php}. Alamat \textit{issue} pada \textit{github}: \url{https://github.com/stephenhadi/BlueTape/issues/5} 
 
 \subsection{Kolom pada EntriJadwalDosen dan LihatJadwalDosen Tidak Seragam}
 \label{issue:6} 
@@ -103,7 +110,7 @@ Fitur ini akan diimplementasi. Solusi yang ditawarkan adalah dengan memasang \te
 \label{issue:8}
 \subsection{Menyediakan Forum Q\&A pada \textit{Bluetape}}
 \label{issue:9}
-Masukan pengguna meminta \textit{bluetape} menyediakan tempat forum untuk bertanya antar mahasiswa dan pihak tata usaha. Pada masa daring saat ini ketika semua informasi disampaikan melalui media digital, mahasiswa banyak kontak via email dan akhirnya menumpuk. Pengguna meminta untuk dibuat forum portal kecil untuk bidang akademik.
+Masukan pengguna meminta \textit{bluetape} menyediakan tempat forum untuk bertanya antar mahasiswa dan pihak tata usaha. \textit{Feedback} dari pengguna: ``Pada masa daring saat ini ketika semua informasi disampaikan melalui media digital, mahasiswa banyak kontak via email dan akhirnya menumpuk''.  Pengguna meminta untuk dibuat portal kecil untuk \textit{Q\&A} dalam ranah akademik.
 
 Masukan ini tidak akan diimplementasi pada skripsi ini, karena untuk forum sebaiknya menggunakan aplikasi pihak ketiga yang sudah matang dibanding membuat dari nol. Seperti: \textit{Microsoft Teams}\footnote{\url{https://www.microsoft.com/microsoft-365/microsoft-teams}},\textit{Slack}\footnote{\url{https://slack.com}} atau \textit{monday.com}\footnote{\url{https://monday.com/}}. Alamat \textit{issue} pada \textit{github}: \url{https://github.com/stephenhadi/BlueTape/issues/9} 
 

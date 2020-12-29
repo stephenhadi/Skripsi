@@ -21,7 +21,7 @@ Pada bab ini akan berisi landasan-landasan teori yang dipakai pada penelitian in
 \label{sec:codeigniter}
 
 
-CodeIgniter\cite{codeigniter3} adalah \textit{framework} untuk pembuat website yang menggunakan \textit{PHP}. \textit{CodeIgniter} mempermudah \textit{developer} untuk meminimalisir penggunaan kode untuk mengakses suatu fungsi. Seperti untuk mengambil data pada \textit{database}, mengakses file \textit{php} lainnya. Penggunaan \textit{framework CodeIgniter} juga mudah.\textit{ Developer} tidak perlu melakukan banyak konfigurasi--konfigurasi saat melakukan \textit{setup}.\textit{CodeIgniter} juga memberikan dokumentasi yang lengkap. Permasalahan \textit{routing}  sudah diselesaikan oleh \textit{framework} ini. \textit{ Framework} ini secara otomatis akan mengarah ke file dalam \textit{directory controllers} sesuai dengan \textit{path-abempty} pada \textit{URI}  dan menjalankan \textit{method} \texttt{index()}.
+\textit{CodeIgniter}\cite{codeigniter3} adalah \textit{framework} untuk pembuatan \textit{website} yang menggunakan \textit{PHP}. \textit{CodeIgniter} mempermudah \textit{developer} untuk meminimalisir penggunaan kode untuk mengakses suatu fungsi. Seperti untuk mengambil data pada \textit{database}, mengakses file \textit{php} lainnya. Penggunaan \textit{framework CodeIgniter} juga mudah.\textit{ Developer} tidak perlu melakukan banyak konfigurasi--konfigurasi saat melakukan \textit{setup}. \textit{CodeIgniter} juga memberikan dokumentasi yang lengkap. Permasalahan \textit{routing}  sudah diselesaikan oleh \textit{framework} ini, \textit{framework} ini secara otomatis akan mengarah ke file dalam direktori \textit{controllers} sesuai dengan \textit{path-abempty} pada \textit{URI}  dan menjalankan \textit{method} \texttt{index()}.
 
 
 \begin{figure}[H]
@@ -32,18 +32,17 @@ CodeIgniter\cite{codeigniter3} adalah \textit{framework} untuk pembuat website y
 \end{figure}
 
 
-\textit{CodeIgniter} menerapkan arsitektur \textit{MVC} yang dapat dilihat pada gambar \ref{fig:appflowchart}, file \texttt{index.php} berfungsi mengatur routing dan mengarahkan ke \textit{application controller} yang berada di \textit{directory controller} dan melalui \textit{controller} akan dipanggil \textit{models, libraries, helpers, etc} yang dibutuhkan dengan perintah \texttt{\$this->load-><<apa\_yang\_mau\_diload>>(\lq<<nama\_file>>\rq)}. Masukan akan diolah melalui \textit{models} dan hasil yang sudah siap akan dikirim ke \textit{view} melalui \textit{controller}. Fitur tambahan dari arsitektur \textit{CodeIgniter} adalah saat \textit{router} memeriksa \textit{HTTP request} jika \textit{cache} tersedia maka akan dikirimkan \textit{cache} tersebut dan jika tidak ada \textit{cache} maka \textit{security} akan memeriksa dan melakukan filter terhadap \textit{HTTP request} seperti pada gambar \ref{fig:appflowchart}. 
+\textit{CodeIgniter} menerapkan arsitektur \textit{MVC} yang dapat dilihat pada gambar \ref{fig:appflowchart}, file \texttt{index.php} berfungsi mengatur routing dan mengarahkan ke \textit{application controller} yang berada di direktori \textit{controller} dan melalui \textit{controller} akan dipanggil \textit{models, libraries, helpers, etc} yang dibutuhkan dengan perintah \texttt{\$this->load}. \textit{MVC} secara umum akan mengolah data pada \textit{models} dan hasil yang sudah siap akan dikirim ke \textit{view} melalui \textit{controller}. Fitur tambahan dari arsitektur \textit{CodeIgniter} adalah saat \textit{router} memeriksa \textit{HTTP request}, jika \textit{cache} tersedia maka akan dikirimkan \textit{cache} tersebut dan jika tidak ada \textit{cache} maka \textit{security} akan memeriksa dan melakukan filter terhadap \textit{HTTP request} seperti pada gambar \ref{fig:appflowchart}. 
 
 \subsection{Controller}
 
-\textit{Controller} adalah pusat dari aplikasi, \textit{controller} menangani apa yang harus dilakukan dari \textit{HTTP request}. Dalam CodeIgniter untuk menginisiasi \textit{controller} cukup menulis nama kelas diikuti dengan \texttt{extends CI\_Controller}.
+\textit{Controller} adalah pusat dari aplikasi, \textit{controller} menangani apa yang harus dilakukan dari \textit{HTTP request}. Dalam \textit{CodeIgniter} untuk menginisiasi \textit{controller} cukup menulis nama kelas diikuti dengan \texttt{extends CI\_Controller}.
 
 \textit{CodeIgniter} secara otomatis akan menjalankan \textit{method} \texttt{index()} jika tidak diperintahkan untuk menjalankan \textit{method} tertentu. Untuk menjalankan \textit{method} lain hanya perlu ditambahkan \textit{path-abempty} seperti  \texttt{example.com/index.php/Welcome/<<nama\_method>>}.
-fungsi diatas akan mengembalikan file \textit{welcome\_message.php} pada direktori \textit{view}. Developer dapat menaruh parameter pada \textit{view} tersebut.
 
 \begin{lstlisting}
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined(`BASEPATH') OR exit(`No direct script access allowed');
 	
 class Welcome extends CI_Controller {
 	
@@ -56,14 +55,14 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		$t = "hello";
-		$this->load->view('welcome_message',array(
-		't' => $t));
+		$this->load->view(`welcome_message',array(
+		`t' => $t));
 	}
 }
 \end{lstlisting}
 
 
-Fungsi \textit{constructor} yang dijalankan pada \textit{codeigniter} harus memanggil \texttt{parent::construct()}. Dalam contoh diatas juga dapat dilakukan \textit{load model} dan \textit{database}. File \textit{model} akan berada di direktori \textit{model} sedangkan untuk \texttt{\$this->load->database()} akan melakukan \textit{load} pada \textit{database} menggunakan parameter yang ada di direktori \texttt{/config/database.php}. Begitu juga dengan kebutuhan--kebutuhan lainnya dapat dilakukan dengan \textit{method} \texttt{\$this->load}.
+Dalam contoh diatas dilakukan \textit{load model} dan \textit{database}. File \textit{model} akan berada di direktori \textit{model} sedangkan untuk \texttt{\$this->load->database()} akan melakukan \textit{load} pada \textit{database} menggunakan parameter yang ada pada direktori \texttt{/config/database.php}. 
 
 
 \subsection{Model}
@@ -76,7 +75,7 @@ class Blog_model extends CI_Model {
 	
 	public function get_last_ten_entries()
 	{
-		$query = $this->db->get('entries', 10);
+		$query = $this->db->get(`entries', 10);
 		return $query->result();
 	}
 }
@@ -87,16 +86,16 @@ untuk mengambil semua nilai dari tabel tersebut. Untuk dapat mengakses \textit{d
 
 \begin{lstlisting}
 		
-$config['hostname'] = 'localhost';
-$config['username'] = 'myusername';
-$config['password'] = 'mypassword';
-$config['database'] = 'mydatabase';
-$config['dbdriver'] = 'mysqli';
-$config['dbprefix'] = '';
-$config['pconnect'] = FALSE;
-$config['db_debug'] = TRUE;
+$config[`hostname'] = `localhost';
+$config[`username'] = `myusername';
+$config[`password'] = `mypassword';
+$config[`database'] = `mydatabase';
+$config[`dbdriver'] = `mysqli';
+$config[`dbprefix'] = `';
+$config[`pconnect'] = FALSE;
+$config[`db_debug'] = TRUE;
 
-$this->load->model('model_name', '', $config);
+$this->load->model(`model_name', `', $config);
 \end{lstlisting}
 
 File \texttt{database.php} diatas menyimpan kredensial dari \textit{database} yang digunakan. Mulai dari \textit{hostname, username, password dll}.
@@ -105,14 +104,14 @@ File \texttt{database.php} diatas menyimpan kredensial dari \textit{database} ya
 
 
 \textit{View} tidak pernah dipanggil secara langsung, \textit{view} harus dipanggil melalui \textit{controller}\cite{codeigniter3}.
-\textit{View} pada \textit{CodeIgniter} ditaruh pada direktori \textit{view}. Pemanggilan \textit{view} menggunakan \textit{method} \texttt{\$this->load->view('nama\_view')}. Jika \textit{controller} ingin mengirimkan data kepada \textit{view} maka perlu dilakukan: 
+\textit{View} pada \textit{CodeIgniter} ditaruh pada direktori \textit{view}. Pemanggilan \textit{view} menggunakan \textit{method} \texttt{\$this->load->view(`nama\_view')}. Jika \textit{controller} ingin mengirimkan data kepada \textit{view} maka perlu dilakukan: 
 
 \begin{lstlisting}
 $t = "hello";
-$this->load->view('welcome_message',array('t' => $t));
+$this->load->view(`welcome_message',array(`t' => $t));
 \end{lstlisting}
 
-Selanjutnya untuk menampilkan data tersebut ke halaman pada \textit{view} dapat memanggil variabel \texttt{\$t}.
+Selanjutnya untuk menampilkan data tersebut ke halaman \textit{view}, dapat memanggil variabel \texttt{\$t}.
 
 
 \subsection{Kelas pada Code Igniter}
@@ -130,7 +129,7 @@ Selanjutnya untuk menampilkan data tersebut ke halaman pada \textit{view} dapat 
 	\end{itemize}
 	\textit{Return}: \texttt{CI\_Loader}.
 	\item \texttt{view(\$view [, \$vars = array() [, return=FALSE]])} \\
-	\textit{Method} ini berfungsi untuk \textit{load} file tampilan. \\
+	\textit{Method} ini berfungsi untuk \textit{load} file \textit{view}. \\
 	\textit{Parameter}:
 	\begin{itemize}
 		\item \texttt{\$view}(\textit{string}): Nama \textit{view}.
@@ -184,7 +183,7 @@ Selanjutnya untuk menampilkan data tersebut ke halaman pada \textit{view} dapat 
 \subsubsection{CI\_Email}
 \textit{CI\_Email} adalah kelas yang berfungsi untuk mempermudah pengiriman \textit{email} yang disediakan oleh \textit{codeigniter}. \textit{Load} kelas \textit{CI\_Email} dapat dilakukan dengan:
 \begin{lstlisting}
-$this->load->library('email');
+$this->load->library(`email');
 \end{lstlisting}
 Setelah \textit{load email library} , untuk menggunakan kelas \texttt{CI\_Email} diawali dengan \texttt{\$this->email}. \textit{Method} yang digunakan pada \textit{CI\_Email}:
 
@@ -210,7 +209,7 @@ Setelah \textit{load email library} , untuk menggunakan kelas \texttt{CI\_Email}
 	\textit{Return}: \texttt{CI\_Email}.
 	
 	\item \texttt{message(\$body)} \\
-	\textit{Method} ini digunakan memasang pesan. \\
+	\textit{Method} ini digunakan menulis isi pesan. \\
 	\textit{Parameter}: \texttt{\$body}(\textit{string}), \textit{email message body}. \\
 	\textit{Return}: \texttt{CI\_Email}.
 	
@@ -296,6 +295,7 @@ Kelas ini dapat digunakan untuk merubah struktur \textit{database} dengan terstr
 	\textit{Return}:void 
 	
 \end{itemize}
+\subsubsection{Database helper}
 
 \section{Phpspreadsheet}
 \label{section:phpspreadsheet}
@@ -361,21 +361,21 @@ Variabel \textit{\$spreadsheet} adalah kelas \texttt{Spreadsheet}, \textit{metho
 \begin{itemize}
 	\item \texttt{getStyle(\$pCellCoordinate:string)} \\ 
 	Mengembalikan kelas \texttt{Style}.\\
-	\textit{Parameter}: \texttt{\$pCellCoordinate} koordinat dari \textit{cell} atau \textit{range}, contoh : 'A1','A1:E1'.\\
+	\textit{Parameter}: \texttt{\$pCellCoordinate} koordinat dari \textit{cell} atau \textit{range}, contoh : `A1',`A1:E1'.\\
 	\textit{Return}: Kelas \texttt{Style}.
 	
 	\item \texttt{setCellValue(\$pCoordinate : string , \$pValue : mixed )}\\ 
 	Merubah suatu nilai pada \textit{cell} tertentu. \\ 
 	\textit{Parameter}:
 	\begin{itemize}
-		\item \texttt{\$pCoordinate}: Koordinat dari \textit{cell} contoh: 'A1'.
+		\item \texttt{\$pCoordinate}: Koordinat dari \textit{cell} contoh: `A1'.
 		\item \texttt{\$pValue}: Nilai baru dari \textit{cell} tersebut.
 	\end{itemize}
 	\textit{Return}: \texttt{\$this}.
 	
 	\item \texttt{mergeCells(\$pRange:string)} \\ 
 	Melakukan \textit{merge} pada \textit{cell}. \\ 
-	\textit{Parameter}: \texttt{\$pRange} \textit{cell range} yang ingin dilakukan \textit{merge}, contoh: 'A1:E1'. \\
+	\textit{Parameter}: \texttt{\$pRange} \textit{cell range} yang ingin dilakukan \textit{merge}, contoh: `A1:E1'. \\
 	\textit{Return}: \texttt{\$this}.
 	\item \texttt{setTitle(\$pValue:string [, \$updateFormulaCellReferences:bool = true ] [, \\ \$validate:bool:true ] )}\\
 	 Berfungsi untuk memberi judul pada \textit{sheet}. \\
@@ -398,7 +398,7 @@ Variabel \textit{\$spreadsheet} adalah kelas \texttt{Spreadsheet}, \textit{metho
 	Mengambil dimensi kolom pada kolom tertentu. \\
 	\textit{Parameter}:
 	\begin{itemize}
-		\item \texttt{\$pColumn}: String dari kolom, contoh: 'A'.
+		\item \texttt{\$pColumn}: String dari kolom, contoh: `A'.
 		\item \texttt{\$create}: Nilai \textit{default} adalah \textit{true}.
 	\end{itemize}
 	\textit{Return}: Kelas \texttt{ColumnDimension}.
@@ -407,7 +407,7 @@ Variabel \textit{\$spreadsheet} adalah kelas \texttt{Spreadsheet}, \textit{metho
 \subsubsection{Style}
 Kelas \textit{Style} adalah kelas yang mengatur \textit{style} dari suatu \textit{cell} seperti \textit{alignment}, \textit{fill},\textit{font} dll. Kelas \textit{Style} dapat diakses menggunakan:
 \begin{lstlisting}
-$worksheet->getStyle('A1');
+$worksheet->getStyle(`A1');
 \end{lstlisting}
 Variabel \textit{\$worksheet} adalah kelas \textit{Worksheet}, \textit{method} yang tersedia pada kelas \texttt{Style}:
 	\begin{itemize}
@@ -453,7 +453,7 @@ perintah tersebut digunakan untuk membuat file \texttt{composer.json} dan mengin
 
 \begin{lstlisting}
 <?php
-require 'vendor/autoload.php';
+require `vendor/autoload.php';
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 $spreadsheet = new Spreadsheet();
 \end{lstlisting}
@@ -485,7 +485,7 @@ $writer->save("05featuredemo.xls");
 Penggunaan fungsi \textit{write} dari \textit{phpspreadsheet} membutuhkan kelas \texttt{\textbackslash PhpOffice\textbackslash PhpSpread-\newline sheet\textbackslash Writer\textbackslash Xls()}. Kelas lain yang dapat digunakan untuk \textit{read}\&\textit{write} adalah \texttt{\textbackslash PhpOffice\textbackslash\\ PhpSpreadsheet\textbackslash IOFactory::createWriter(\$ spreadsheet, "Xls")}
 
 \section{Bootstrap}
-\textit{Bootstrap} adalah \textit{framework} paling terkenal untuk membuat \textit{site} yang \textit{mobile-first} dan \textit{res\-pon\-sive}\cite{bootstrap}.Dapat dilihat pada tabel \ref{tab:bootstrap mobile supported} dan tabel \ref{tab:bootstrap desktop supported}.  Hampir semua \textit{browser} pada \textit{desktop} dan \textit{mobile} dapat menjalankan \textit{bootstrap}.
+\textit{Bootstrap} adalah \textit{framework} paling terkenal untuk membuat \textit{site} yang \textit{mobile-first} dan \textit{res\-pon\-sive}\cite{bootstrap}. Dapat dilihat pada tabel \ref{tab:bootstrap mobile supported} dan tabel \ref{tab:bootstrap desktop supported}.  Hampir semua \textit{browser} pada \textit{desktop} dan \textit{mobile} dapat menjalankan \textit{bootstrap}.
 
 \begin{table}[H]
 	\centering
@@ -539,7 +539,7 @@ Kelas \texttt{container} adalah kelas yang dibutuhkan jika ingin menggunakan \te
 \end{lstlisting}
 
 \subsection{Grid} 
-\textit{Grid} pada \textit{bootstrap} digunakan untuk mengatur \textit{layout} dan \textit{alignment}. \textit{Row} adalah kelas \textit{wrapper} dari untuk kolom. Kelas \textit{col} akan secara otomatis membagi lebar horizontal dari layout menjadi sama dapat dilihat pada gambar \ref{fig:bootstrap-grid}. Sebagai contoh 4 \texttt{col} dalam satu \textit{wrapper} akan membagi lebar masing masing menjadi 25\%. Kelas \texttt{col} mempunyai jumlah maksimum sebanyak 12. Sehingga jika ingin membagi tiga kolom dengan lebar sama dapat menggunakan \texttt{col-4}.
+\textit{Grid} pada \textit{bootstrap} digunakan untuk mengatur \textit{layout} dan \textit{alignment}. \textit{Row} adalah kelas \textit{wrapper} untuk kolom. Kelas \textit{col} akan secara otomatis membagi lebar horizontal dari layout menjadi sama dapat dilihat pada gambar \ref{fig:bootstrap-grid}. Sebagai contoh 4 \texttt{col} dalam satu \textit{wrapper} akan membagi lebar masing masing menjadi 25\%. Kelas \texttt{row} mempunyai jumlah maksimum sebanyak 12. Sehingga jika ingin membagi tiga kolom dengan lebar sama dapat menggunakan \texttt{col-4}.
 \begin{lstlisting}
 <div class="container">
 	<div class="row">
@@ -593,7 +593,7 @@ Kelas \texttt{table} adalah kelas yang membantu pembuatan \textit{table}. Tambah
 	\item \texttt{active} \\
 	Kelas \texttt{active} digunakan untuk menandakan posisi halaman saat ini.
 	\item \texttt{disabled} \\
-	Kelas \texttt{disabled} digunakan untuk menonaktifkan suatu \textit{link}. Karena \textit{CSS} untuk kelas tersebut tidak memperhitungkan navigasi dari keyboard sehingga harus ditambahkan \texttt{tabindex="-1"}. 
+	Kelas \texttt{disabled} digunakan untuk menonaktifkan suatu \textit{link}.
 	\item \texttt{page-item} \\
 	Kelas yang menandakan sebuah \textit{page item} dan ditaruh pada \textit{tag} \texttt{<li>}.
 	\item \texttt{page-link} \\	
@@ -735,8 +735,16 @@ Kelas \texttt{col-form-label} digunakan pada \textit{tag} \texttt{<label>} jika 
 \subsection{Collapse}
 \subsection{Cards}
 
-\section{JQuery}
-\section{Chart}
+\section{Google OAuth 2.0}
+\textit{Google API} menggunakan \textit{OAuth 2.0 protocol}\footnote{\url{https://developers.google.com/identity/protocols/oauth2}} untuk melakukan autentikasi dan otorisasi. Untuk menggunakan \textit{OAuth 2.0} dari \textit{google} diperlukan untuk mendaftar pada \textit{google api console} untuk mendapatkan \textit{client credentials} yang dapat dibuat pada \url{https://console.developers.google.com/apis}. Setelah melakukan pembuatan \textit{project} maka di menu \textit{credentials} dapat dilakukan pembuatan \textit{OAuth client ID} seperti pada gambar \ref{fig:googleapi}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{googleapi} 
+	\caption{Tampilan \textit{credentials} pada \textit{google API}}
+	\label{fig:googleapi} 
+\end{figure}
+\section{Chart.js}
 
 
 
