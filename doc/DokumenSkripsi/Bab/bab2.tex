@@ -125,7 +125,7 @@ Selanjutnya untuk menampilkan data tersebut ke halaman \textit{view}, dapat mema
 	\begin{itemize}
 		\item \texttt{\$library}(\textit{mixed}): Nama \textit{library} dalam bentuk \textit{string}.
 		\item \texttt{\$params}(\textit{array}): Parameter tambahan dalam bentuk \textit{array}.
-		\item \texttt{\$object\_name}(\textit{string}): Parameter tambahan untuk merubah nama objek.
+		\item \texttt{\$object\_name}(\textit{string}): Parameter tambahan untuk mengubah nama objek.
 	\end{itemize}
 	\textit{Return}: \texttt{CI\_Loader}.
 	\item \texttt{view(\$view [, \$vars = array() [, return=FALSE]])} \\
@@ -244,7 +244,7 @@ Setelah \textit{load email library} , untuk menggunakan kelas \texttt{CI\_Email}
 	
 \end{itemize}
 \subsubsection{CI\_Migration}
-Kelas ini dapat digunakan untuk merubah struktur \textit{database} dengan terstruktur. Untuk menggunakan kelas ini diperlukan pembuatan kelas baru dengan \texttt{extends CI\_Migration}. \textit{Method} yang digunakan dari kelas ini:
+Kelas ini dapat digunakan untuk mengubah struktur \textit{database} dengan terstruktur. Untuk menggunakan kelas ini diperlukan pembuatan kelas baru dengan \texttt{extends CI\_Migration}. \textit{Method} yang digunakan dari kelas ini:
 
 \begin{itemize}
 	\item \texttt{latest()} \\
@@ -365,7 +365,7 @@ Variabel \textit{\$spreadsheet} adalah kelas \texttt{Spreadsheet}, \textit{metho
 	\textit{Return}: Kelas \texttt{Style}.
 	
 	\item \texttt{setCellValue(\$pCoordinate : string , \$pValue : mixed )}\\ 
-	Merubah suatu nilai pada \textit{cell} tertentu. \\ 
+	mengubah suatu nilai pada \textit{cell} tertentu. \\ 
 	\textit{Parameter}:
 	\begin{itemize}
 		\item \texttt{\$pCoordinate}: Koordinat dari \textit{cell} contoh: `A1'.
@@ -382,7 +382,7 @@ Variabel \textit{\$spreadsheet} adalah kelas \texttt{Spreadsheet}, \textit{metho
 	 \textit{Parameter}:
 	 \begin{itemize}
 	 	\item \texttt{\$pValue}: \textit{String} yang akan dijadikan nama judul.
-	 	\item \texttt{\$updateFormulaCellReferences}: \textit{Flag} untuk menentukan \textit{cell reference} pada \textit{formula} akan dirubah mengikuti judul baru. Direkomendasikan untuk tidak merubah nilai variabel ini.
+	 	\item \texttt{\$updateFormulaCellReferences}: \textit{Flag} untuk menentukan \textit{cell reference} pada \textit{formula} akan dirubah mengikuti judul baru. Direkomendasikan untuk tidak mengubah nilai variabel ini.
 	 	\item \texttt{\$validate}: Nilai asal adalah \textit{true}, pasang nilai \textit{false} untuk melewati validasi dari judul baru.
 	 \end{itemize}
  	\textit{Return}: \texttt{\$this}.
@@ -412,15 +412,15 @@ $worksheet->getStyle(`A1');
 Variabel \textit{\$worksheet} adalah kelas \textit{Worksheet}, \textit{method} yang tersedia pada kelas \texttt{Style}:
 	\begin{itemize}
 		\item \texttt{getFill()} \\
-		 Mengembalikan kelas \textit{Fill}. untuk merubah \textit{fill} pada suatu \textit{cell} dapat memanggil \texttt{set\-Fill\-Type()} pada kelas \textit{Fill}.	\\
+		 Mengembalikan kelas \textit{Fill}. untuk mengubah \textit{fill} pada suatu \textit{cell} dapat memanggil \texttt{set\-Fill\-Type()} pada kelas \textit{Fill}.	\\
 		 \textit{Parameter}: Tidak ada.
 		 \textit{Return}: Kelas \texttt{Fill}.
 		\item \texttt{getAlignment()} \\
-		 Mengembalikan kelas \textit{Alignment}, untuk merubah \textit{alignment} pada suatu \textit{cell} dapat memanggil \texttt{setHorizontal()} atau \texttt{setVertical()} pada kelas \textit{Alignment}. \\
+		 Mengembalikan kelas \textit{Alignment}, untuk mengubah \textit{alignment} pada suatu \textit{cell} dapat memanggil \texttt{setHorizontal()} atau \texttt{setVertical()} pada kelas \textit{Alignment}. \\
 		\textit{Parameter}: Tidak ada. \\
 		\textit{Return}: Kelas \texttt{Alignment}.
 		\item \texttt{getFont} \\
-		 Mengembalikan kelas \textit{Font}, untuk merubah penebalan kata dapat menggunakan \texttt{setBold()} dengan masukan \textit{boolean}. \\
+		 Mengembalikan kelas \textit{Font}, untuk mengubah penebalan kata dapat menggunakan \texttt{setBold()} dengan masukan \textit{boolean}. \\
 		\textit{Parameter}: Tidak ada. \\
 		\textit{Return}: Kelas \texttt{Font}.
 		
@@ -463,14 +463,14 @@ Penggunaan phpspreadsheet secara dasar membutuhkan perintah \texttt{use PhpOffic
 
 \subsection{Contoh Penulisan Nilai pada \textit{cell}}
 
-\textit{Phpspreadsheet} menyediakan suatu \textit{method} untuk dapat menaruh atau merubah \textit{value} pada cell tertentu
+\textit{Phpspreadsheet} menyediakan suatu \textit{method} untuk dapat menaruh atau mengubah \textit{value} pada cell tertentu
 
 \begin{lstlisting}
 $sheet = $spreadsheet->getActiveSheet();
 $sheet->setCellValue('A1', 'PhpSpreadsheet');
 \end{lstlisting}
 
- Fungsi diatas akan menulis \lq PhpSpreadsheet \rq pada kolom \lq A1 \rq . \textit{PhpSpreadsheet} memiliki \textit{method} untuk merubah nilai dari \textit{cell} tertentu dengan menggunakan \texttt{setCellValue('kolom','nilai')}.
+ Fungsi diatas akan menulis \lq PhpSpreadsheet \rq pada kolom \lq A1 \rq . \textit{PhpSpreadsheet} memiliki \textit{method} untuk mengubah nilai dari \textit{cell} tertentu dengan menggunakan \texttt{setCellValue('kolom','nilai')}.
 
 
 \subsection{Contoh Penulisan Spreadsheet ke Xls }
@@ -621,7 +621,7 @@ Contoh penggunaan dari \textit{pagination}:
 
 
 \subsection{Modal}
-\textit{Modal} dibuat dengan \textit{html, css, javascript}. \textit{Modal} akan merubah \textit{scroll} pada \texttt{<body>} sehingga sasaran \textit{scroll} hanya pada \textit{modal}. \textit{Modal} akan tertutup jika pengguna mengklik diluar modal. \textit{Modal} pada \textit{bootstrap} memiliki struktur yang sama, struktur \textit{modal}:
+\textit{Modal} dibuat dengan \textit{html, css, javascript}. \textit{Modal} akan mengubah \textit{scroll} pada \texttt{<body>} sehingga sasaran \textit{scroll} hanya pada \textit{modal}. \textit{Modal} akan tertutup jika pengguna mengklik diluar modal. \textit{Modal} pada \textit{bootstrap} memiliki struktur yang sama, struktur \textit{modal}:
 
 \begin{lstlisting}
 <div class="modal" tabindex="-1" role="dialog">
