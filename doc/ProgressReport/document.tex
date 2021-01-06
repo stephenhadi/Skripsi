@@ -1,4 +1,4 @@
-	\documentclass[a4paper,twoside]{article}
+\documentclass[a4paper,twoside]{article}
 \usepackage[T1]{fontenc}
 \usepackage[bahasa]{babel}
 \usepackage{graphicx}
@@ -12,6 +12,9 @@
 \setlength{\headsep}{30pt}
 \usepackage[inner=2cm,outer=2.5cm,top=2.5cm,bottom=2cm]{geometry} %margin
 % \pagestyle{empty}
+\usepackage[plainpages=false,pdfpagelabels,unicode]{hyperref}
+
+\hypersetup{unicode=true,colorlinks=true,linkcolor=blue,citecolor=green,filecolor=magenta, urlcolor=cyan}
 
 \makeatletter
 \renewcommand{\@maketitle} {\begin{center} {\LARGE \textbf{ \textsc{\@title}} \par} \bigskip {\large \textbf{\textsc{\@author}} }\end{center} }
@@ -66,76 +69,81 @@ Tipe Laporan : {\bf \tipePR} -
 		
 \section{Latar Belakang}
 
+ Berkembangnya FTIS UNPAR disertai dengan tersedianya semakin banyak matakuliah, dari perkembangan tersebut muncul permasalahan baru di bagian bidang administrasi. Jika dosen ingin meniadakan perkuliahan atau mengganti perkuliahan akan tidak efisien jika melakukan panggilan atau \textit{email} ke pihak tata usaha. Hal tersebut akan memberatkan pihak tata usaha. Mahasiswa yang ingin melakukan pengajuan transkrip akan membuang waktu dan tenaga, karena saat mahasiswa ingin melakukan pengajuan transkrip maka mahasiswa harus datang ke tata usaha melakukan pengajuan dan menunggu beberapa hari untuk mendapatkan hasil transkrip tersebut. Mahasiswa yang tidak memiliki perkuliahan pada hari tersebut harus datang hanya untuk melakukan pengajuan. Hal ini selain membuang waktu juga membuang biaya transportasi.
+
+
+\textit{Bluetape}\footnote{\label{ft:bluetape}\url{https://github.com/ftisunpar/BlueTape}} adalah aplikasi web yang dibuat oleh dosen dan mahasiswa informatika. Aplikasi ini dibuat menggunakan \textit{Hypertext Preprocessor} atau lebih dikenal dengan \textit{PHP}\footnote{\url{https://www.php.net/}}. \textit{Database management system} atau DBMS yang digunakan adalah \textit{MYSQL}\footnote{\url{https://www.mysql.com/}}.\textit{ Bluetape} menggunakan \textit{framework Bootstrap}\footnote{\url{https://getbootstrap.com/}} dan \textit{Codeigniter}\footnote{\url{https://codeigniter.com/}}. \textit{Bluetape} berguna untuk membantu kegiatan administrasi FTIS UNPAR. Aplikasi ini dapat melakukan \textit{transkrip request/manage} dan \textit{request perubahan kuliah/manage}. Sehingga jika dosen ingin meniadakan/mengganti perkuliahan dapat dilakukan dengan mudah tanpa harus membuat email ataupun melakukan panggilan. Mahasiswa dapat melakukan permintaan transkrip nilai tanpa tatap muka sehingga mahasiswa hanya perlu datang ke UNPAR saat ingin mengambil hasil dari transkrip tersebut, selain itu mahasiswa juga dapat melihat jadwal dosen. Dengan adanya sistem otomasi pada kegiatan administrasi tentunya pekerjaan tata usaha menjadi lebih ringan. 
+
+
+Aplikasi \textit{Bluetape} digunakan oleh mahasiswa FTIS, dosen ,dan tata usaha. Dari pengguna--pengguna tersebut tentu akan ada hal yang disukai dan hal yang tidak disukai. Seperti ada fitur yang bermasalah, ada fitur yang kurang atau hanya saran untuk fitur kedepannya yang akan memudahkan kegiatan administrasi dalam FTIS UNPAR. Dengan adanya masukan--masukan dari pengguna maka aplikasi \textit{Bluetape} dapat ditingkatkan penggunaannya dan memperbaiki kelemahan dari \textit{Bluetape}.
+
+Pada topik skripsi ini akan dilakukan analisis untuk perbaikan dan penambahan fitur untuk aplikasi \textit{Bluetape}, penambahan fitur akan disurvei kepada semua pengguna \textit{Bluetape}. Pengguna yang akan disurvei tidak semua. Hanya perwakilan--perwakilan dari pihak dosen, tata usaha, dan mahasiswa. Selanjutnya akan dianalisa bersama pembimbing untuk menentukan fitur yang akan dirancang dan diimplementasi. Survei tidak terbatas hanya pada fitur tambahan, fitur--fitur yang tidak menghasilkan sesuai kegunaannya akan diperbaiki juga.
+
+
+Sebelum melakukan perancangan dan implementasi diperlukan untuk \textit{setup} aplikasi \textit{Bluetape} pada komputer sendiri dan ada persyaratan yang harus dipenuhi yaitu mendaftarkan diri ke \textit{google OAuth 2.0} diakrenakan \textit{login} pada \textit{Bluetape} menggunakan akun \textit{gmail} UNPAR. Selanjutnya juga akan dipelajari \textit{framework CodeIgniter dan Bootstrap} yang menjadi dasar dari aplikasi ini.
+
 \section{Rumusan Masalah}
+
+Rumusan masalah yang telah diidentifikasi sebagai berikut:
+\begin{enumerate}
+	\item Apa sajakah kebutuhan yang diinginkan oleh pengguna bluetape?
+	\item Bagaimana menganalisa, merancang, dan mengimplementasi \textit{feedback--feedback} dari pengguna?
+	\item Bagaimana melakukan pengujian setelah mengimplementasi \textit{feedback--feedback} dari pengguna?
+	
+\end{enumerate}
 
 \section{Tujuan}
 
+Tujuan pembuatan dan penulisan skripsi ini adalah sebagai berikut:
+\begin{enumerate}
+	\item Mendapatkan \textit{feedback--feedback} dari pengguna terkait kebutuhan yang diinginkan.
+	\item Menganalisa, merancang, dan mengimplementasi \textit{feedback--feedback} dari pengguna
+	\item Melakukan pengujian setelah mengimplementasi semua \textit{feedback} yang memungkinkan untuk diimplementasi
+	
+\end{enumerate}
 
 \section{Detail Perkembangan Pengerjaan Skripsi}
 Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan terkahir :
 	\begin{enumerate}
-		\item \textbf{Melakukan survei ke Museum Geologi Bandung untuk mendapatkan denah serta mengetahui perilaku pengunjung museum secara umum (arah perjalanan, kecepatan, lama melihat objek, dll).}\\
+		\item \textbf{Memahami dan mengerti cara kerja \textit{framework} \textit{code igniter} dan \textit{bootstrap}.}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} Survei sudah dilakukan sebanyak 3x pada tanggal X, Y dan Z. Pada kunjungan pertama, diperhaitkan denah museum dan dibuat sketsa berdasarkan pengamatan. Pada kunjunga kedua, bertemu dengan bagian humas museum dan berhasil mendapatkan denah serta melakukan wawancara. Hasil wawancara sudah dibuat dan ada softcopy-nya. Pada kunjungan ketiga, secara khusus dilihat perilaku pengunjung. Masih direncakanan 2x kunjungan lagi. Bukti-bukti kunjungan dapat dilihat di lampiran
+		{\bf Hasil :} Sudah mengerti cara penggunaan \textit{code igniter} dan \textit{bootstrap} dengan membaca dokumentasi pada situs tersebut dan menuangkannya pada landasan teori.
 		
-		\item \textbf{Melakukan analisis pada hasil survei terhadap pergerakan pengunjung di museum dan membuat rancangan denah di komputer yang dilengkapi dengan penghalang dan objek di museum.}\\
+		\item \textbf{Melakukan survei ke mahasiswa, tata usaha, dan dosen untuk memahami kebutuhan pengguna}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :}
+		{\bf Hasil :} Survei telah dilakukan menggunakan \textit{google form} dan telah mendapatkan 14 responden. Bukti-bukti survei dapat dilihat pada lampiran dokumen skripsi.
 
-		\item \textbf{Melakukan studi literatur mengenai sifat kolektif suatu kerumunan, teknik {\it social force model} dan teknik {\it flow tiles}}\\
+		\item \textbf{Menganalisa fitur kebutuhan bersama pembimbing }\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :}
+		{\bf Hasil :} Setelah terkumpul jawaban responden, selanjutnya dibuat \textit{issue} pada \textit{github} yang dapat diakses pada \url{https://github.com/stephenhadi/BlueTape/issues}. Analisis bersama pembimbing dilakukan saat bimbingan dan analisis dapat dilihat pada Bab 3 dokumen skripsi.
 
-		\item \textbf{Mempelajari bahasa pemrograman C++ dan cara menggunakan framework OpenSteer}\\
+		\item \textbf{Merancang dan mengimplementasi hasil survei}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :}
-
-		\item \textbf{Merancang pergerakan kerumunan di dalam museum menggunakan teknik {\it social force model} dan {\it flow tiles} serta menggunakan teknik lainnya seperti konsep pathway dan waypoints. Selain itu, dirancang pula adanya waktu tunggu (pada saat pengunjung melihat objek di museum) dan cara pembuatan jalur bagi setiap individu pengunjung}\\
-		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :}
-
-		\item \textbf{Melakukan analisa dan merancang struktur data yang cocok untuk menyimpan penghalang (obstacle)}\\
-		{\bf Status :} dihapuskan/tidak dikerjakan \\
-		{\bf Hasil :} berdasarkan analisis singkat, tidak dilakukan analisis lebih jauh karena tidak diperlukan struktur data baru, karena sudah disediakan oleh OpenSteer versi terbaru
-
-		\item \textbf{Mengimplementasikan keseluruhan algoritma dan struktur data yang dirancang, dengan menggunakan framework OpenSteer} \\
-		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :}
-
-		\item \textbf{Melakukan pengujian (dan eksperimen) yang melibatkan responde untuk menilai hasil simulasi secara kualitatif}\\
-		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :}
-
+		{\bf Hasil :} Hasil survei yang telah dianalisis akan dikerjakan telah diimplementasi dengan mengikuti aturan yang telah ditetapkan oleh pembimbing. Hasil implementasi dapat dilihat pada \url{https://github.com/stephenhadi/BlueTape/pulls}.		
+		
 		\item \textbf{Menulis dokumen skripsi}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} \lipsum[1]
-		
-		\item \textbf{Mempelajari cara menggunakan fitur manipulasi obstacle yang disediakan oleh framework Opensteer versi terbaru}\\
-		{\bf Status :} baru ditambahkan pada semester ini\\
-		{\bf Hasil :} baru direncanakan karena framework Opensteer versi paling akhir baru selesai diinstall dan dilihat-lihat bagian contoh-contoh simulasinya
-		
+		{\bf Hasil :} Dokumen skripsi telah dikerjakan sampai Bab 3, namun ada beberapa landasan teori baru yang belum sempat ditambahkan pada Bab 2 skripsi ini.		
 
 	\end{enumerate}
 
 \section{Pencapaian Rencana Kerja}
 Langkah-langkah kerja yang berhasil diselesaikan dalam Skripsi 1 ini adalah sebagai berikut:
 \begin{enumerate}
-\item
-\item
-\item
+\item Memahami dan mengerti cara kerja \textit{framework} \textit{code igniter} dan \textit{bootstrap}.
+
+\item Melakukan survei ke mahasiswa, tata usaha, dan dosen untuk memahami kebutuhan pengguna.
+
+\item Menganalisa fitur kebutuhan bersama pembimbing.
+
+\item Merancang dan mengimplementasi hasil survei.
+
 \end{enumerate}
 
 
 
-\section{Kendala yang Dihadapi}
+%\section{Kendala yang Dihadapi}
 %TULISKAN BAGIAN INI JIKA DOKUMEN ANDA TIPE A ATAU C
-Kendala - kendala yang dihadapi selama mengerjakan skripsi :
-\begin{itemize}
-	\item Terlalu banyak melakukan prokratinasi
-	\item Terlalu banyak godaan berupa hiburan (game, film, dll)
-	\item Skripsi diambil bersamaan dengan kuliah ASD karena selama 5 semester pertama kuliah tersebut sangat dihindari dan tidak diambil, dan selama 4 semester terakhir kuliah tersebut selalu mendapat nilai E
-	\item Mengalami kesulitan pada saat sudah mulai membuat program komputer karena selama ini selalu dibantu teman
-\end{itemize}
 
 \vspace{1cm}
 \centering Bandung, \tanggal\\

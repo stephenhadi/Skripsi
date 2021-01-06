@@ -243,20 +243,7 @@ Setelah \textit{load email library} , untuk menggunakan kelas \texttt{CI\_Email}
 	\textit{Return}: \texttt{\$\_SERVER} \textit{item value} jika ditemukan, \textit{NULL} jika tidak.
 	
 \end{itemize}
-\subsubsection{CI\_Migration}
-Kelas ini dapat digunakan untuk mengubah struktur \textit{database} dengan terstruktur. Untuk menggunakan kelas ini diperlukan pembuatan kelas baru dengan \texttt{extends CI\_Migration}. \textit{Method} yang digunakan dari kelas ini:
 
-\begin{itemize}
-	\item \texttt{latest()} \\
-	\textit{Method} ini akan \textit{migrate} ke versi migrasi yang terbaru. \\
-	\textit{Parameter}: Tidak ada. \\
-	\textit{Return}: \textit{Current version string} jika sukses, \textit{FALSE} jika gagal.
-	
-	\item \texttt{error\_string()} \\ 
-	\textit{Method} ini mengembalikan semua \textit{error} dalam \textit{string} saat \textit{migrate}. \\
-	\textit{Parameter}: Tidak ada. \\
-	\textit{Return}: \textit{string}.
-\end{itemize}
 \subsubsection{CI\_Session}
 \textit{Session} digunakan untuk mengurus  \textit{user's state} dan melihat aktivitas \textit{user} saat menelusuri situs. \textit{Session} sebaiknya diinisialisasi pada konstruktor di \textit{controller}. Menginisiasi \textit{session} dengan cara \texttt{\$this->load->library(\textquotesingle session\textquotesingle)}. Sedangkan penggunaannya dapat menggunakan perintah \texttt{\$this->session}. \textit{Method} yang digunakan pada kelas \texttt{CI\_Session}:
 
@@ -432,7 +419,7 @@ Kelas \texttt{Xls} memiliki 2 tipe yaitu \textit{writer} dan \textit{reader}. Pa
 $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xls($spreadsheet);
 \end{lstlisting}
 \textit{Constructor} dari kelas \textit{Xls} menerima masukan berupa kelas \textit{Spreadsheet}, \textit{method} dari kelas \texttt{Xls}: \\
-\texttt{Save(\$pFilename:resource|string)}, berfungsi untuk menyimpan \textit{Spreadsheet} menjadi \textit{file}. \\
+\texttt{save(\$pFilename:resource|string)}, berfungsi untuk menyimpan \textit{Spreadsheet} menjadi \textit{file}. \\
 \textit{Parameter}: \texttt{\$pFilename}, menerima masukan \textit{resource} atau string. \\
 \textit{Return}: \texttt{void}. 
 
@@ -678,22 +665,6 @@ Kelas \texttt{col-form-label} digunakan pada \textit{tag} \texttt{<label>} jika 
 
 \end{itemize}
 
-\subsection{Navbar}
-
-\textit{Navbar} adalah sebuah komponen pada \textit{bootstrap} yang mempermudah mengatur \textit{layout} dari \textit{navigation bar}. Komponen-komponen yang dibutuhkan \textit{navbar}:
-
-\begin{itemize}
-	\item \texttt{navbar-expand} \\
-	\texttt{navbar-expand\{-sm|-md|-lg|-xl\}} dibutuhkan untuk \textit{responsive collapsing} dan penggunaan kelas \textit{color scheme}. Kelas ini ditaruh pada \textit{nav tag}.
-	
-	\item \texttt{navbar-nav} \\
-	Penggunaan kelas \texttt{navbar-nav} akan membuat \textit{navigation} pada \textit{navbars} akan menempati ruang horizontal sebanyak mungkin. 
-	
-	\item \textit{Color scheme} \\
-	Penggunaan \textit{color scheme} dapat dilakukan dengan \texttt{navbar-dark} atau \texttt{navbar-light}. Penggunaan kelas ini harus diikuti dengan \texttt{navbar-expand}.
-	
-
-\end{itemize}
 
 \subsection{Nav}
 \textit{Nav} adalah komponen yang mengatur navigasi dengan memasukkan kelas \texttt{nav}. Kelas \texttt{nav} dibuat dengan \textit{flexbox} dan menjadi dasar untuk membuat berbagai macam navigasi. Kelas \texttt{nav} dapat ditaruh pada \textit{tag} \texttt{<nav>} atau \texttt{<ul>}. Komponen-komponen yang digunakan dari fungsi \textit{nav}:
