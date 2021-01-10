@@ -16,6 +16,8 @@
 
 \hypersetup{unicode=true,colorlinks=true,linkcolor=blue,citecolor=green,filecolor=magenta, urlcolor=cyan}
 
+\graphicspath{{Gambar/}}
+
 \makeatletter
 \renewcommand{\@maketitle} {\begin{center} {\LARGE \textbf{ \textsc{\@title}} \par} \bigskip {\large \textbf{\textsc{\@author}} }\end{center} }
 \renewcommand{\thispagestyle}[1]{}
@@ -31,7 +33,7 @@
 %ISILAH DATA BERIKUT INI:
 \newcommand{\nama}{Stephen Hadi}
 \newcommand{\@npm}{2017730016}
-\newcommand{\tanggal}{27/12/2020} %Tanggal pembuatan dokumen
+\newcommand{\tanggal}{10/01/2021} %Tanggal pembuatan dokumen
 \newcommand{\@judultopik}{Analisa dan Implementasi Perbaikan Perangkat Lunak BlueTape} % Judul/topik anda
 \newcommand{\kodetopik}{PAN4901}
 \newcommand{\jumpemb}{1} % Jumlah pembimbing, 1 atau 2
@@ -106,25 +108,238 @@ Tujuan pembuatan dan penulisan skripsi ini adalah sebagai berikut:
 Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan terkahir :
 
 \begin{enumerate}
-	\item \textbf{Memahami dan mengerti cara kerja \textit{framework} \textit{code igniter} dan \textit{bootstrap}.}\\
-	{\bf Status :} Ada sejak rencana kerja skripsi.\\
-	{\bf Hasil :} Sudah mengerti cara penggunaan \textit{code igniter} dan \textit{bootstrap} dengan membaca dokumentasi pada situs tersebut dan menuangkannya pada landasan teori.
+	\item \textbf{Memahami dan mengerti cara kerja \textit{framework} \textit{code igniter}, \textit{bootstrap}, \textit{phpspreadheet}.}\\
+	{\bf Status :} Ada sejak rencana kerja skripsi, kecuali \textit{phpspreadsheet}.\\
+	{\bf Hasil :} Cara kerja \textit{code igniter}, \textit{bootstrap}, dan \textit{phpspreadsheet} telah dipelajari, Hasil dari studi secara garis besar:
+	\begin{enumerate}
+		\item \textbf{Code Igniter} \\
+		\textit{CodeIgniter}\footnote{\url{https://codeigniter.com/userguide3/overview/index.html}} adalah \textit{framework} untuk pembuatan \textit{website} yang menggunakan \textit{PHP}. \textit{CodeIgniter} mempermudah \textit{developer} untuk meminimalisir penggunaan kode untuk mengakses suatu fungsi.
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.8]{mvc} 
+			\caption{Flowchart MVC}
+			\label{fig:appflowchart} 
+		\end{figure}
+				
+		 \textit{CodeIgniter} menerapkan arsitektur \textit{MVC} yang dapat dilihat pada gambar \ref{fig:appflowchart}, file \texttt{index.php} berfungsi mengatur routing dan mengarahkan ke \textit{application controller} yang berada di direktori \textit{controller} dan melalui \textit{controller} akan dipanggil \textit{models, libraries, helpers, etc} yang dibutuhkan dengan perintah \texttt{\$this->load}. \textit{MVC} secara umum akan mengolah data pada \textit{models} dan hasil yang sudah siap akan dikirim ke \textit{view} melalui \textit{controller}. Fitur tambahan dari arsitektur \textit{CodeIgniter} adalah saat \textit{router} memeriksa \textit{HTTP request}, jika \textit{cache} tersedia maka akan dikirimkan \textit{cache} tersebut dan jika tidak ada \textit{cache} maka \textit{security} akan memeriksa dan melakukan filter terhadap \textit{HTTP request} seperti pada gambar \ref{fig:appflowchart}. 
+		 
+		 \textbf{\textit{Controller}} \\
+		 \textit{Controller} adalah pusat dari aplikasi, \textit{controller} menangani apa yang harus dilakukan dari \textit{HTTP request}. Dalam \textit{CodeIgniter} untuk menginisiasi \textit{controller} cukup menulis nama kelas diikuti dengan \texttt{extends CI\_Controller}.
+		 
+		 \textbf{\textit{Model}} \\ \textit{Model} berfungsi sebagai \textit{logic} dari aplikasi. \textit{Model} pada \textit{CodeIgniter} bersifat opsional, tetapi disediakan untuk \textit{developer} yang ingin menggunakan MVC. 
+		 
+		\textbf{\textit{View}} \\
+		\textit{View} tidak pernah dipanggil secara langsung, \textit{view} harus dipanggil melalui \textit{controller}. \textit{View} pada \textit{CodeIgniter} ditaruh pada direktori \textit{view}. Pemanggilan \textit{view} menggunakan \textit{method} \texttt{\$this->load->view(`nama\_view')}.
+		
+		\textbf{Kelas pada \textit{code igniter}} 
+		\begin{itemize}
+			\item \textbf{CI\_Loader} \\ 
+			\textit{CI\_Loader} adalah kelas yang berfungsi untuk \textit{load elements}. \textit{Elements} dapat berupa \textit{libraries, view files, drivers, helpers, models}. Kelas ini sudah diinisialisasi secara otomatis oleh \textit{code igniter}.
+			
+			\item \textbf{CI\_Config} \\
+			\textit{CI\_Config} adalah kelas yang digunakan untuk mengambil konfigurasi yang dibuat. \textit{Method} yang digunakan: \texttt{item}.
+			
+			\item \textbf{CI\_Email} \\
+			\textit{CI\_Email} adalah kelas yang berfungsi untuk mempermudah pengiriman \textit{email} yang disediakan oleh \textit{codeigniter}. Kelas ini memiliki \textit{method}: 
+			\begin{itemize}
+				\item \texttt{from}
+				\item \texttt{to}
+				\item \texttt{subject}
+				\item \texttt{message}
+				\item \texttt{send}
+			\end{itemize}
+		\item \textbf{CI\_Input} \\ 
+		\textit{CI\_Input} adalah kelas yang digunakan untuk menyaring dan membersihkan data masukan untuk meningkatkan keamanan. \textit{Method} yang digunakan:
+		\begin{itemize}
+			\item \texttt{post}
+			\item \texttt{server}
+		\end{itemize}
+		\item \textbf{CI\_Session} \\
+		\textit{Session} digunakan untuk mengurus  \textit{user's state} dan melihat aktivitas \textit{user} saat menelusuri situs. Kelas ini sama seperti \texttt{\$\_SESSION} \textit{superglobal}. \textit{Method} yang digunakan:
+		\begin{itemize}
+			\item \texttt{set\_flashdata}
+			\item \texttt{flashdata}
+			\item \texttt{set\_userdata}
+			\item \texttt{userdata}
+			\item \texttt{unset\_userdata}
+		\end{itemize}	
+		\end{itemize}
+	
+	\item \textbf{Phpspreadsheet} \\
+	PhpSpreadsheet adalah \textit{library} yang ditulis dengan bahasa PHP berguna untuk membaca dan menulis file dengan jenis spreadsheet seperti Excel dan LibreOffice Calc\footnote{\url{https://phpspreadsheet.readthedocs.io/en/latest/}}. Kelas pada \textit{phpspreadsheet}:
+	\begin{itemize}		 
+		\item \textbf{Spreadsheet} \\ 
+		\textit{Constructor} kelas \textit{Spreadsheet} tidak menerima parameter apapun, dan \textit{return value} adalah \textit{mixed}. \textit{Method} yang digunakan pada kelas \texttt{Spreadsheet}:
+		\begin{itemize}
+			\item \texttt{createSheet}
+			\item \texttt{setActiveSheetIndex}
+			\item \texttt{getActiveSheet}
+		\end{itemize}
+	
+		\item \textbf{Worksheet} \\
+		Kelas \textit{Worksheet} adalah kelas yang mengatur nilai dari \textit{cell}, \textit{cell style}, judul \textit{sheet} dll. \textit{Method} yang digunakan pada kelas \texttt{Worksheet}:
+		\begin{itemize}
+			\item \texttt{getStyle}
+			\item \texttt{setCellValue}
+			\item \texttt{mergeCells}
+			\item \texttt{getRowDimension}
+			\item \texttt{getColumnDimension}
+		\end{itemize}
+	
+	\item \textbf{Style} \\
+	Kelas \textit{Style} adalah kelas yang mengatur \textit{style} dari suatu \textit{cell} seperti \textit{alignment}, \textit{fill},\textit{font} dll. \textit{Method} yang tersedia pada kelas \texttt{Style}:
+	\begin{itemize}
+		\item \texttt{getFill}
+		\item \texttt{getAlignment}
+		\item \texttt{getFont}
+	\end{itemize}
+
+	\item \textbf{Xls} \\
+	Kelas \texttt{Xls} memiliki 2 tipe yaitu \textit{writer} dan \textit{reader}. Pada penelitian kali ini tipe \textit{Xls} yang digunakan hanya tipe \textit{writer}. \textit{Method} yang digunakan dari kelas \texttt{Xls}: \texttt{save}. 
+	\end{itemize}
+
+	\item \textbf{Bootstrap} \\
+	\textit{Bootstrap} adalah \textit{framework} paling terkenal untuk membuat \textit{site} yang \textit{mobile-first} dan \textit{res\-pon\-sive}\footnote{\url{https://getbootstrap.com/docs/4.0/getting-started/introduction/}}. Komponen-komponen \textit{bootstrap}:
+	\begin{itemize}
+		\item \textit{Container} \\
+		Kelas \texttt{container} adalah kelas yang dibutuhkan jika ingin menggunakan \textit{bootstrap} grid. Kelas \texttt{container} adalah kelas \textit{responsive} dan \textit{fixed-width}.
+		
+		\item \textit{Grid} \\
+		\textit{Grid} pada \textit{bootstrap} digunakan untuk mengatur \textit{layout} dan \textit{alignment}. \textit{Row} adalah kelas \textit{wrapper} untuk kolom. Kelas \textit{col} akan secara otomatis membagi lebar horizontal dari layout menjadi sama besar.
+		
+		\item \textit{Table} \\
+		Kelas \texttt{table} adalah kelas yang membantu pembuatan \textit{table}.
+		
+		\item \textit{Pagination} \\
+		\textit{Pagination} dibuat menggunakan \texttt{HTML list} yang berada didalam \texttt{<nav>} untuk mengidentifikasikan \textit{pagination} sebagai bagian navigasi kepada pengguna.
+
+		\item \textit{Modal} \\
+		\textit{Modal} dibuat dengan \textit{html, css, javascript}. \textit{Modal} akan mengubah \textit{scroll} pada \texttt{<body>} sehingga sasaran \textit{scroll} hanya pada \textit{modal}. \textit{Modal} akan tertutup jika pengguna mengklik diluar modal.
+		
+		\item \textit{Form} \\
+		\textit{Bootstrap} menyediakan kelas yang dapat digunakan untuk menampilkan \textit{form} yang konsisten pada \textit{browser} ataupun \textit{smartphone}.
+		
+		\item \textit{Nav} \\
+		\textit{Nav} adalah komponen yang mengatur navigasi dengan memasukkan kelas \texttt{nav}. Kelas \texttt{nav} dibuat dengan \textit{flexbox} dan menjadi dasar untuk membuat berbagai macam navigasi. Kelas \texttt{nav} dapat ditaruh pada \textit{tag} \texttt{<nav>} atau \texttt{<ul>}. 
+	\end{itemize}
+	\end{enumerate}
 		
 	\item \textbf{Melakukan survei ke mahasiswa, tata usaha, dan dosen untuk memahami kebutuhan pengguna}\\
 	{\bf Status :} Ada sejak rencana kerja skripsi.\\		
-	{\bf Hasil :} Survei telah dilakukan menggunakan \textit{google form} dan telah mendapatkan 14 responden. Bukti-bukti survei dapat dilihat pada lampiran dokumen skripsi.
+	{\bf Hasil :} Survei telah dilakukan menggunakan \textit{google form}. Form dibagikan kepada dosen dan tata usaha melalui \textit{mailing list} dan dibagikan ke mahasiswa melalui grup informatika angkatan 2017. Survei telah mendapatkan 14 responden dalam jangka waktu satu minggu. 
 
 	\item \textbf{Menganalisa fitur kebutuhan bersama pembimbing }\\
 	{\bf Status :} Ada sejak rencana kerja skripsi.\\
-	{\bf Hasil :} Setelah terkumpul jawaban responden, selanjutnya dibuat \textit{issue} pada \textit{github} yang dapat diakses pada \url{https://github.com/stephenhadi/BlueTape/issues}. Analisis bersama pembimbing dilakukan saat bimbingan dan analisis dapat dilihat pada Bab 3 dokumen skripsi.
+	{\bf Hasil :} Setelah terkumpul jawaban responden, selanjutnya dibuat \textit{issue} pada \textit{github} sejumlah 22 \textit{issue} yang dapat diakses pada \url{https://github.com/stephenhadi/BlueTape/issues}. Analisis bersama pembimbing dapat dilihat pada gambar \ref{fig:analisis} .
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.9]{analisis} 
+		\caption{Analisis kebutuhan pengguna perangkat bluetape}
+		\label{fig:analisis} 
+	\end{figure}
+	
+	Masukan yang akan diimplementasi adalah:
+	\begin{enumerate}
+		\item Fitur "Expor ke XLS" pada menu  entri jadwal dosen  menghasilkan file \textit{corrupt}		
+		\item \textit{Update google api / phpspreadsheet}		
+		\item  Fitur \textit{chart} pada manajemen cetak transkrip		
+		\item Fitur \textit{chart} pada manajemen perubahan kuliah		
+		\item Mahasiswa dengan NPM baru tidak dapat login dan lihat jadwal dosen		
+		\item Kolom pada entri jadwal dosen dan lihat jadwal dosen tidak seragam
+		\item Fungsi Tab pada lihat jadwal dosen tidak berfungsi
+		\item Mengubah atau membatalkan permohonan
+		\item Menambahkan jam kuliah selesai di perubahan kelas
+		\item Notifikasi email untuk mahasiswa jika permintaan sudah diselesaikan
+		\item Halaman histori dan request transkrip terpisah
+		\item Pagination tidak terstyle dengan baik
+		\item Format Datetimepicker tidak konsisten
+	\end{enumerate}
 
 	\item \textbf{Merancang dan mengimplementasi hasil survei}\\
 	{\bf Status :} Ada sejak rencana kerja skripsi.\\
-	{\bf Hasil :} Hasil survei yang telah dianalisis akan dikerjakan telah diimplementasi dengan mengikuti aturan yang telah ditetapkan bersama pembimbing. Hasil implementasi dapat dilihat pada \url{https://github.com/stephenhadi/BlueTape/pulls}.		
+	{\bf Hasil :} Hasil survei yang telah dianalisis akan dikerjakan telah diimplementasi dengan mengikuti aturan yang telah ditetapkan bersama pembimbing. Hasil implementasi lengkap dapat dilihat pada \url{https://github.com/stephenhadi/BlueTape/pulls}.	
+	
+	\begin{itemize}
+		\item Fitur "Expor ke XLS" pada menu  entri jadwal dosen  menghasilkan file \textit{corrupt}. \textit{Error} ini tidak dapat direproduksi dan file yang diunduh tidak \textit{corrupt}.		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.8]{fitur_expor_xls} 
+			\caption{File \textit{Xls} yang diunduh}
+			\label{fig:expor_ke_xls} 
+		\end{figure}
+		
+		\item \textit{Update google api / phpspreadsheet}. Update telah dilakukan dengan merubah \texttt{composer.json}.
+				
+		\item  Fitur \textit{chart} pada manajemen cetak transkrip. Fitur ini sedang tahap perbaikan dikarenakan kesalahan mengerti maksud \textit{feedback}.		
+		
+		\item Fitur \textit{chart} pada manajemen perubahan kuliah. Fitur ini sedang tahap perbaikan dikarenakan kesalahan mengerti maksud \textit{feedback}.	
+		
+		\item Mahasiswa dengan NPM baru tidak dapat login dan lihat jadwal dosen. Mahasiswa dengan NPM format baru dapat melihat halaman lihat jadwal dosen. Lihat gambar \ref{fig:lihatjadwaldosen}.		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.6]{fitur_lihatjadwaldosen} 
+			\caption{Tampilan lihat jadwal dosen pada NPM 2017730016.}
+			\label{fig:lihatjadwaldosen} 
+		\end{figure}
+				
+		\item Kolom pada entri jadwal dosen dan lihat jadwal dosen tidak seragam. Masukan ini telah diperbaiki, Kolom senin sampai jumat memiliki lebar yang seragam seperti pada gambar \ref{fig:lihatjadwaldosen}.
+		
+		\item Fungsi Tab pada lihat jadwal dosen tidak berfungsi. Fungsi ini telah diperbaiki dan berjalan seperti pada gambar \ref{fig:lihatjadwaldosen}. Tabel lihat jadwal dosen memiliki navigasi \textit{bootstrap} dengan jenis \textit{tab}.
+	
+		\item Mengubah atau membatalkan permohonan. Masukan ini adalah masukan dari dosen dan mahasiswa, sehingga dibuat pada halaman cetak transkrip pada gambar \ref{fig:cetaktranskripcancel} dan pada halaman perubahan kuliah pada gambar \ref{fig:perubahankuliahcancel}.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.6]{cetaktranskripcancel} 
+			\caption{Fitur \textit{edit} dan \textit{delete} pada halaman cetak transkrip.}
+			\label{fig:cetaktranskripcancel} 
+		\end{figure}
+	
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.6]{perubahankuliahcancel} 
+			\caption{Fitur \textit{edit} dan \textit{delete} pada perubahan kuliah.}
+			\label{fig:perubahankuliahcancel} 
+		\end{figure}
+		\item Menambahkan jam kuliah selesai di perubahan kelas. Kolom ini bersifat opsional untuk dimasukkan. Lihat gambar \ref{fig:jamselesaikuliah}.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.6]{jamselesaikuliah} 
+			\caption{Penambahan jam selesai pada perubahan kuliah.}
+			\label{fig:jamselesaikuliah} 
+		\end{figure}
+		
+		\item Notifikasi email untuk mahasiswa jika permintaan sudah diselesaikan. Setelah dilihat fitur ini telah ada pada \textit{bluetape}.
+		
+		\item Halaman histori dan request transkrip terpisah. Masukan ini belum dikerjakan dan akan diselesaikan sebelum memasuki semester berikutnya.
+		
+		\item Pagination tidak terstyle dengan baik. Pagination telah diperbaiki dan dapat di klik. Lihat gambar \ref{fig:pagination}.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.6]{pagination} 
+			\caption{Pagination pada halaman manajemen perubahan kuliah}
+			\label{fig:pagination} 
+		\end{figure}
+	
+		\item Format \textit{Datetimepicker} tidak konsisten. Dari hari\&jam memiliki format YYYY/MM/DD. Hasil yang telah diperbaiki dapat dilihat pada gambar \ref{fig:datetimepicker}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.6]{datetimepicker} 
+			\caption{Format \textit{datetimepicker} yang telah diperbaiki}
+			\label{fig:datetimepicker} 
+		\end{figure}
+		
+	\end{itemize}
+	
+	
+	\item \textbf{Melakukan pengujian fungsional dan eksperimental} \\
+	\textbf{Status:} Ada sejak rencana kerja skripsi. \\
+	\textbf{Hasil:}	Akan dilakukan pada skripsi 2
 		
 	\item \textbf{Menulis dokumen skripsi}\\
 	{\bf Status :} Ada sejak rencana kerja skripsi.\\
-	{\bf Hasil :} Dokumen skripsi telah dikerjakan sampai Bab 3, namun ada beberapa landasan teori baru yang belum sempat ditambahkan pada Bab 2 skripsi ini.		
+	{\bf Hasil :} Dokumen skripsi telah dikerjakan sampai Bab 3. Bab 1 telah selesai ditulis, Bab 2 sudah ditulis 80\%, dan Bab 3 baru sebagian yang berisi analisis survei.
 
 \end{enumerate}
 
@@ -143,9 +358,17 @@ Langkah-langkah kerja yang berhasil diselesaikan dalam Skripsi 1 ini adalah seba
 
 
 
-%\section{Kendala yang Dihadapi}
+\section{Kendala yang Dihadapi}
 %TULISKAN BAGIAN INI JIKA DOKUMEN ANDA TIPE A ATAU C
 
+Kendala - kendala yang dihadapi selama mengerjakan skripsi:
+\begin{itemize}
+	\item Tugas mata kuliah lain yang banyak
+	\item Mudah bosan
+	\item Umur muda badan terasa tua(badan selalu lelah)
+\end{itemize}
+
+\newpage
 \vspace{1cm}
 \centering Bandung, \tanggal\\
 \vspace{2cm} \nama \\ 

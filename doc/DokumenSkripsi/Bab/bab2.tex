@@ -321,7 +321,7 @@ Pada penelitian kali ini kelas utama yang digunakan adalah kelas \textit{Spreads
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 $spreadsheet = new Spreadsheet();
 	\end{lstlisting} 
-	\textit{Constructor} kelas \textit{Spreadsheet} tidak menerima parameter apapun, dan \textit{return value} adalah \textit{mixed}. \textit{Method} yang tersedia pada kelas \texttt{Spreadsheet}:  
+	\textit{Constructor} kelas \textit{Spreadsheet} tidak menerima parameter apapun, dan \textit{return value} adalah \textit{mixed}. \textit{Method} yang digunakan pada kelas \texttt{Spreadsheet}:  
  \begin{itemize}
  	\item \texttt{createSheet([\$sheetIndex:null|int=null])} \\ 
  	\textit{Method} ini berfungsi untuk membuat \textit{sheet}.\\
@@ -418,7 +418,7 @@ Kelas \texttt{Xls} memiliki 2 tipe yaitu \textit{writer} dan \textit{reader}. Pa
 \begin{lstlisting}
 $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xls($spreadsheet);
 \end{lstlisting}
-\textit{Constructor} dari kelas \textit{Xls} menerima masukan berupa kelas \textit{Spreadsheet}, \textit{method} dari kelas \texttt{Xls}: \\
+\textit{Constructor} dari kelas \textit{Xls} menerima masukan berupa kelas \textit{Spreadsheet}, \textit{method} yang digunakan dari kelas \texttt{Xls}: \\
 \texttt{save(\$pFilename:resource|string)}, berfungsi untuk menyimpan \textit{Spreadsheet} menjadi \textit{file}. \\
 \textit{Parameter}: \texttt{\$pFilename}, menerima masukan \textit{resource} atau string. \\
 \textit{Return}: \texttt{void}. 
