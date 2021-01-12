@@ -12,7 +12,7 @@
 \setlength{\headsep}{30pt}
 \usepackage[inner=2cm,outer=2.5cm,top=2.5cm,bottom=2cm]{geometry} %margin
 % \pagestyle{empty}
-\usepackage[plainpages=false,pdfpagelabels,unicode]{hyperref}
+\usepackage{hyperref}
 
 \hypersetup{unicode=true,colorlinks=true,linkcolor=blue,citecolor=green,filecolor=magenta, urlcolor=cyan}
 
@@ -108,9 +108,9 @@ Tujuan pembuatan dan penulisan skripsi ini adalah sebagai berikut:
 Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan terkahir :
 
 \begin{enumerate}
-	\item \textbf{Memahami dan mengerti cara kerja \textit{framework} \textit{code igniter}, \textit{bootstrap}, \textit{phpspreadheet}.}\\
-	{\bf Status :} Ada sejak rencana kerja skripsi, kecuali \textit{phpspreadsheet}.\\
-	{\bf Hasil :} Cara kerja \textit{code igniter}, \textit{bootstrap}, dan \textit{phpspreadsheet} telah dipelajari, Hasil dari studi secara garis besar:
+	\item \textbf{Memahami dan mengerti cara kerja \textit{framework} \textit{Code igniter}, \textit{Bootstrap}, \textit{Phpspreadheet}, dan \textit{Google OAuth 2.0}.}\\
+	{\bf Status :} Ada sejak rencana kerja skripsi, kecuali \textit{phpspreadsheet} dan \textit{Google OAuth 2.0}.\\
+	{\bf Hasil :} Cara kerja \textit{code igniter}, \textit{bootstrap}, \textit{phpspreadsheet}, dan \textit{Google OAuth 2.0} telah dipelajari, Hasil dari studi secara garis besar:
 	\begin{enumerate}
 		\item \textbf{Code Igniter} \\
 		\textit{CodeIgniter}\footnote{Version 3.1.11 (2019) \textit{CodeIgniter 3}. British Columbia Institute of Technology. 3700 Willingdon Ave} adalah \textit{framework} untuk pembuatan \textit{website} yang menggunakan \textit{PHP}. \textit{CodeIgniter} mempermudah \textit{developer} untuk meminimalisir penggunaan kode untuk mengakses suatu fungsi.
@@ -252,6 +252,17 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 		\item \textit{Nav} \\
 		\textit{Nav} adalah komponen yang mengatur navigasi dengan memasukkan kelas \texttt{nav}. Kelas \texttt{nav} dibuat dengan \textit{flexbox} dan menjadi dasar untuk membuat berbagai macam navigasi. Kelas \texttt{nav} dapat ditaruh pada \textit{tag} \texttt{<nav>} atau \texttt{<ul>}. 
 	\end{itemize}
+	
+	\item \textbf{Google OAuth 2.0} \\
+	\textit{Google API} menggunakan \textit{OAuth 2.0 protocol}\footnote{\url{https://developers.google.com/identity/protocols/oauth2}} untuk melakukan autentikasi dan otorisasi. Untuk menggunakan \textit{OAuth 2.0} dari \textit{google} diperlukan untuk mendaftar pada \textit{google api console} untuk mendapatkan \textit{client credentials} yang dapat dibuat pada \url{https://console.developers.google.com/apis}. Setelah melakukan pembuatan \textit{project} maka di menu \textit{credentials} dapat dilakukan pembuatan \textit{OAuth client ID} seperti pada gambar \ref{fig:googleapi}.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.6]{googleapi} 
+		\caption{Tampilan \textit{credentials} pada \textit{google API}}
+		\label{fig:googleapi} 
+	\end{figure}
+
 	\end{enumerate}
 		
 	\item \textbf{Melakukan survei ke mahasiswa, tata usaha, dan dosen untuk memahami kebutuhan pengguna}\\
