@@ -282,7 +282,6 @@ Setelah \textit{load email library} , untuk menggunakan kelas \texttt{CI\_Email}
 	\textit{Return}:void 
 	
 \end{itemize}
-\subsubsection{Database helper}
 
 \section{Phpspreadsheet}
 \label{section:phpspreadsheet}
@@ -704,7 +703,32 @@ Kelas \texttt{col-form-label} digunakan pada \textit{tag} \texttt{<label>} jika 
 \end{itemize}
 
 \subsection{Collapse}
-\subsection{Cards}
+\textit{Collapse} adalah komponen yang mengatur visibilitas dari suatu elemen. Pengunaan komponen ini harus menaruh \texttt{collapse} pada \texttt{data-toggle}. Komponen ini berguna untuk menyembunyikan atau menunjukan suatu elemen ke pengguna. Komponen pendukung yang digunakan dari \textit{collapse}:
+\begin{itemize}
+	\item \texttt{collapse} \\
+	Kelas ini digunakan untuk menyembunyikan suatu elemen. Contoh penggunaan:
+	\begin{lstlisting}
+<div class="collapse" id="collapseExample">
+
+</div>
+	\end{lstlisting}
+	\item \texttt{shown.bs.collapse} \\
+	\textit{Event} \texttt{shown.bs.collapse} digunakan untuk melakukan suatu fungsi saat elemen terlihat oleh pengguna. \textit{Event} ini akan berjalan saat transisi CSS selesai. Contoh penggunaan:
+	\begin{lstlisting}
+$('#myCollapsible').on('shown.bs.collapse', function () {
+	
+})
+	\end{lstlisting}
+	
+	\item \texttt{hidden.bs.collapse} \\
+	\textit{Event} \texttt{hidden.bs.collapse} digunakan untuk melakukan suatu fungsi saat elemen disembunyikan dari pengguna. \textit{Event} ini akan berjalan saat transisi CSS selesai. Contoh penggunaan:
+	\begin{lstlisting}
+$('#myCollapsible').on('hidden.bs.collapse', function () {
+
+})
+\end{lstlisting}
+
+\end{itemize}
 
 \section{Google OAuth 2.0}
 \textit{Google API} menggunakan \textit{OAuth 2.0 protocol}\footnote{\url{https://developers.google.com/identity/protocols/oauth2}} untuk melakukan autentikasi dan otorisasi. Untuk menggunakan \textit{OAuth 2.0} dari \textit{google} diperlukan untuk mendaftar pada \textit{google api console} untuk mendapatkan \textit{client credentials} yang dapat dibuat pada \url{https://console.developers.google.com/apis}. Setelah melakukan pembuatan \textit{project} maka di menu \textit{credentials} dapat dilakukan pembuatan \textit{OAuth client ID} seperti pada gambar \ref{fig:googleapi}.
