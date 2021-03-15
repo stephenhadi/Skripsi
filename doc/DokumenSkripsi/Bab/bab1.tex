@@ -4,7 +4,7 @@
    
 \section{Latar Belakang}
 \label{sec:label}
- Berkembangnya FTIS UNPAR disertai dengan tersedianya semakin banyak matakuliah, dari perkembangan tersebut muncul permasalahan baru di bagian bidang administrasi. Jika dosen ingin meniadakan perkuliahan atau mengganti perkuliahan akan tidak efisien jika melakukan panggilan atau \textit{email} ke pihak tata usaha. Hal tersebut akan memberatkan pihak tata usaha. Mahasiswa yang ingin melakukan pengajuan transkrip akan membuang waktu dan tenaga, karena saat mahasiswa ingin melakukan pengajuan transkrip maka mahasiswa harus datang ke tata usaha melakukan pengajuan dan menunggu beberapa hari untuk mendapatkan hasil transkrip tersebut. Mahasiswa yang tidak memiliki perkuliahan pada hari tersebut harus datang hanya untuk melakukan pengajuan. Hal ini selain membuang waktu juga membuang biaya transportasi. Aplikasi \textit{Bluetape} hanya dapat diakses menggunakan e-mail dengan \textit{sub-domain unpar.ac.id}. Aplikasi ini mempermudah pertukaran informasi pada lingkungan FTIS UNPAR dengan tersedianya fitur sebagai berikut:
+ Berkembangnya FTIS UNPAR disertai dengan tersedianya semakin banyak matakuliah, dari perkembangan tersebut muncul permasalahan baru di bagian bidang administrasi. Jika dosen ingin meniadakan perkuliahan atau mengganti perkuliahan akan tidak efisien jika melakukan panggilan atau \textit{email} ke pihak tata usaha. Hal tersebut akan memberatkan pihak tata usaha. Mahasiswa yang ingin melakukan pengajuan transkrip akan membuang waktu dan tenaga, karena saat mahasiswa ingin melakukan pengajuan transkrip maka mahasiswa harus datang ke tata usaha melakukan pengajuan dan menunggu beberapa hari untuk mendapatkan hasil transkrip tersebut. Mahasiswa yang tidak memiliki perkuliahan pada hari tersebut harus datang hanya untuk melakukan pengajuan. Hal ini selain membuang waktu juga membuang biaya transportasi. Aplikasi \textit{Bluetape} hanya dapat diakses menggunakan e-mail dengan \textit{sub-domain unpar.ac.id}. Aplikasi ini mempermudah pertukaran informasi pada lingkungan FTIS UNPAR dan pada aplikasi ini tersedianya fitur sebagai berikut:
  \begin{itemize}
  	\item Pengajuan cetak transkrip
  	\item Mengelola permintaan cetak transkrip
@@ -19,7 +19,7 @@ Aplikasi ini dibuat menggunakan \textit{Hypertext Preprocessor} atau lebih diken
 
 Aplikasi \textit{Bluetape} digunakan oleh mahasiswa FTIS, dosen ,dan tata usaha. Dari pengguna--pengguna tersebut tentu akan ada hal yang disukai dan hal yang tidak disukai. Seperti ada fitur yang bermasalah, ada fitur yang kurang atau hanya saran untuk fitur kedepannya yang akan memudahkan kegiatan administrasi dalam FTIS UNPAR. Dengan adanya masukan--masukan dari pengguna maka aplikasi \textit{Bluetape} dapat ditingkatkan penggunaannya dan memperbaiki kelemahan dari \textit{Bluetape}.
 
-Pada topik skripsi ini akan dilakukan analisis untuk perbaikan dan penambahan fitur untuk aplikasi \textit{Bluetape}, penambahan fitur akan disurvei kepada semua pengguna \textit{Bluetape}. Pengguna yang akan disurvei tidak semua. Hanya perwakilan--perwakilan dari pihak dosen, tata usaha, dan mahasiswa. Selanjutnya akan dianalisa bersama pembimbing untuk menentukan fitur yang akan dirancang dan diimplementasi. Survei tidak terbatas hanya pada fitur tambahan, fitur--fitur yang tidak menghasilkan sesuai kegunaannya akan diperbaiki juga.
+Pada topik skripsi ini akan dilakukan analisis untuk perbaikan dan penambahan fitur untuk aplikasi \textit{bluetape}, penambahan fitur akan disurvei kepada pengguna \textit{bluetape}. Selanjutnya akan dianalisa bersama pembimbing untuk menentukan fitur yang akan dirancang dan diimplementasi. Maka dari itu akan dikembangkan perangkat lunak \textit{bluetape} sesuai dengan analisis kebutuhan sistem.
 
 
 Sebelum melakukan perancangan dan implementasi diperlukan untuk \textit{setup} aplikasi \textit{Bluetape} pada komputer sendiri dan ada persyaratan yang harus dipenuhi yaitu mendaftarkan diri ke \textit{google OAuth 2.0} dikarenakan \textit{login} pada \textit{Bluetape} menggunakan \textit{API} dari \textit{gmail}. Selanjutnya juga akan dipelajari \textit{framework CodeIgniter dan Bootstrap} yang menjadi dasar dari aplikasi ini. 
@@ -29,7 +29,6 @@ Sebelum melakukan perancangan dan implementasi diperlukan untuk \textit{setup} a
 Rumusan masalah yang telah diidentifikasi sebagai berikut:
 \begin{enumerate}
 	\item Apa sajakah kebutuhan yang diinginkan oleh pengguna bluetape?
-	\item Bagaimana melakukan survei untuk mendapatkan masukan dari pengguna?
 	\item Bagaimana menganalisa, merancang, dan mengimplementasi masukan dari pengguna?
 	\item Bagaimana melakukan pengujian setelah mengimplementasi masukan dari pengguna?
 
@@ -40,7 +39,6 @@ Rumusan masalah yang telah diidentifikasi sebagai berikut:
 Tujuan pembuatan dan penulisan skripsi ini adalah sebagai berikut:
 \begin{enumerate}
 	\item Mendapatkan masukan dari pengguna untuk kebutuhan yang diinginkan.
-	\item Menentukan metode survei.
 	\item Menganalisa, merancang, dan mengimplementasi masukan dari pengguna
 	\item Melakukan pengujian setelah mengimplementasi masukan yang memungkinkan untuk diimplementasi
 
@@ -50,7 +48,7 @@ Tujuan pembuatan dan penulisan skripsi ini adalah sebagai berikut:
 \label{sec:batasan}
 Penulisan dan pembuatan skripsi ini memiliki batasan sebagai berikut:
 \begin{enumerate}
-	\item Penelitian ini tidak menjelaskan tentang cara bagaimana melakukan \textit{deploy} aplikasi pada server.
+	\item Penelitian ini tidak menjelaskan tentang bagaimana melakukan pemasangan aplikasi pada server.
 	\item Fitur--fitur yang membutuhkan lebih dari 1 semester untuk diimplementasi yang sebelumnya telah di diskusikan oleh pembimbing.
 	
 \end{enumerate}
@@ -74,8 +72,8 @@ Metedologi yang akan dilakukan pada penulisan skripsi ini sebagai berikut:
 Rencana pembahasan penelitian ini sebagai berikut:
 \begin{description}
 	\item[Bab 1] Pendahuluan membahas hal--hal dasar pada skripsi yang berisi latar belakang, rumusan masalah, tujuan, batasan masalah, metodologi, sistematika pembahasan.
-	\item[Bab 2] Landasan teori berisi dasar--dasar teori meliputi : \textit{Codeigniter}, \textit{PHPspreadsheet}, \textit{Bootstrap}.
-	\item[Bab 3] Analisis akan menganalisa survei dari pengguna.
+	\item[Bab 2] Landasan teori berisi dasar--dasar teori meliputi : \textit{Codeigniter}, \textit{PHPspreadsheet}, \textit{Bootstrap}, dan \textit{Chartjs}.
+	\item[Bab 3] Analisis akan menganalisa survei dari pengguna dan analisis sistem kini.
 	\item[Bab 4] Perancangan berisi perancangan antarmuka untuk fitur yang akan diimplementasikan.  
 	\item[Bab 5] Implementasi dan pengujian berisi hasil-hasil implementasi dan pengujian secara fungsional dan eksperimental.
 	\item[Bab 6] Kesimpulan dan saran berisi kesimpulan dari penelitian ini dan saran untuk pengembangan berikutnya.
